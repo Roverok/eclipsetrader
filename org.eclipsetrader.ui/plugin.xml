@@ -21,7 +21,7 @@
             class="org.eclipsetrader.ui.internal.ats.PerspectiveFactory"
             icon="icons/eview16/cog.png"
             id="org.eclipsetrader.ui.ats.perspective"
-            name="ATS">
+            name="%ATS">
       </perspective>
    </extension>
    <extension
@@ -29,7 +29,7 @@
       <page
             class="org.eclipsetrader.ui.internal.preferences.WorkbenchPreferencePage"
             id="org.eclipse.ui.preferencePages.Workbench"
-            name="General">
+            name="%General">
       </page>
       <page
             class="org.eclipsetrader.ui.internal.preferences.PluginsPage"
@@ -50,23 +50,23 @@
             category="org.eclipsetrader.ui.charts.general"
             class="org.eclipsetrader.ui.internal.charts.DefaultsPage"
             id="org.eclipsetrader.ui.charts.defaults"
-            name="Default Values">
+            name="%DefaultValues">
       </page>
       <page
             class="org.eclipsetrader.ui.internal.preferences.WatchListPreferencesPage"
             id="org.eclipsetrader.ui.preferences.watchlist"
-            name="WatchLists">
+            name="%WatchLists">
       </page>
       <page
             category="org.eclipsetrader.ui.charts.general"
             class="org.eclipsetrader.ui.internal.charts.ChartPeriodsPreferencePage"
             id="org.eclipsetrader.ui.charts.periods"
-            name="Periods">
+            name="%Periods">
       </page>
       <page
             class="org.eclipsetrader.ui.internal.preferences.BarsPreferencePage"
             id="org.eclipsetrader.ui.charts.bars"
-            name="Import">
+            name="%Import">
       </page>
    </extension>
    <extension
@@ -102,13 +102,13 @@
             class="org.eclipsetrader.ui.internal.views.WatchListView"
             icon="icons/eview16/watchlist.png"
             id="org.eclipsetrader.ui.views.watchlist"
-            name="WatchList">
+            name="%WatchList">
       </view>
       <view
             class="org.eclipsetrader.ui.internal.views.TickersView"
             icon="icons/eview16/watchlist.png"
             id="org.eclipsetrader.ui.views.tickers"
-            name="Tickers">
+            name="%Tickers">
       </view>
       <view
             allowMultiple="true"
@@ -116,14 +116,14 @@
             class="org.eclipsetrader.ui.internal.views.Level2View"
             icon="icons/eview16/level2.png"
             id="org.eclipsetrader.ui.views.level2"
-            name="Level II">
+            name="%LevelII">
       </view>
       <view
             allowMultiple="true"
             class="org.eclipsetrader.ui.internal.editors.ScriptEditor"
             icon="icons/eview16/script.png"
             id="org.eclipsetrader.ui.editors.script"
-            name="Script"
+            name="%Script"
             restorable="true">
       </view>
       <view
@@ -138,7 +138,7 @@
             class="org.eclipsetrader.ui.internal.trading.portfolio.PortfolioViewPart"
             icon="icons/eview16/portfolio.png"
             id="org.eclipsetrader.ui.views.portfolio"
-            name="Portfolio">
+            name="%Portfolio">
       </view>
       <view
             allowMultiple="true"
@@ -157,14 +157,14 @@
       </view>
       <category
             id="org.eclipsetrader.ui.ats"
-            name="ATS">
+            name="%ATS">
       </category>
       <view
             category="org.eclipsetrader.ui.ats"
             class="org.eclipsetrader.ui.internal.ats.explorer.ExplorerViewPart"
             icon="icons/eview16/cog.png"
             id="org.eclipsetrader.ui.ats.views.explorer"
-            name="Strategy Explorer"
+            name="%StrategyExplorer"
             restorable="true">
       </view>
       <view
@@ -173,7 +173,7 @@
             class="org.eclipsetrader.ui.internal.editors.ScriptStrategyEditor"
             icon="icons/obj16/page_white_code.png"
             id="org.eclipsetrader.ui.ats.scritpstrategy.editor"
-            name="Script Strategy Editor"
+            name="%ScriptStrategyEditor"
             restorable="true">
       </view>
       <view
@@ -182,7 +182,7 @@
             class="org.eclipsetrader.ui.internal.ats.ReportViewPart"
             icon="icons/eview16/report.png"
             id="org.eclipsetrader.ui.ats.views.report"
-            name="Report"
+            name="%Report"
             restorable="false">
       </view>
       <view
@@ -190,7 +190,7 @@
             class="org.eclipsetrader.ui.internal.ats.monitor.TradingSystemsViewPart"
             icon="icons/eview16/server.png"
             id="org.eclipsetrader.ui.views.ats.monitor"
-            name="Trading Systems"
+            name="%TradingSystems"
             restorable="true">
       </view>
       <view
@@ -198,7 +198,7 @@
             class="org.eclipsetrader.ui.internal.charts.views.HistoryDataEditorPart"
             icon="icons/eview16/table_edit.png"
             id="org.eclipsetrader.ui.editors.history"
-            name="History Editor">
+            name="%HistoryEditor">
       </view>
    </extension>
    <extension
@@ -206,168 +206,168 @@
       <provider
             class="org.eclipsetrader.ui.internal.providers.AskPriceFactory"
             id="org.eclipsetrader.ui.providers.AskPrice"
-            name="Ask Price">
+            name="%AskPrice">
       </provider>
       <provider
             class="org.eclipsetrader.ui.internal.providers.AskSizeFactory"
             id="org.eclipsetrader.ui.providers.AskSize"
-            name="Ask Size">
+            name="%AskSize">
       </provider>
       <provider
             class="org.eclipsetrader.ui.internal.providers.BidPriceFactory"
             id="org.eclipsetrader.ui.providers.BidPrice"
-            name="Bid Price">
+            name="%BidPrice">
       </provider>
       <provider
             class="org.eclipsetrader.ui.internal.providers.BidSizeFactory"
             id="org.eclipsetrader.ui.providers.BidSize"
-            name="Bid Size">
+            name="%BidSize">
       </provider>
       <provider
             class="org.eclipsetrader.ui.internal.providers.FeedIdentifierFactory"
             id="org.eclipsetrader.ui.providers.FeedIdentifier"
-            name="Feed Identifier">
+            name="%FeedIdentifier">
       </provider>
       <provider
             class="org.eclipsetrader.ui.internal.providers.LastTradePriceFactory"
             id="org.eclipsetrader.ui.providers.LastTrade"
-            name="Last Trade">
+            name="%LastTrade">
       </provider>
       <provider
             class="org.eclipsetrader.ui.internal.providers.LastTradeSizeFactory"
             id="org.eclipsetrader.ui.providers.LastTradeSize"
-            name="Last Trade Size">
+            name="%LastTradeSize">
       </provider>
       <provider
             class="org.eclipsetrader.ui.internal.providers.LastTradeTimeFactory"
             id="org.eclipsetrader.ui.providers.LastTradeTime"
-            name="Last Trade Time">
+            name="%LastTradeTime">
       </provider>
       <provider
             class="org.eclipsetrader.ui.internal.providers.PositionFactory"
             id="org.eclipsetrader.ui.providers.Position"
-            name="Position">
+            name="%Position">
       </provider>
       <provider
             class="org.eclipsetrader.ui.internal.providers.PurchaseDateFactory"
             id="org.eclipsetrader.ui.providers.PurchaseDate"
-            name="Purchase Date">
+            name="%PurchaseDate">
       </provider>
       <provider
             class="org.eclipsetrader.ui.internal.providers.PurchasePriceFactory"
             id="org.eclipsetrader.ui.providers.PurchasePrice"
-            name="Purchase Price">
+            name="%PurchasePrice">
       </provider>
       <provider
             class="org.eclipsetrader.ui.internal.providers.SecurityNameFactory"
             id="org.eclipsetrader.ui.providers.SecurityName"
-            name="Security Name">
+            name="%SecurityName">
       </provider>
       <provider
             class="org.eclipsetrader.ui.internal.providers.TradeVolumeFactory"
             id="org.eclipsetrader.ui.providers.TradeVolume"
-            name="Trade Volume">
+            name="%TradeVolume">
       </provider>
       <provider
             class="org.eclipsetrader.ui.internal.providers.OpenPriceFactory"
             id="org.eclipsetrader.ui.providers.OpenPrice"
-            name="Open Price">
+            name="%OpenPrice">
       </provider>
       <provider
             class="org.eclipsetrader.ui.internal.providers.HighestPriceFactory"
             id="org.eclipsetrader.ui.providers.HighestPrice"
-            name="Highest Price">
+            name="%HighestPrice">
       </provider>
       <provider
             class="org.eclipsetrader.ui.internal.providers.LowestPriceFactory"
             id="org.eclipsetrader.ui.providers.LowestPrice"
-            name="Lowest Price">
+            name="%LowestPrice">
       </provider>
       <provider
             class="org.eclipsetrader.ui.internal.providers.MarketValueFactory"
             id="org.eclipsetrader.ui.providers.MarketValue"
-            name="Market Value">
+            name="%MarketValue">
       </provider>
       <provider
             class="org.eclipsetrader.ui.internal.providers.LastClosePriceFactory"
             id="org.eclipsetrader.ui.providers.LastClosePrice"
-            name="Last Close Price">
+            name="%LastClosePrice">
       </provider>
       <provider
             class="org.eclipsetrader.ui.internal.providers.ChangePercentageFactory"
             id="org.eclipsetrader.ui.providers.ChangePercentage"
-            name="Change %">
+            name="%ChangeRate">
       </provider>
       <provider
             class="org.eclipsetrader.ui.internal.providers.ChangeFactory"
             id="org.eclipsetrader.ui.providers.Change"
-            name="Change">
+            name="%Change">
       </provider>
       <provider
             class="org.eclipsetrader.ui.internal.providers.ChangeAmountFactory"
             id="org.eclipsetrader.ui.providers.ChangeAmount"
-            name="Change Amount">
+            name="%ChangeAmount">
       </provider>
       <provider
             class="org.eclipsetrader.ui.internal.providers.TrendFactory"
             id="org.eclipsetrader.ui.providers.Trend"
-            name="Trend">
+            name="%Trend">
       </provider>
       <provider
             class="org.eclipsetrader.ui.internal.providers.PressureBarFactory"
             id="org.eclipsetrader.ui.providers.pressure"
-            name="Pressure">
+            name="%Pressure">
       </provider>
       <provider
             class="org.eclipsetrader.ui.internal.providers.GainFactory"
             id="org.eclipsetrader.ui.providers.gain"
-            name="Gain">
+            name="%Gain">
       </provider>
       <provider
             class="org.eclipsetrader.ui.internal.providers.LastTradeDateFactory"
             id="org.eclipsetrader.ui.providers.LastTradeDate"
-            name="Last Trade Date">
+            name="%LastTradeDate">
       </provider>
       <provider
             class="org.eclipsetrader.ui.internal.providers.LastTradeDateTimeFactory"
             id="org.eclipsetrader.ui.providers.LastTradeDateTime"
-            name="Last Trade Date / Time">
+            name="%LastTradeDateTime">
       </provider>
       <provider
             class="org.eclipsetrader.ui.internal.providers.BidAskSpreadFactory"
             id="org.eclipsetrader.ui.providers.BidAskSpread"
-            name="Bid/Ask Spread">
+            name="%BidAskSpread">
       </provider>
       <provider
             class="org.eclipsetrader.ui.internal.providers.PriceFactory"
             id="org.eclipsetrader.ui.providers.Price"
-            name="Price">
+            name="%Price">
       </provider>
       <provider
             class="org.eclipsetrader.ui.internal.providers.PriceDateTimeFactory"
             id="org.eclipsetrader.ui.providers.PriceDateTime"
-            name="Price Date / Time">
+            name="%PriceDateTime">
       </provider>
       <provider
             class="org.eclipsetrader.ui.internal.providers.PriceDateFactory"
             id="org.eclipsetrader.ui.providers.PriceDate"
-            name="Price Date">
+            name="%PriceDate">
       </provider>
       <provider
             class="org.eclipsetrader.ui.internal.providers.PriceTimeFactory"
             id="org.eclipsetrader.ui.providers.PriceTime"
-            name="Price Time">
+            name="%PriceTime">
       </provider>
    </extension>
    <extension
          point="org.eclipse.ui.newWizards">
       <category
             id="org.eclipsetrader.ui.wizards.general"
-            name="General">
+            name="%General">
       </category>
       <category
             id="org.eclipsetrader.ui.wizards.instruments"
-            name="Instruments">
+            name="%Instruments">
       </category>
       <wizard
             category="org.eclipsetrader.ui.wizards.instruments"
@@ -375,10 +375,10 @@
             hasPages="true"
             icon="icons/etool16/security_new.png"
             id="org.eclipsetrader.ui.wizards.new.stock"
-            name="Stock"
+            name="%Stock"
             preferredPerspectives="org.eclipsetrader.ui.traderPerspective">
          <description>
-            Create a new common stock security.
+            %CreateStock.description
          </description>
       </wizard>
       <wizard
@@ -387,10 +387,10 @@
             hasPages="true"
             icon="icons/etool16/security_new.png"
             id="org.eclipsetrader.ui.wizards.new.currency"
-            name="Currency Exchange"
+            name="%CurrencyExchange"
             preferredPerspectives="org.eclipsetrader.ui.traderPerspective">
          <description>
-            Create a new currency.
+            %CreateCurrency.description
          </description>
       </wizard>
       <wizard
@@ -399,11 +399,11 @@
             hasPages="true"
             icon="icons/etool16/newwatchlist_wiz.gif"
             id="org.eclipsetrader.ui.wizards.new.watchList"
-            name="WatchList"
+            name="%WatchList"
             preferredPerspectives="org.eclipsetrader.ui.traderPerspective"
             project="true">
          <description>
-            Create a new watchlist.
+            %CreateWatchlist.description
          </description>
       </wizard>
       <wizard
@@ -412,10 +412,10 @@
             hasPages="true"
             icon="icons/etool16/market_new.png"
             id="org.eclipsetrader.ui.wizards.new.market"
-            name="Market"
+            name="%Market"
             preferredPerspectives="org.eclipsetrader.ui.traderPerspective">
          <description>
-            Create a new market.
+            %CreateMarket.description
          </description>
       </wizard>
       <wizard
@@ -423,10 +423,10 @@
             hasPages="true"
             icon="icons/eview16/script.png"
             id="org.eclipsetrader.ui.wizard.script"
-            name="Script"
+            name="%Script"
             preferredPerspectives="org.eclipsetrader.ui.traderPerspective">
          <description>
-            Create a new script.
+            %CreateScript.description
          </description>
       </wizard>
       <category
@@ -445,7 +445,7 @@
       </wizard>
       <category
             id="org.eclipsetrader.ui.ats"
-            name="ATS">
+            name="%ATS">
       </category>
       <wizard
             category="org.eclipsetrader.ui.ats"
@@ -453,7 +453,7 @@
             hasPages="true"
             icon="icons/eview16/cog.png"
             id="org.eclipsetrader.ui.ats.scriptstrategy.wizard"
-            name="Script Strategy"
+            name="%ScriptStrategy"
             preferredPerspectives="org.eclipsetrader.ui.ats.perspective">
       </wizard>
    </extension>
@@ -988,15 +988,15 @@
          point="org.eclipse.ui.importWizards">
       <category
             id="org.eclipsetrader.ui.import.data"
-            name="Data">
+            name="%Data">
       </category>
       <category
             id="org.eclipsetrader.ui.import.instruments"
-            name="Instruments">
+            name="%Instruments">
       </category>
       <category
             id="org.eclipse.ui.Basic"
-            name="General">
+            name="%General">
       </category>
       <wizard
             category="org.eclipse.ui.Basic"
@@ -1013,13 +1013,13 @@
          point="org.eclipse.ui.actionSets">
       <actionSet
             id="org.eclipsetrader.ui.launcher"
-            label="Launcher">
+            label="%Launcher">
          <action
                class="org.eclipsetrader.ui.internal.StopFeedAction"
                disabledIcon="icons/dtool16/stop.png"
                icon="icons/etool16/stop.png"
                id="org.eclipsetrader.ui.launcher.stop"
-               label="Stop"
+               label="%Stop"
                style="pulldown"
                toolbarPath="additions">
          </action>
@@ -1028,14 +1028,14 @@
                disabledIcon="icons/dtool16/start.png"
                icon="icons/etool16/start.png"
                id="org.eclipsetrader.ui.launcher.run"
-               label="Start"
+               label="%Start"
                style="pulldown"
                toolbarPath="additions">
          </action>
       </actionSet>
       <actionSet
             id="org.eclipsetrader.ui.charts.trigger"
-            label="Trigger Action Set">
+            label="%Trigger Action Set">
       </actionSet>
       <actionSet
             description="%drawingtools.actionset.description"
@@ -1108,7 +1108,7 @@
          point="org.eclipse.ui.commands">
       <command
             id="org.eclipsetrader.ui.level2.open"
-            name="Open Level II">
+            name="%OpenLevelII">
       </command>
       <category
             id="org.eclipsetrader.ui.trade.category"
@@ -1127,12 +1127,12 @@
          </commandParameter>
          <commandParameter
                id="limitPrice"
-               name="Limit Price"
+               name="%LimitPrice"
                optional="true">
          </commandParameter>
          <commandParameter
                id="side"
-               name="Side"
+               name="%Side"
                optional="true">
          </commandParameter>
       </command>
@@ -1162,18 +1162,18 @@
       </command>
       <command
             id="org.eclipsetrader.ui.ats.commands.simulation"
-            name="Run Simulation...">
+            name="%RunSimulation">
          <defaultHandler
                class="org.eclipsetrader.ui.internal.ats.RunSimulationHandler">
          </defaultHandler>
       </command>
       <command
             id="org.eclipsetrader.ui.ats.commands.start"
-            name="Start">
+            name="%Start">
       </command>
       <command
             id="org.eclipsetrader.ui.ats.commands.stop"
-            name="Stop">
+            name="%Stop">
       </command>
       <command
             categoryId="org.eclipse.ui.category.navigate"
@@ -1199,7 +1199,7 @@
       <page
             class="org.eclipsetrader.ui.internal.securities.properties.IdentifierProperties"
             id="org.eclipsetrader.ui.propertypages.identifier"
-            name="Identifier">
+            name="%Identifier">
          <enabledWhen>
             <instanceof
                   value="org.eclipsetrader.core.instruments.Security">
@@ -1209,7 +1209,7 @@
       <page
             class="org.eclipsetrader.ui.internal.securities.properties.MarketsProperties"
             id="org.eclipsetrader.ui.propertypages.markets"
-            name="Markets">
+            name="%Markets">
          <enabledWhen>
             <instanceof
                   value="org.eclipsetrader.core.instruments.Security">
@@ -1219,7 +1219,7 @@
       <page
             class="org.eclipsetrader.ui.internal.securities.properties.ConnectorOverrideProperties"
             id="org.eclipsetrader.ui.propertypages.overrides"
-            name="Overrides">
+            name="%Overrides">
          <enabledWhen>
             <instanceof
                   value="org.eclipsetrader.core.instruments.Security">
@@ -1229,7 +1229,7 @@
       <page
             class="org.eclipsetrader.ui.internal.securities.properties.DividendsProperties"
             id="org.eclipsetrader.ui.propertypages.dividends"
-            name="Dividends">
+            name="%Dividends">
          <enabledWhen>
             <instanceof
                   value="org.eclipsetrader.core.instruments.Stock">
@@ -1239,7 +1239,7 @@
       <page
             class="org.eclipsetrader.ui.internal.markets.ConnectorsPage"
             id="org.eclipsetrader.ui.propertypages.markets.connectors"
-            name="Connectors">
+            name="%Connectors">
          <enabledWhen>
             <instanceof
                   value="org.eclipsetrader.core.internal.markets.Market">
@@ -1249,7 +1249,7 @@
       <page
             class="org.eclipsetrader.ui.internal.markets.HolidaysPage"
             id="org.eclipsetrader.ui.propertypages.markets.holidays"
-            name="Holidays">
+            name="%Holidays">
          <enabledWhen>
             <instanceof
                   value="org.eclipsetrader.core.internal.markets.Market">
@@ -1259,7 +1259,7 @@
       <page
             class="org.eclipsetrader.ui.internal.markets.MembersPage"
             id="org.eclipsetrader.ui.propertypages.markets.members"
-            name="Members">
+            name="%Members">
          <enabledWhen>
             <instanceof
                   value="org.eclipsetrader.core.internal.markets.Market">
@@ -1310,7 +1310,7 @@
       <page
             class="org.eclipsetrader.ui.internal.charts.views.MainPropertiesPage"
             id="org.eclipsetrader.ui.charts.default.general"
-            name="General">
+            name="%General">
          <enabledWhen>
                <test
                      property="org.eclipsetrader.ui.adapts"
@@ -1562,7 +1562,7 @@
             class="org.eclipsetrader.ui.internal.charts.VOLUME"
             description="Volume"
             id="org.eclipsetrader.indicators.volume"
-            name="VOL">
+            name="%VOL">
       </indicator>
    </extension>
    <extension

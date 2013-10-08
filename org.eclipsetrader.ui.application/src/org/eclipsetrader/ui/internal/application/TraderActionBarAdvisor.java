@@ -102,23 +102,23 @@ public class TraderActionBarAdvisor extends ActionBarAdvisor {
         register(openAction);
 
         saveAction = ActionFactory.SAVE.create(window);
-        saveAction.setImageDescriptor(AbstractUIPlugin.imageDescriptorFromPlugin(Activator.PLUGIN_ID, "icons/etool16/save.png"));
-        saveAction.setDisabledImageDescriptor(AbstractUIPlugin.imageDescriptorFromPlugin(Activator.PLUGIN_ID, "icons/dtool16/save.png"));
+        saveAction.setImageDescriptor(AbstractUIPlugin.imageDescriptorFromPlugin(Activator.PLUGIN_ID, "icons/etool16/save.png")); //$NON-NLS-1$
+        saveAction.setDisabledImageDescriptor(AbstractUIPlugin.imageDescriptorFromPlugin(Activator.PLUGIN_ID, "icons/dtool16/save.png")); //$NON-NLS-1$
         register(saveAction);
 
         saveAsAction = ActionFactory.SAVE_AS.create(window);
-        saveAsAction.setImageDescriptor(AbstractUIPlugin.imageDescriptorFromPlugin(Activator.PLUGIN_ID, "icons/etool16/save_as.png"));
-        saveAsAction.setDisabledImageDescriptor(AbstractUIPlugin.imageDescriptorFromPlugin(Activator.PLUGIN_ID, "icons/dtool16/save_as.png"));
+        saveAsAction.setImageDescriptor(AbstractUIPlugin.imageDescriptorFromPlugin(Activator.PLUGIN_ID, "icons/etool16/save_as.png")); //$NON-NLS-1$
+        saveAsAction.setDisabledImageDescriptor(AbstractUIPlugin.imageDescriptorFromPlugin(Activator.PLUGIN_ID, "icons/dtool16/save_as.png")); //$NON-NLS-1$
         register(saveAsAction);
 
         saveAllAction = ActionFactory.SAVE_ALL.create(window);
-        saveAllAction.setImageDescriptor(AbstractUIPlugin.imageDescriptorFromPlugin(Activator.PLUGIN_ID, "icons/etool16/save_all.png"));
-        saveAllAction.setDisabledImageDescriptor(AbstractUIPlugin.imageDescriptorFromPlugin(Activator.PLUGIN_ID, "icons/dtool16/save_all.png"));
+        saveAllAction.setImageDescriptor(AbstractUIPlugin.imageDescriptorFromPlugin(Activator.PLUGIN_ID, "icons/etool16/save_all.png")); //$NON-NLS-1$
+        saveAllAction.setDisabledImageDescriptor(AbstractUIPlugin.imageDescriptorFromPlugin(Activator.PLUGIN_ID, "icons/dtool16/save_all.png")); //$NON-NLS-1$
         register(saveAllAction);
 
         printAction = ActionFactory.PRINT.create(window);
-        printAction.setImageDescriptor(AbstractUIPlugin.imageDescriptorFromPlugin(Activator.PLUGIN_ID, "icons/etool16/print.png"));
-        printAction.setDisabledImageDescriptor(AbstractUIPlugin.imageDescriptorFromPlugin(Activator.PLUGIN_ID, "icons/dtool16/print.png"));
+        printAction.setImageDescriptor(AbstractUIPlugin.imageDescriptorFromPlugin(Activator.PLUGIN_ID, "icons/etool16/print.png")); //$NON-NLS-1$
+        printAction.setDisabledImageDescriptor(AbstractUIPlugin.imageDescriptorFromPlugin(Activator.PLUGIN_ID, "icons/dtool16/print.png")); //$NON-NLS-1$
         register(printAction);
 
         importResourcesAction = ActionFactory.IMPORT.create(window);
@@ -146,7 +146,7 @@ public class TraderActionBarAdvisor extends ActionBarAdvisor {
         register(settingsAction);
 
         newWindowAction = ActionFactory.OPEN_NEW_WINDOW.create(getWindow());
-        newWindowAction.setText("&New Window");
+        newWindowAction.setText(Messages.TraderActionBarAdvisor_NewWindow);
         register(newWindowAction);
 
         editActionSetsAction = ActionFactory.EDIT_ACTION_SETS.create(window);
@@ -199,7 +199,7 @@ public class TraderActionBarAdvisor extends ActionBarAdvisor {
         }
 
         coolBar.add(new GroupMarker(IWorkbenchActionConstants.MB_ADDITIONS));
-        coolBar.add(new GroupMarker("group.nav"));
+        coolBar.add(new GroupMarker("group.nav")); //$NON-NLS-1$
         coolBar.add(new GroupMarker(IWorkbenchActionConstants.GROUP_EDITOR));
 
         coolBar.add(new GroupMarker(IWorkbenchActionConstants.GROUP_HELP));
@@ -223,11 +223,11 @@ public class TraderActionBarAdvisor extends ActionBarAdvisor {
     }
 
     private MenuManager createFileMenu(IMenuManager menuBar) {
-        MenuManager menu = new MenuManager("&File", IWorkbenchActionConstants.M_FILE);
+        MenuManager menu = new MenuManager(Messages.TraderActionBarAdvisor_File, IWorkbenchActionConstants.M_FILE);
         menu.add(new GroupMarker(IWorkbenchActionConstants.FILE_START));
         {
             String newId = ActionFactory.NEW.getId();
-            MenuManager newMenu = new MenuManager("&New", newId) {
+            MenuManager newMenu = new MenuManager(Messages.TraderActionBarAdvisor_New, newId) {
 
                 @Override
                 public String getMenuText() {
@@ -273,7 +273,7 @@ public class TraderActionBarAdvisor extends ActionBarAdvisor {
     }
 
     private MenuManager createEditMenu(IMenuManager menuBar) {
-        MenuManager menu = new MenuManager("&Edit", IWorkbenchActionConstants.M_EDIT);
+        MenuManager menu = new MenuManager(Messages.TraderActionBarAdvisor_Edit, IWorkbenchActionConstants.M_EDIT);
         menu.add(new GroupMarker(IWorkbenchActionConstants.EDIT_START));
         menu.add(cutAction);
         menu.add(copyAction);
@@ -287,7 +287,7 @@ public class TraderActionBarAdvisor extends ActionBarAdvisor {
     }
 
     private MenuManager createWindowMenu(IMenuManager menuBar) {
-        MenuManager menu = new MenuManager("&Window", IWorkbenchActionConstants.M_WINDOW);
+        MenuManager menu = new MenuManager(Messages.TraderActionBarAdvisor_Window, IWorkbenchActionConstants.M_WINDOW);
 
         menu.add(newWindowAction);
 
@@ -306,12 +306,12 @@ public class TraderActionBarAdvisor extends ActionBarAdvisor {
     }
 
     private void addPerspectiveActions(MenuManager menu) {
-        MenuManager changePerspMenuMgr = new MenuManager("&Open Perspective", "openPerspective");
+        MenuManager changePerspMenuMgr = new MenuManager(Messages.TraderActionBarAdvisor_OpenPerspective, "openPerspective"); //$NON-NLS-2$
         IContributionItem changePerspMenuItem = ContributionItemFactory.PERSPECTIVES_SHORTLIST.create(getWindow());
         changePerspMenuMgr.add(changePerspMenuItem);
         menu.add(changePerspMenuMgr);
 
-        MenuManager showViewMenuMgr = new MenuManager("Show &View", "showView");
+        MenuManager showViewMenuMgr = new MenuManager(Messages.TraderActionBarAdvisor_ShowView, "showView"); //$NON-NLS-2$
         IContributionItem showViewMenu = ContributionItemFactory.VIEWS_SHORTLIST.create(getWindow());
         showViewMenuMgr.add(showViewMenu);
         menu.add(showViewMenuMgr);
@@ -325,7 +325,7 @@ public class TraderActionBarAdvisor extends ActionBarAdvisor {
     }
 
     private MenuManager createHelpMenu(IMenuManager menuBar) {
-        MenuManager menu = new MenuManager("&Help", IWorkbenchActionConstants.M_HELP);
+        MenuManager menu = new MenuManager(Messages.TraderActionBarAdvisor_Help, IWorkbenchActionConstants.M_HELP);
         menu.add(new GroupMarker("group.intro")); //$NON-NLS-1$
         menu.add(new GroupMarker("group.intro.ext")); //$NON-NLS-1$
         menu.add(new Separator("group.main")); //$NON-NLS-1$
@@ -341,12 +341,12 @@ public class TraderActionBarAdvisor extends ActionBarAdvisor {
         menu.add(new GroupMarker(IWorkbenchActionConstants.HELP_END));
         menu.add(new Separator(IWorkbenchActionConstants.MB_ADDITIONS));
         // about should always be at the bottom
-        menu.add(new Separator("group.about"));
+        menu.add(new Separator("group.about")); //$NON-NLS-1$
 
         ActionContributionItem aboutItem = new ActionContributionItem(aboutAction);
-        aboutItem.setVisible(!"carbon".equals(SWT.getPlatform()));
+        aboutItem.setVisible(!"carbon".equals(SWT.getPlatform())); //$NON-NLS-1$
         menu.add(aboutItem);
-        menu.add(new GroupMarker("group.about.ext"));
+        menu.add(new GroupMarker("group.about.ext")); //$NON-NLS-1$
         return menu;
     }
 
@@ -363,14 +363,14 @@ public class TraderActionBarAdvisor extends ActionBarAdvisor {
             }
 
             IWorkbenchAction innerAction = ActionFactory.NEW.create(window);
-            innerAction.setImageDescriptor(AbstractUIPlugin.imageDescriptorFromPlugin(Activator.PLUGIN_ID, "icons/etool16/new_wizard.png"));
-            innerAction.setDisabledImageDescriptor(AbstractUIPlugin.imageDescriptorFromPlugin(Activator.PLUGIN_ID, "icons/dtool16/new_wizard.png"));
+            innerAction.setImageDescriptor(AbstractUIPlugin.imageDescriptorFromPlugin(Activator.PLUGIN_ID, "icons/etool16/new_wizard.png")); //$NON-NLS-1$
+            innerAction.setDisabledImageDescriptor(AbstractUIPlugin.imageDescriptorFromPlugin(Activator.PLUGIN_ID, "icons/dtool16/new_wizard.png")); //$NON-NLS-1$
 
             NewWizardMenu newWizardMenu = new NewWizardMenu(window);
 
             IWorkbenchAction action = new NewWizardDropDownAction(window, innerAction, newWizardMenu);
-            action.setImageDescriptor(AbstractUIPlugin.imageDescriptorFromPlugin(Activator.PLUGIN_ID, "icons/etool16/new_wizard.png"));
-            action.setDisabledImageDescriptor(AbstractUIPlugin.imageDescriptorFromPlugin(Activator.PLUGIN_ID, "icons/dtool16/new_wizard.png"));
+            action.setImageDescriptor(AbstractUIPlugin.imageDescriptorFromPlugin(Activator.PLUGIN_ID, "icons/etool16/new_wizard.png")); //$NON-NLS-1$
+            action.setDisabledImageDescriptor(AbstractUIPlugin.imageDescriptorFromPlugin(Activator.PLUGIN_ID, "icons/dtool16/new_wizard.png")); //$NON-NLS-1$
             action.setId(getId());
             return action;
         }
