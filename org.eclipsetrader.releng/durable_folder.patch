@@ -1,0 +1,124 @@
+### Eclipse Workspace Patch 1.0
+#P org.eclipse.ui.workbench
+Index: Eclipse UI/org/eclipse/ui/internal/ViewSashContainer.java
+===================================================================
+--- Eclipse UI/org/eclipse/ui/internal/ViewSashContainer.java	(revisione 1689)
++++ Eclipse UI/org/eclipse/ui/internal/ViewSashContainer.java	(copia locale)
+@@ -12,7 +12,6 @@
+ 
+ import java.util.HashMap;
+ import java.util.Map;
+-
+ import org.eclipse.core.runtime.IStatus;
+ import org.eclipse.core.runtime.MultiStatus;
+ import org.eclipse.swt.widgets.Composite;
+Index: Eclipse UI/org/eclipse/ui/internal/PerspectiveHelper.java
+===================================================================
+--- Eclipse UI/org/eclipse/ui/internal/PerspectiveHelper.java	(revisione 1689)
++++ Eclipse UI/org/eclipse/ui/internal/PerspectiveHelper.java	(copia locale)
+@@ -99,6 +99,8 @@
+ 
+     protected ActualDropTarget dropTarget;
+     
++	private List restoreFastViewsList = new ArrayList();
++
+     private IDragOverListener dragTarget = new IDragOverListener() {
+ 
+         public IDropTarget drag(Control currentControl, Object draggedObject,
+@@ -1321,13 +1323,13 @@
+      * fact to locate the parent.
+      */
+     public void replacePlaceholderWithPart(LayoutPart part) {
+-        
++		restoreDurable();
+         // Look for a PartPlaceholder that will tell us how to position this
+         // object
+         PartPlaceholder[] placeholders = collectPlaceholders();
+         for (int i = 0, length = placeholders.length; i < length; i++) {
+-            if (placeholders[i].getCompoundId().equals(part.getCompoundId())) {
+-                // found a matching placeholder which we can replace with the
++			if (placeholders[i].getCompoundId().equals(part.getCompoundId())) {
++				// found a matching placeholder which we can replace with the
+                 // new View
+                 ILayoutContainer container = placeholders[i].getContainer();
+                 if (container != null) {
+@@ -1347,21 +1349,50 @@
+                     }
+                     container.replace(placeholders[i], part);
+                     return;
+-                }
+-            }
++				}
++			}
+         }
++	}
+ 
++	private void restoreDurable() {
++		LayoutPart[] children = mainLayout.getChildren();
++
++		for (int i = 0; i < children.length; i++) {
++			LayoutPart t = children[i];
++			if (t instanceof ContainerPlaceholder) {
++				LayoutPart r = ((ContainerPlaceholder) t).getRealContainer();
++				if (r instanceof ViewStack) {
++					ViewStack viewStack = (ViewStack) r;
++					viewStack.setDurable(page.window.getWindowAdvisor().isDurableFolder(
++							perspective.getDesc().getId(), r.getID()));
++					if (viewStack.getDurable() && !restoreFastViewsList.contains(viewStack.getID())) {
++						t.container.replace(t, r);
++					}
++				}
++			}
++		}
++		// restoreFastViewsList.clear();
+     }
+ 
+     /**
+      * @see org.eclipse.ui.IPersistable
+      */
+-    public IStatus restoreState(IMemento memento) {
++	public IStatus restoreState(IMemento parent, IMemento memento) {
+         // Restore main window.
+         IMemento childMem = memento
+                 .getChild(IWorkbenchConstants.TAG_MAIN_WINDOW);
+         IStatus r = mainLayout.restoreState(childMem);
+ 
++		IMemento barsMem = parent.getChild(IWorkbenchConstants.TAG_FAST_VIEW_BARS);
++		if (barsMem != null) {
++			IMemento[] bars = barsMem.getChildren(IWorkbenchConstants.TAG_FAST_VIEW_BAR);
++
++			for (int i = 0; i < bars.length; i++) {
++				final String id = bars[i].getString(IWorkbenchConstants.TAG_ID);
++				restoreFastViewsList.add(id);
++			}
++		}
++
+         // Restore each floating window.
+         if (detachable) {
+             IMemento detachedWindows[] = memento
+Index: Eclipse UI/org/eclipse/ui/internal/Perspective.java
+===================================================================
+--- Eclipse UI/org/eclipse/ui/internal/Perspective.java	(revisione 1689)
++++ Eclipse UI/org/eclipse/ui/internal/Perspective.java	(copia locale)
+@@ -1306,7 +1306,7 @@
+         final PerspectiveHelper pres = presArray[0];
+ 
+         // Read the layout.
+-        result.merge(pres.restoreState(memento
++		result.merge(pres.restoreState(memento, memento
+                 .getChild(IWorkbenchConstants.TAG_LAYOUT)));
+ 
+         StartupThreading.runWithoutExceptions(new StartupRunnable() {
+Index: META-INF/MANIFEST.MF
+===================================================================
+--- META-INF/MANIFEST.MF	(revisione 1689)
++++ META-INF/MANIFEST.MF	(copia locale)
+@@ -2,7 +2,7 @@
+ Bundle-ManifestVersion: 2
+ Bundle-Name: %pluginName
+ Bundle-SymbolicName: org.eclipse.ui.workbench; singleton:=true
+-Bundle-Version: 3.8.1.qualifier
++Bundle-Version: 3.8.1.v20120816-082703-ET
+ Bundle-ClassPath: e4-workbench.jar,
+  compatibility.jar,
+  .
