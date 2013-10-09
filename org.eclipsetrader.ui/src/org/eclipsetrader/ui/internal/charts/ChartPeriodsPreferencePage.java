@@ -105,7 +105,7 @@ public class ChartPeriodsPreferencePage extends PreferencePage implements IWorkb
         buttons.setLayoutData(new GridData(SWT.CENTER, SWT.TOP, false, false));
 
         add = new Button(buttons, SWT.PUSH);
-        add.setText("Add");
+        add.setText(Messages.ChartPeriodsPreferencePage_Add);
         add.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
         add.addSelectionListener(new SelectionAdapter() {
 
@@ -120,7 +120,7 @@ public class ChartPeriodsPreferencePage extends PreferencePage implements IWorkb
         });
 
         edit = new Button(buttons, SWT.PUSH);
-        edit.setText("Edit");
+        edit.setText(Messages.ChartPeriodsPreferencePage_Edit);
         edit.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
         edit.addSelectionListener(new SelectionAdapter() {
 
@@ -140,7 +140,7 @@ public class ChartPeriodsPreferencePage extends PreferencePage implements IWorkb
         edit.setEnabled(false);
 
         remove = new Button(buttons, SWT.PUSH);
-        remove.setText("Remove");
+        remove.setText(Messages.ChartPeriodsPreferencePage_Remove);
         remove.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
         remove.addSelectionListener(new SelectionAdapter() {
 

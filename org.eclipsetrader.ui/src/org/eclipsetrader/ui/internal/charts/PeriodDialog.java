@@ -57,7 +57,7 @@ public class PeriodDialog extends Dialog {
     @Override
     protected void configureShell(Shell newShell) {
         super.configureShell(newShell);
-        newShell.setText("Period");
+        newShell.setText(Messages.PeriodDialog_Period);
     }
 
     /* (non-Javadoc)
@@ -74,13 +74,13 @@ public class PeriodDialog extends Dialog {
         applyDialogFont(composite);
 
         Label label = new Label(composite, SWT.NONE);
-        label.setText("Description");
+        label.setText(Messages.PeriodDialog_Description);
         description = new Text(composite, SWT.BORDER);
         description.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 2, 1));
         ((GridData) description.getLayoutData()).widthHint = convertHorizontalDLUsToPixels(250);
 
         label = new Label(composite, SWT.NONE);
-        label.setText("Last");
+        label.setText(Messages.PeriodDialog_Last);
         periodLength = new Spinner(composite, SWT.BORDER);
         periodLength.setValues(1, 1, 9999, 0, 1, 1);
         periodUnits = new ComboViewer(composite, SWT.DROP_DOWN | SWT.READ_ONLY);
@@ -95,7 +95,7 @@ public class PeriodDialog extends Dialog {
         periodUnits.setSelection(new StructuredSelection(TimeSpan.Units.Years));
 
         label = new Label(composite, SWT.NONE);
-        label.setText("Bar Size");
+        label.setText(Messages.PeriodDialog_BarSize);
         resolutionLength = new Spinner(composite, SWT.BORDER);
         resolutionLength.setValues(1, 1, 9999, 0, 1, 1);
         resolutionUnits = new ComboViewer(composite, SWT.DROP_DOWN | SWT.READ_ONLY);

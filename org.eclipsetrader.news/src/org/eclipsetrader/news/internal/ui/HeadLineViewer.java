@@ -71,11 +71,11 @@ import org.osgi.framework.ServiceReference;
 
 public class HeadLineViewer extends ViewPart {
 
-    public static final String VIEW_ID = "org.eclipsetrader.ui.views.headlines";
+    public static final String VIEW_ID = "org.eclipsetrader.ui.views.headlines"; //$NON-NLS-1$
 
-    private static final String K_VIEWS = "Views";
-    private static final String K_URI = "uri";
-    private static final String K_COLUMNS = "columns";
+    private static final String K_VIEWS = "Views"; //$NON-NLS-1$
+    private static final String K_URI = "uri"; //$NON-NLS-1$
+    private static final String K_COLUMNS = "columns"; //$NON-NLS-1$
 
     private Action refreshAction;
     private Action showPreviousAction;
@@ -173,12 +173,12 @@ public class HeadLineViewer extends ViewPart {
                 IRepositoryService repositoryService = Activator.getDefault().getRepositoryService();
                 security = repositoryService.getSecurityFromURI(uri);
                 if (security != null) {
-                    setPartName(NLS.bind("{0} - {1}", new Object[] {
+                    setPartName(NLS.bind("{0} - {1}", new Object[] { //$NON-NLS-1$
                         security.getName(), getPartName()
                     }));
                 }
             } catch (Exception e) {
-                Status status = new Status(IStatus.ERROR, Activator.PLUGIN_ID, "Error loading view " + site.getSecondaryId(), e);
+                Status status = new Status(IStatus.ERROR, Activator.PLUGIN_ID, "Error loading view " + site.getSecondaryId(), e); //$NON-NLS-1$
                 Activator.getDefault().getLog().log(status);
             }
         }
@@ -190,7 +190,7 @@ public class HeadLineViewer extends ViewPart {
             }
         }
 
-        refreshAction = new Action("Refresh") {
+        refreshAction = new Action("Refresh") { //$NON-NLS-1$
 
             @Override
             public void run() {
@@ -207,7 +207,7 @@ public class HeadLineViewer extends ViewPart {
         refreshAction.setImageDescriptor(Activator.getImageDescriptor("icons/elcl16/refresh.gif")); //$NON-NLS-1$
         refreshAction.setDisabledImageDescriptor(Activator.getImageDescriptor("icons/dlcl16/refresh.gif")); //$NON-NLS-1$
 
-        showPreviousAction = new Action("Previous") {
+        showPreviousAction = new Action("Previous") { //$NON-NLS-1$
 
             @Override
             public void run() {
@@ -221,7 +221,7 @@ public class HeadLineViewer extends ViewPart {
         showPreviousAction.setImageDescriptor(Activator.getImageDescriptor("icons/elcl16/prev_nav.gif")); //$NON-NLS-1$
         showPreviousAction.setDisabledImageDescriptor(Activator.getImageDescriptor("icons/dlcl16/prev_nav.gif")); //$NON-NLS-1$
 
-        showNextAction = new Action("Next") {
+        showNextAction = new Action("Next") { //$NON-NLS-1$
 
             @Override
             public void run() {
@@ -235,7 +235,7 @@ public class HeadLineViewer extends ViewPart {
         showNextAction.setImageDescriptor(Activator.getImageDescriptor("icons/elcl16/next_nav.gif")); //$NON-NLS-1$
         showNextAction.setDisabledImageDescriptor(Activator.getImageDescriptor("icons/dlcl16/next_nav.gif")); //$NON-NLS-1$
 
-        openAction = new Action("Open") {
+        openAction = new Action("Open") { //$NON-NLS-1$
 
             @Override
             public void run() {
@@ -246,7 +246,7 @@ public class HeadLineViewer extends ViewPart {
                 }
             }
         };
-        openNewWindowAction = new Action("Open in New Browser") {
+        openNewWindowAction = new Action("Open in New Browser") { //$NON-NLS-1$
 
             @Override
             public void run() {
@@ -257,7 +257,7 @@ public class HeadLineViewer extends ViewPart {
                 }
             }
         };
-        markAsReadAction = new Action("Mark as Read") {
+        markAsReadAction = new Action("Mark as Read") { //$NON-NLS-1$
 
             @Override
             public void run() {
@@ -270,7 +270,7 @@ public class HeadLineViewer extends ViewPart {
                 service.updateHeadLines(headLines);
             }
         };
-        markAllAsReadAction = new Action("Mark All as Read") {
+        markAllAsReadAction = new Action("Mark All as Read") { //$NON-NLS-1$
 
             @Override
             public void run() {
@@ -307,24 +307,24 @@ public class HeadLineViewer extends ViewPart {
 
             @Override
             public void menuAboutToShow(IMenuManager menuManager) {
-                menuManager.add(new Separator("group.new"));
-                menuManager.add(new GroupMarker("group.goto"));
-                menuManager.add(new Separator("group.open"));
-                menuManager.add(new GroupMarker("group.openWith"));
-                menuManager.add(new Separator("group.show"));
-                menuManager.add(new Separator("group.edit"));
-                menuManager.add(new GroupMarker("group.reorganize"));
-                menuManager.add(new GroupMarker("group.port"));
-                menuManager.add(new Separator("group.generate"));
-                menuManager.add(new Separator("group.search"));
-                menuManager.add(new Separator("group.build"));
+                menuManager.add(new Separator("group.new")); //$NON-NLS-1$
+                menuManager.add(new GroupMarker("group.goto")); //$NON-NLS-1$
+                menuManager.add(new Separator("group.open")); //$NON-NLS-1$
+                menuManager.add(new GroupMarker("group.openWith")); //$NON-NLS-1$
+                menuManager.add(new Separator("group.show")); //$NON-NLS-1$
+                menuManager.add(new Separator("group.edit")); //$NON-NLS-1$
+                menuManager.add(new GroupMarker("group.reorganize")); //$NON-NLS-1$
+                menuManager.add(new GroupMarker("group.port")); //$NON-NLS-1$
+                menuManager.add(new Separator("group.generate")); //$NON-NLS-1$
+                menuManager.add(new Separator("group.search")); //$NON-NLS-1$
+                menuManager.add(new Separator("group.build")); //$NON-NLS-1$
                 menuManager.add(new Separator(IWorkbenchActionConstants.MB_ADDITIONS));
-                menuManager.add(new Separator("group.properties"));
+                menuManager.add(new Separator("group.properties")); //$NON-NLS-1$
 
-                menuManager.appendToGroup("group.open", openAction);
-                menuManager.appendToGroup("group.open", openNewWindowAction);
-                menuManager.appendToGroup("group.edit", markAsReadAction);
-                menuManager.appendToGroup("group.edit", markAllAsReadAction);
+                menuManager.appendToGroup("group.open", openAction); //$NON-NLS-1$
+                menuManager.appendToGroup("group.open", openNewWindowAction); //$NON-NLS-1$
+                menuManager.appendToGroup("group.edit", markAsReadAction); //$NON-NLS-1$
+                menuManager.appendToGroup("group.edit", markAllAsReadAction); //$NON-NLS-1$
             }
         });
         viewer.getControl().setMenu(menuMgr.createContextMenu(viewer.getControl()));
@@ -339,10 +339,10 @@ public class HeadLineViewer extends ViewPart {
 
     protected void updateTitleImage() {
         if (hasUnreadedHeadlines()) {
-            setTitleImage(Activator.getDefault().getImageRegistry().get("new_headlines_icon"));
+            setTitleImage(Activator.getDefault().getImageRegistry().get("new_headlines_icon")); //$NON-NLS-1$
         }
         else {
-            setTitleImage(Activator.getDefault().getImageRegistry().get("normal_icon"));
+            setTitleImage(Activator.getDefault().getImageRegistry().get("normal_icon")); //$NON-NLS-1$
         }
     }
 
@@ -376,22 +376,22 @@ public class HeadLineViewer extends ViewPart {
         IDialogSettings columnsSection = dialogSettings != null ? dialogSettings.getSection(K_COLUMNS) : null;
 
         TableColumn tableColumn = new TableColumn(viewer.getTable(), SWT.LEFT);
-        tableColumn.setText("Date");
+        tableColumn.setText(Messages.HeadLineViewer_Date);
         tableColumn.setWidth(columnsSection != null && columnsSection.get(String.valueOf(viewer.getTable().indexOf(tableColumn))) != null ? columnsSection.getInt(String.valueOf(viewer.getTable().indexOf(tableColumn))) : 160);
         tableColumn.addControlListener(controlListener);
 
         tableColumn = new TableColumn(viewer.getTable(), SWT.LEFT);
-        tableColumn.setText("Title");
+        tableColumn.setText(Messages.HeadLineViewer_Title);
         tableColumn.setWidth(columnsSection != null && columnsSection.get(String.valueOf(viewer.getTable().indexOf(tableColumn))) != null ? columnsSection.getInt(String.valueOf(viewer.getTable().indexOf(tableColumn))) : 300);
         tableColumn.addControlListener(controlListener);
 
         tableColumn = new TableColumn(viewer.getTable(), SWT.LEFT);
-        tableColumn.setText("Security");
+        tableColumn.setText(Messages.HeadLineViewer_Security);
         tableColumn.setWidth(columnsSection != null && columnsSection.get(String.valueOf(viewer.getTable().indexOf(tableColumn))) != null ? columnsSection.getInt(String.valueOf(viewer.getTable().indexOf(tableColumn))) : 250);
         tableColumn.addControlListener(controlListener);
 
         tableColumn = new TableColumn(viewer.getTable(), SWT.LEFT);
-        tableColumn.setText("Source");
+        tableColumn.setText(Messages.HeadLineViewer_Source);
         tableColumn.setWidth(columnsSection != null && columnsSection.get(String.valueOf(viewer.getTable().indexOf(tableColumn))) != null ? columnsSection.getInt(String.valueOf(viewer.getTable().indexOf(tableColumn))) : 200);
         tableColumn.addControlListener(controlListener);
 
@@ -463,7 +463,7 @@ public class HeadLineViewer extends ViewPart {
                 });
             }
         } catch (PartInitException e) {
-            Status status = new Status(IStatus.WARNING, Activator.PLUGIN_ID, 0, "Unexpected error activating browser", null);
+            Status status = new Status(IStatus.WARNING, Activator.PLUGIN_ID, 0, "Unexpected error activating browser", null); //$NON-NLS-1$
             Activator.log(status);
         }
     }

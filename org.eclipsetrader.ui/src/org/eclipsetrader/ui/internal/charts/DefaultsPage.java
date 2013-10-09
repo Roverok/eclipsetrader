@@ -42,7 +42,7 @@ public class DefaultsPage extends PreferencePage implements IWorkbenchPreference
     Button useYears;
     Spinner years;
 
-    SimpleDateFormat prefsDateFormat = new SimpleDateFormat("yyyyMMdd");
+    SimpleDateFormat prefsDateFormat = new SimpleDateFormat("yyyyMMdd"); //$NON-NLS-1$
 
     public DefaultsPage() {
     }
@@ -66,24 +66,24 @@ public class DefaultsPage extends PreferencePage implements IWorkbenchPreference
         content.setLayout(gridLayout);
 
         Group group = new Group(content, SWT.NONE);
-        group.setText("Initial backfill");
+        group.setText(Messages.DefaultsPage_InitialBackfill);
         group.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 2, 1));
         gridLayout = new GridLayout(3, false);
         gridLayout.verticalSpacing = convertVerticalDLUsToPixels(2);
         group.setLayout(gridLayout);
 
         useStartDate = new Button(group, SWT.RADIO);
-        useStartDate.setText("Start Date");
+        useStartDate.setText(Messages.DefaultsPage_StartDate);
         startDate = new CDateTime(group, CDT.BORDER | CDT.DATE_SHORT | CDT.DROP_DOWN | CDT.TAB_FIELDS);
         startDate.setPattern(Util.getDateFormatPattern());
         startDate.setLayoutData(new GridData(SWT.BEGINNING, SWT.CENTER, false, false, 2, 1));
 
         useYears = new Button(group, SWT.RADIO);
-        useYears.setText("Last");
+        useYears.setText(Messages.DefaultsPage_Last);
         years = new Spinner(group, SWT.BORDER);
         years.setValues(1, 1, 99999, 0, 1, 5);
         Label label = new Label(group, SWT.NONE);
-        label.setText("year(s)");
+        label.setText(Messages.DefaultsPage_Years);
 
         performDefaults();
 
@@ -102,12 +102,12 @@ public class DefaultsPage extends PreferencePage implements IWorkbenchPreference
         useYears.setSelection(v == 1);
 
         String s = preferences.getString(UIActivator.PREFS_INITIAL_BACKFILL_START_DATE);
-        if (!s.equals("")) {
+        if (!s.equals("")) { //$NON-NLS-1$
             try {
                 Date date = prefsDateFormat.parse(s);
                 startDate.setSelection(date);
             } catch (ParseException e) {
-                Status status = new Status(IStatus.ERROR, UIActivator.PLUGIN_ID, 0, "Error parsing start date " + s, e);
+                Status status = new Status(IStatus.ERROR, UIActivator.PLUGIN_ID, 0, "Error parsing start date " + s, e); //$NON-NLS-1$
                 UIActivator.log(status);
             }
         }
@@ -135,7 +135,7 @@ public class DefaultsPage extends PreferencePage implements IWorkbenchPreference
             preferences.setValue(UIActivator.PREFS_INITIAL_BACKFILL_START_DATE, prefsDateFormat.format(startDate.getSelection()));
         }
         else {
-            preferences.setValue(UIActivator.PREFS_INITIAL_BACKFILL_START_DATE, "");
+            preferences.setValue(UIActivator.PREFS_INITIAL_BACKFILL_START_DATE, ""); //$NON-NLS-1$
         }
 
         preferences.setValue(UIActivator.PREFS_INITIAL_BACKFILL_YEARS, years.getSelection());
