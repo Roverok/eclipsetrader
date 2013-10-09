@@ -1035,7 +1035,7 @@
       </actionSet>
       <actionSet
             id="org.eclipsetrader.ui.charts.trigger"
-            label="%Trigger Action Set">
+            label="%TriggerActionSet">
       </actionSet>
       <actionSet
             description="%drawingtools.actionset.description"
@@ -1652,19 +1652,19 @@
       <colorDefinition
             id="WATCHLIST_POSITIVE_TICK_COLOR"
             isEditable="false"
-            label="Positive Highlight"
+            label="%PositiveHighlight"
             value="0,224,0">
       </colorDefinition>
       <colorDefinition
             id="WATCHLIST_NEGATIVE_TICK_COLOR"
             isEditable="false"
-            label="Negative Highlight"
+            label="%NegativeHighlight"
             value="224,0,0">
       </colorDefinition>
       <fontDefinition
             id="TEXT_EDITOR_FONT"
             isEditable="false"
-            label="Text Editor Font">
+            label="%TextEditorFont">
          <fontValue
                os="linux"
                value="Monospace-regular-9"

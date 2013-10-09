@@ -45,3 +45,4 @@ Export-Package: org.eclipsetrader.news.core,
  org.eclipsetrader.news.internal.preferences;x-internal:=true,
  org.eclipsetrader.news.internal.repository;x-internal:=true,
  org.eclipsetrader.news.internal.ui;x-internal:=true
+Bundle-Localization: plugin
