@@ -8,13 +8,13 @@
       <page
             class="org.eclipsetrader.news.internal.preferences.NewsPreferencesPage"
             id="org.eclipsetrader.ui.preferences.news"
-            name="News">
+            name="%PreferencePages.News">
       </page>
       <page
             category="org.eclipsetrader.ui.preferences.news"
             class="org.eclipsetrader.news.internal.preferences.RSSPreferencesPage"
             id="org.eclipsetrader.news.rss"
-            name="RSS News">
+            name="%PreferencePages.RSSNews">
       </page>
    </extension>
    <extension
@@ -23,7 +23,7 @@
             class="org.eclipsetrader.news.internal.ui.Perspective"
             icon="icons/eview16/headlines.png"
             id="org.eclipsetrader.news.perspective"
-            name="News">
+            name="%Perspective.News">
       </perspective>
    </extension>
    <extension
@@ -34,7 +34,7 @@
             class="org.eclipsetrader.news.internal.ui.NewsViewer"
             icon="icons/eview16/browser.png"
             id="org.eclipsetrader.news.browser"
-            name="Browser">
+            name="%Browser">
       </view>
       <view
             allowMultiple="true"
@@ -42,11 +42,11 @@
             class="org.eclipsetrader.news.internal.ui.HeadLineViewer"
             icon="icons/eview16/headlines.png"
             id="org.eclipsetrader.ui.views.headlines"
-            name="Headlines">
+            name="%Headlines">
       </view>
       <category
             id="org.eclipsetrader.ui.news"
-            name="News">
+            name="%News">
       </category>
    </extension>
    <extension
@@ -54,7 +54,7 @@
       <decorator
             class="org.eclipsetrader.news.internal.ui.NewsDecorator"
             id="org.eclipsetrader.news.decorator"
-            label="News Decorator"
+            label="%NewsDecorator"
             lightweight="true"
             location="BOTTOM_LEFT"
             state="true">
@@ -70,7 +70,7 @@
       <provider
             class="org.eclipsetrader.news.internal.connectors.RSSNewsProvider"
             id="org.eclipsetrader.news.rss"
-            name="RSS News">
+            name="%NewsProvider.RSS.name">
       </provider>
    </extension>
    <extension
@@ -101,7 +101,7 @@
             categoryId="org.eclipse.ui.category.navigate"
             defaultHandler="org.eclipsetrader.news.internal.ui.OpenNewsHandler"
             id="org.eclipsetrader.ui.file.open.news"
-            name="Open News">
+            name="%OpenNews">
       </command>
    </extension>
    <extension
@@ -109,7 +109,7 @@
       <launcher
             class="org.eclipsetrader.news.internal.NewsServiceLauncher"
             id="org.eclipsetrader.news.launcher"
-            name="News Reader">
+            name="%NewsReader">
       </launcher>
    </extension>
    <extension
