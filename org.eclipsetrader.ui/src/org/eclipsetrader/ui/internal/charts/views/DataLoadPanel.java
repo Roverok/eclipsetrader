@@ -28,7 +28,7 @@ public class DataLoadPanel {
         control.setLayout(layout);
 
         label = new Label(control, SWT.NONE);
-        label.setText("Loading...");
+        label.setText(Messages.DataLoadPanel_Loading);
     }
 
     public Composite getControl() {
