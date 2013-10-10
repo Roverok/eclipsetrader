@@ -65,7 +65,7 @@ import org.eclipsetrader.ui.Util;
 
 public class HistoryDataEditor {
 
-    public static final String PROP_DIRTY = "dirty";
+    public static final String PROP_DIRTY = "dirty"; //$NON-NLS-1$
 
     private final HistoryDataEditorModel model;
     private final DataBindingContext dbc;
@@ -156,37 +156,37 @@ public class HistoryDataEditor {
         gc.dispose();
 
         TableViewerColumn viewerColumn = new TableViewerColumn(viewer, SWT.NONE);
-        viewerColumn.getColumn().setText("Date");
+        viewerColumn.getColumn().setText(Messages.HistoryDataEditor_Date);
         viewerColumn.getColumn().setWidth(Dialog.convertHorizontalDLUsToPixels(fontMetrics, 70));
         viewerColumn.setEditingSupport(ObservableValueEditingSupport.create(viewer, dbc,
             new TextCellEditor(table), CellEditorValueProperty.dateValue(), BeanProperties.value(HistoryDataElement.PROP_DATE)));
 
         viewerColumn = new TableViewerColumn(viewer, SWT.RIGHT);
-        viewerColumn.getColumn().setText("Open");
+        viewerColumn.getColumn().setText(Messages.HistoryDataEditor_Open);
         viewerColumn.getColumn().setWidth(Dialog.convertHorizontalDLUsToPixels(fontMetrics, 55));
         viewerColumn.setEditingSupport(ObservableValueEditingSupport.create(viewer, dbc,
             new TextCellEditor(table), CellEditorValueProperty.doubleValue(), BeanProperties.value(HistoryDataElement.PROP_OPEN)));
 
         viewerColumn = new TableViewerColumn(viewer, SWT.RIGHT);
-        viewerColumn.getColumn().setText("High");
+        viewerColumn.getColumn().setText(Messages.HistoryDataEditor_High);
         viewerColumn.getColumn().setWidth(Dialog.convertHorizontalDLUsToPixels(fontMetrics, 55));
         viewerColumn.setEditingSupport(ObservableValueEditingSupport.create(viewer, dbc,
             new TextCellEditor(table), CellEditorValueProperty.doubleValue(), BeanProperties.value(HistoryDataElement.PROP_HIGH)));
 
         viewerColumn = new TableViewerColumn(viewer, SWT.RIGHT);
-        viewerColumn.getColumn().setText("Low");
+        viewerColumn.getColumn().setText(Messages.HistoryDataEditor_Low);
         viewerColumn.getColumn().setWidth(Dialog.convertHorizontalDLUsToPixels(fontMetrics, 55));
         viewerColumn.setEditingSupport(ObservableValueEditingSupport.create(viewer, dbc,
             new TextCellEditor(table), CellEditorValueProperty.doubleValue(), BeanProperties.value(HistoryDataElement.PROP_LOW)));
 
         viewerColumn = new TableViewerColumn(viewer, SWT.RIGHT);
-        viewerColumn.getColumn().setText("Close");
+        viewerColumn.getColumn().setText(Messages.HistoryDataEditor_Close);
         viewerColumn.getColumn().setWidth(Dialog.convertHorizontalDLUsToPixels(fontMetrics, 55));
         viewerColumn.setEditingSupport(ObservableValueEditingSupport.create(viewer, dbc,
             new TextCellEditor(table), CellEditorValueProperty.doubleValue(), BeanProperties.value(HistoryDataElement.PROP_CLOSE)));
 
         viewerColumn = new TableViewerColumn(viewer, SWT.RIGHT);
-        viewerColumn.getColumn().setText("Volume");
+        viewerColumn.getColumn().setText(Messages.HistoryDataEditor_Volume);
         viewerColumn.getColumn().setWidth(Dialog.convertHorizontalDLUsToPixels(fontMetrics, 70));
         viewerColumn.setEditingSupport(ObservableValueEditingSupport.create(viewer, dbc,
             new TextCellEditor(table), CellEditorValueProperty.longValue(), BeanProperties.value(HistoryDataElement.PROP_VOLUME)));
@@ -203,7 +203,7 @@ public class HistoryDataEditor {
             HistoryDataElement.PROP_LOW,
             HistoryDataElement.PROP_CLOSE,
             HistoryDataElement.PROP_VOLUME,
-            ""
+            "" //$NON-NLS-1$
         };
 
         DataViewerLabelProvider labelProvider = new DataViewerLabelProvider(BeansObservables.observeMaps(contentProvider.getKnownElements(), properties));
@@ -343,7 +343,7 @@ public class HistoryDataEditor {
             }
         });
         job.setResolutionTimeSpan(TimeSpan.days(1));
-        job.setName(NLS.bind("Loading {0} History...", new Object[] {
+        job.setName(NLS.bind(Messages.HistoryDataEditor_LoadingHistory, new Object[] {
             security.getName()
         }));
         job.setUser(true);

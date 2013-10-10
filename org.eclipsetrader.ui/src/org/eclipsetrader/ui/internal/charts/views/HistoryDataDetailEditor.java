@@ -61,7 +61,7 @@ import org.eclipsetrader.ui.Util;
 
 public class HistoryDataDetailEditor {
 
-    public static final String PROP_DIRTY = "dirty";
+    public static final String PROP_DIRTY = "dirty"; //$NON-NLS-1$
 
     private final HistoryDataDetailEditorModel model;
     private final DataBindingContext dbc;
@@ -137,37 +137,37 @@ public class HistoryDataDetailEditor {
         gc.dispose();
 
         TreeViewerColumn viewerColumn = new TreeViewerColumn(viewer, SWT.NONE);
-        viewerColumn.getColumn().setText("Time");
+        viewerColumn.getColumn().setText(Messages.HistoryDataDetailEditor_Time);
         viewerColumn.getColumn().setWidth(Dialog.convertHorizontalDLUsToPixels(fontMetrics, 70));
         viewerColumn.setEditingSupport(ObservableValueEditingSupport.create(viewer, dbc,
             new TextCellEditor(tree), CellEditorValueProperty.timeValue(), BeanProperties.value(HistoryDataElement.PROP_DATE)));
 
         viewerColumn = new TreeViewerColumn(viewer, SWT.RIGHT);
-        viewerColumn.getColumn().setText("Open");
+        viewerColumn.getColumn().setText(Messages.HistoryDataDetailEditor_Open);
         viewerColumn.getColumn().setWidth(Dialog.convertHorizontalDLUsToPixels(fontMetrics, 55));
         viewerColumn.setEditingSupport(ObservableValueEditingSupport.create(viewer, dbc,
             new TextCellEditor(tree), CellEditorValueProperty.doubleValue(), BeanProperties.value(HistoryDataElement.PROP_OPEN)));
 
         viewerColumn = new TreeViewerColumn(viewer, SWT.RIGHT);
-        viewerColumn.getColumn().setText("High");
+        viewerColumn.getColumn().setText(Messages.HistoryDataDetailEditor_High);
         viewerColumn.getColumn().setWidth(Dialog.convertHorizontalDLUsToPixels(fontMetrics, 55));
         viewerColumn.setEditingSupport(ObservableValueEditingSupport.create(viewer, dbc,
             new TextCellEditor(tree), CellEditorValueProperty.doubleValue(), BeanProperties.value(HistoryDataElement.PROP_HIGH)));
 
         viewerColumn = new TreeViewerColumn(viewer, SWT.RIGHT);
-        viewerColumn.getColumn().setText("Low");
+        viewerColumn.getColumn().setText(Messages.HistoryDataDetailEditor_Low);
         viewerColumn.getColumn().setWidth(Dialog.convertHorizontalDLUsToPixels(fontMetrics, 55));
         viewerColumn.setEditingSupport(ObservableValueEditingSupport.create(viewer, dbc,
             new TextCellEditor(tree), CellEditorValueProperty.doubleValue(), BeanProperties.value(HistoryDataElement.PROP_LOW)));
 
         viewerColumn = new TreeViewerColumn(viewer, SWT.RIGHT);
-        viewerColumn.getColumn().setText("Close");
+        viewerColumn.getColumn().setText(Messages.HistoryDataDetailEditor_Close);
         viewerColumn.getColumn().setWidth(Dialog.convertHorizontalDLUsToPixels(fontMetrics, 55));
         viewerColumn.setEditingSupport(ObservableValueEditingSupport.create(viewer, dbc,
             new TextCellEditor(tree), CellEditorValueProperty.doubleValue(), BeanProperties.value(HistoryDataElement.PROP_CLOSE)));
 
         viewerColumn = new TreeViewerColumn(viewer, SWT.RIGHT);
-        viewerColumn.getColumn().setText("Volume");
+        viewerColumn.getColumn().setText(Messages.HistoryDataDetailEditor_Volume);
         viewerColumn.getColumn().setWidth(Dialog.convertHorizontalDLUsToPixels(fontMetrics, 70));
         viewerColumn.setEditingSupport(ObservableValueEditingSupport.create(viewer, dbc,
             new TextCellEditor(tree), CellEditorValueProperty.longValue(), BeanProperties.value(HistoryDataElement.PROP_VOLUME)));
@@ -184,7 +184,7 @@ public class HistoryDataDetailEditor {
             HistoryDataElement.PROP_LOW,
             HistoryDataElement.PROP_CLOSE,
             HistoryDataElement.PROP_VOLUME,
-            ""
+            "" //$NON-NLS-1$
         };
 
         DataViewerLabelProvider labelProvider = new DataViewerLabelProvider(BeansObservables.observeMaps(contentProvider.getKnownElements(), properties));

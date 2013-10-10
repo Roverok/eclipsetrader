@@ -49,10 +49,10 @@ public class MainPropertiesPage extends PropertyPage {
         gridLayout.marginWidth = gridLayout.marginHeight = 0;
         content.setLayout(gridLayout);
         content.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true));
-        setTitle("General");
+        setTitle(Messages.MainPropertiesPage_General);
 
         Label label = new Label(content, SWT.NONE);
-        label.setText("Style");
+        label.setText(Messages.MainPropertiesPage_Style);
         style = new MainRenderStyleInput(content);
         style.getCombo().setLayoutData(new GridData(SWT.BEGINNING, SWT.CENTER, false, false, 2, 1));
 
@@ -61,7 +61,7 @@ public class MainPropertiesPage extends PropertyPage {
         ((GridData) label.getLayoutData()).heightHint = convertVerticalDLUsToPixels(5);
 
         override = new Button(content, SWT.CHECK);
-        override.setText("Override color theme");
+        override.setText(Messages.MainPropertiesPage_OverrideColorTheme);
         override.setLayoutData(new GridData(SWT.BEGINNING, SWT.CENTER, false, false, 3, 1));
         override.addSelectionListener(new SelectionAdapter() {
 
@@ -75,59 +75,59 @@ public class MainPropertiesPage extends PropertyPage {
         label.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 3, 1));
 
         label = new Label(content, SWT.NONE);
-        label.setText("Line");
+        label.setText(Messages.MainPropertiesPage_Line);
         lineColor = new ColorSelector(content);
         lineColor.setColorValue(new RGB(0, 0, 255));
-        lineColor.getButton().setData("label", label);
+        lineColor.getButton().setData("label", label); //$NON-NLS-1$
         label = new Label(content, SWT.NONE);
         label.setLayoutData(new GridData(SWT.BEGINNING, SWT.CENTER, false, false));
 
         label = new Label(content, SWT.NONE);
-        label.setText("Bars");
+        label.setText(Messages.MainPropertiesPage_Bars);
         barPositiveColor = new ColorSelector(content);
         barPositiveColor.setColorValue(new RGB(0, 0, 255));
-        barPositiveColor.getButton().setData("label", label);
+        barPositiveColor.getButton().setData("label", label); //$NON-NLS-1$
         label = new Label(content, SWT.NONE);
-        label.setText("Positive");
+        label.setText(Messages.MainPropertiesPage_Positive);
         label.setLayoutData(new GridData(SWT.BEGINNING, SWT.CENTER, false, false));
-        barPositiveColor.getButton().setData("label2", label);
+        barPositiveColor.getButton().setData("label2", label); //$NON-NLS-1$
 
         label = new Label(content, SWT.NONE);
         barNegativeColor = new ColorSelector(content);
         barNegativeColor.setColorValue(new RGB(0, 0, 255));
-        barNegativeColor.getButton().setData("label", label);
+        barNegativeColor.getButton().setData("label", label); //$NON-NLS-1$
         label = new Label(content, SWT.NONE);
-        label.setText("Negative");
+        label.setText(Messages.MainPropertiesPage_Negative);
         label.setLayoutData(new GridData(SWT.BEGINNING, SWT.CENTER, false, false));
-        barNegativeColor.getButton().setData("label2", label);
+        barNegativeColor.getButton().setData("label2", label); //$NON-NLS-1$
 
         label = new Label(content, SWT.NONE);
-        label.setText("Candles");
+        label.setText(Messages.MainPropertiesPage_Candles);
         candlePositiveColor = new ColorSelector(content);
         candlePositiveColor.setColorValue(new RGB(0, 0, 255));
-        candlePositiveColor.getButton().setData("label", label);
+        candlePositiveColor.getButton().setData("label", label); //$NON-NLS-1$
         label = new Label(content, SWT.NONE);
-        label.setText("Positive");
+        label.setText(Messages.MainPropertiesPage_Positive);
         label.setLayoutData(new GridData(SWT.BEGINNING, SWT.CENTER, false, false));
-        candlePositiveColor.getButton().setData("label2", label);
+        candlePositiveColor.getButton().setData("label2", label); //$NON-NLS-1$
 
         label = new Label(content, SWT.NONE);
         candleNegativeColor = new ColorSelector(content);
         candleNegativeColor.setColorValue(new RGB(0, 0, 255));
-        candleNegativeColor.getButton().setData("label", label);
+        candleNegativeColor.getButton().setData("label", label); //$NON-NLS-1$
         label = new Label(content, SWT.NONE);
-        label.setText("Negative");
+        label.setText(Messages.MainPropertiesPage_Negative);
         label.setLayoutData(new GridData(SWT.BEGINNING, SWT.CENTER, false, false));
-        candleNegativeColor.getButton().setData("label2", label);
+        candleNegativeColor.getButton().setData("label2", label); //$NON-NLS-1$
 
         label = new Label(content, SWT.NONE);
         candleOutlineColor = new ColorSelector(content);
         candleOutlineColor.setColorValue(new RGB(0, 0, 255));
-        candleOutlineColor.getButton().setData("label", label);
+        candleOutlineColor.getButton().setData("label", label); //$NON-NLS-1$
         label = new Label(content, SWT.NONE);
-        label.setText("Outline");
+        label.setText(Messages.MainPropertiesPage_20);
         label.setLayoutData(new GridData(SWT.BEGINNING, SWT.CENTER, false, false));
-        candleOutlineColor.getButton().setData("label2", label);
+        candleOutlineColor.getButton().setData("label2", label); //$NON-NLS-1$
 
         performDefaults();
 
@@ -213,23 +213,23 @@ public class MainPropertiesPage extends PropertyPage {
 
     protected void updateControlsEnablement() {
         lineColor.setEnabled(override.getSelection());
-        ((Label) lineColor.getButton().getData("label")).setEnabled(override.getSelection());
+        ((Label) lineColor.getButton().getData("label")).setEnabled(override.getSelection()); //$NON-NLS-1$
 
         barPositiveColor.setEnabled(override.getSelection());
-        ((Label) barPositiveColor.getButton().getData("label")).setEnabled(override.getSelection());
-        ((Label) barPositiveColor.getButton().getData("label2")).setEnabled(override.getSelection());
+        ((Label) barPositiveColor.getButton().getData("label")).setEnabled(override.getSelection()); //$NON-NLS-1$
+        ((Label) barPositiveColor.getButton().getData("label2")).setEnabled(override.getSelection()); //$NON-NLS-1$
         barNegativeColor.setEnabled(override.getSelection());
-        ((Label) barNegativeColor.getButton().getData("label")).setEnabled(override.getSelection());
-        ((Label) barNegativeColor.getButton().getData("label2")).setEnabled(override.getSelection());
+        ((Label) barNegativeColor.getButton().getData("label")).setEnabled(override.getSelection()); //$NON-NLS-1$
+        ((Label) barNegativeColor.getButton().getData("label2")).setEnabled(override.getSelection()); //$NON-NLS-1$
 
         candlePositiveColor.setEnabled(override.getSelection());
-        ((Label) candlePositiveColor.getButton().getData("label")).setEnabled(override.getSelection());
-        ((Label) candlePositiveColor.getButton().getData("label2")).setEnabled(override.getSelection());
+        ((Label) candlePositiveColor.getButton().getData("label")).setEnabled(override.getSelection()); //$NON-NLS-1$
+        ((Label) candlePositiveColor.getButton().getData("label2")).setEnabled(override.getSelection()); //$NON-NLS-1$
         candleNegativeColor.setEnabled(override.getSelection());
-        ((Label) candleNegativeColor.getButton().getData("label")).setEnabled(override.getSelection());
-        ((Label) candleNegativeColor.getButton().getData("label2")).setEnabled(override.getSelection());
+        ((Label) candleNegativeColor.getButton().getData("label")).setEnabled(override.getSelection()); //$NON-NLS-1$
+        ((Label) candleNegativeColor.getButton().getData("label2")).setEnabled(override.getSelection()); //$NON-NLS-1$
         candleOutlineColor.setEnabled(override.getSelection());
-        ((Label) candleOutlineColor.getButton().getData("label")).setEnabled(override.getSelection());
-        ((Label) candleOutlineColor.getButton().getData("label2")).setEnabled(override.getSelection());
+        ((Label) candleOutlineColor.getButton().getData("label")).setEnabled(override.getSelection()); //$NON-NLS-1$
+        ((Label) candleOutlineColor.getButton().getData("label2")).setEnabled(override.getSelection()); //$NON-NLS-1$
     }
 }
