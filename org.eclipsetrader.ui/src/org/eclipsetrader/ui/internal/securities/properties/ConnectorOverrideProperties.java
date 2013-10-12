@@ -58,7 +58,7 @@ public class ConnectorOverrideProperties extends PropertyPage implements IWorkbe
     ComboViewer intradayBackfillFeed;
 
     public ConnectorOverrideProperties() {
-        setTitle("Overrides");
+        setTitle(Messages.ConnectorOverrideProperties_Overrides);
     }
 
     /* (non-Javadoc)
@@ -73,7 +73,7 @@ public class ConnectorOverrideProperties extends PropertyPage implements IWorkbe
         initializeDialogUnits(content);
 
         liveFeedOverride = new Button(content, SWT.CHECK);
-        liveFeedOverride.setText("Live Feed");
+        liveFeedOverride.setText(Messages.ConnectorOverrideProperties_LiveFeed);
         liveFeedOverride.addSelectionListener(new SelectionAdapter() {
 
             @Override
@@ -92,8 +92,8 @@ public class ConnectorOverrideProperties extends PropertyPage implements IWorkbe
             public String getText(Object element) {
                 if (!(element instanceof IFeedConnector)) {
                     IFeedConnector defaultConnector = CoreActivator.getDefault() != null ? CoreActivator.getDefault().getDefaultConnector() : null;
-                    return NLS.bind("Default ({0})", new Object[] {
-                        defaultConnector != null ? defaultConnector.getName() : "None",
+                    return NLS.bind(Messages.ConnectorOverrideProperties_Default, new Object[] {
+                        defaultConnector != null ? defaultConnector.getName() : Messages.ConnectorOverrideProperties_None,
                     });
                 }
                 return ((IFeedConnector) element).getName();
@@ -103,7 +103,7 @@ public class ConnectorOverrideProperties extends PropertyPage implements IWorkbe
         liveFeed.setContentProvider(new ArrayContentProvider());
 
         backfillFeedOverride = new Button(content, SWT.CHECK);
-        backfillFeedOverride.setText("History Backfill");
+        backfillFeedOverride.setText(Messages.ConnectorOverrideProperties_HistoryBackfill);
         backfillFeedOverride.addSelectionListener(new SelectionAdapter() {
 
             @Override
@@ -121,7 +121,7 @@ public class ConnectorOverrideProperties extends PropertyPage implements IWorkbe
             @Override
             public String getText(Object element) {
                 if (!(element instanceof IBackfillConnector)) {
-                    return "None";
+                    return Messages.ConnectorOverrideProperties_None;
                 }
                 return ((IBackfillConnector) element).getName();
             }
@@ -130,7 +130,7 @@ public class ConnectorOverrideProperties extends PropertyPage implements IWorkbe
         backfillFeed.setContentProvider(new ArrayContentProvider());
 
         intradayBackfillFeedOverride = new Button(content, SWT.CHECK);
-        intradayBackfillFeedOverride.setText("Intraday Backfill");
+        intradayBackfillFeedOverride.setText(Messages.ConnectorOverrideProperties_IntradayBackfill);
         intradayBackfillFeedOverride.addSelectionListener(new SelectionAdapter() {
 
             @Override
@@ -149,8 +149,8 @@ public class ConnectorOverrideProperties extends PropertyPage implements IWorkbe
             public String getText(Object element) {
                 if (!(element instanceof IBackfillConnector)) {
                     Object o = ((IStructuredSelection) backfillFeed.getSelection()).getFirstElement();
-                    return NLS.bind("Default ({0})", new Object[] {
-                        o instanceof IBackfillConnector ? ((IBackfillConnector) o).getName() : "None",
+                    return NLS.bind(Messages.ConnectorOverrideProperties_Default, new Object[] {
+                        o instanceof IBackfillConnector ? ((IBackfillConnector) o).getName() : Messages.ConnectorOverrideProperties_None,
                     });
                 }
                 return ((IBackfillConnector) element).getName();
@@ -248,7 +248,7 @@ public class ConnectorOverrideProperties extends PropertyPage implements IWorkbe
             context.ungetService(serviceReference);
             return service;
         } catch (Exception e) {
-            Status status = new Status(IStatus.ERROR, UIActivator.PLUGIN_ID, 0, "Error reading feed service", e);
+            Status status = new Status(IStatus.ERROR, UIActivator.PLUGIN_ID, 0, Messages.ConnectorOverrideProperties_ErrorReadingFeedService, e);
             UIActivator.getDefault().getLog().log(status);
         }
         return null;

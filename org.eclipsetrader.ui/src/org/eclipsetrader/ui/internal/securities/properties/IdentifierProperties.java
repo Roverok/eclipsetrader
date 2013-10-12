@@ -56,7 +56,7 @@ public class IdentifierProperties extends PropertyPage implements IWorkbenchProp
     };
 
     public IdentifierProperties() {
-        setTitle("Identifier");
+        setTitle(Messages.IdentifierProperties_Identifier);
     }
 
     /* (non-Javadoc)
@@ -71,12 +71,12 @@ public class IdentifierProperties extends PropertyPage implements IWorkbenchProp
         initializeDialogUnits(content);
 
         Label label = new Label(content, SWT.NONE);
-        label.setText("Identifier name:");
+        label.setText(Messages.IdentifierProperties_IdentifierName);
         name = new Text(content, SWT.BORDER);
         name.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
 
         propertiesLabel = new Label(content, SWT.NONE);
-        propertiesLabel.setText("Properties:");
+        propertiesLabel.setText(Messages.IdentifierProperties_Properties);
         propertiesLabel.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 2, 1));
         properties = new FeedPropertiesControl(content);
         properties.getControl().setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 2, 1));
@@ -111,7 +111,7 @@ public class IdentifierProperties extends PropertyPage implements IWorkbenchProp
     protected void applyChanges() {
         Security security = (Security) getElement().getAdapter(Security.class);
         if (security != null) {
-            if (name.getText().equals("")) {
+            if (name.getText().equals("")) { //$NON-NLS-1$
                 security.setIdentifier(null);
             }
             else {
@@ -172,7 +172,7 @@ public class IdentifierProperties extends PropertyPage implements IWorkbenchProp
     }
 
     protected void updateSymbolSelection() {
-        boolean hasIdentifier = !name.getText().equals("");
+        boolean hasIdentifier = !name.getText().equals(""); //$NON-NLS-1$
         propertiesLabel.setEnabled(hasIdentifier);
         properties.getTree().setEnabled(hasIdentifier);
     }

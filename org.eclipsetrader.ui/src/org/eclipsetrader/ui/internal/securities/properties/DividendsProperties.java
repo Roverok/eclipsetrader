@@ -78,7 +78,7 @@ public class DividendsProperties extends PropertyPage implements IWorkbenchPrope
                     return numberFormat.format(dividend.getValue());
             }
 
-            return "";
+            return ""; //$NON-NLS-1$
         }
     }
 
@@ -93,11 +93,11 @@ public class DividendsProperties extends PropertyPage implements IWorkbenchPrope
         public Object getValue(Object element, String property) {
             Dividend dividend = (Dividend) element;
 
-            if ("ex-date".equals(property)) {
+            if ("ex-date".equals(property)) { //$NON-NLS-1$
                 return dividend.getExDate();
             }
 
-            if ("amount".equals(property)) {
+            if ("amount".equals(property)) { //$NON-NLS-1$
                 return dividend.getValue();
             }
 
@@ -108,10 +108,10 @@ public class DividendsProperties extends PropertyPage implements IWorkbenchPrope
         public void modify(Object element, String property, Object value) {
             Dividend dividend = (Dividend) (element instanceof Dividend ? element : ((TableItem) element).getData());
 
-            if ("ex-date".equals(property)) {
+            if ("ex-date".equals(property)) { //$NON-NLS-1$
                 dividend.setExDate((Date) value);
             }
-            else if ("amount".equals(property)) {
+            else if ("amount".equals(property)) { //$NON-NLS-1$
                 dividend.setValue((Double) value);
             }
 
@@ -120,7 +120,7 @@ public class DividendsProperties extends PropertyPage implements IWorkbenchPrope
     }
 
     public DividendsProperties() {
-        setTitle("Dividends");
+        setTitle(Messages.DividendsProperties_Dividents);
     }
 
     /* (non-Javadoc)
@@ -141,11 +141,11 @@ public class DividendsProperties extends PropertyPage implements IWorkbenchPrope
         ((GridData) viewer.getControl().getLayoutData()).heightHint = viewer.getTable().getItemHeight() * 5;
 
         TableColumn tableColumn = new TableColumn(viewer.getTable(), SWT.NONE);
-        tableColumn.setText("Ex. Date");
+        tableColumn.setText(Messages.DividendsProperties_ExDate);
         tableColumn.setWidth(convertHorizontalDLUsToPixels(70));
 
         tableColumn = new TableColumn(viewer.getTable(), SWT.NONE);
-        tableColumn.setText("Amount");
+        tableColumn.setText(Messages.DividendsProperties_Amount);
         tableColumn.setWidth(convertHorizontalDLUsToPixels(70));
 
         viewer.setLabelProvider(new DividendLabelProvider());
@@ -160,7 +160,7 @@ public class DividendsProperties extends PropertyPage implements IWorkbenchPrope
 
         viewer.setCellModifier(new DividendCellModifier());
         viewer.setColumnProperties(new String[] {
-                "ex-date", "amount"
+                "ex-date", "amount" //$NON-NLS-1$ //$NON-NLS-2$
         });
         viewer.setCellEditors(new CellEditor[] {
                 new DateCellEditor(viewer.getTable()),
@@ -190,7 +190,7 @@ public class DividendsProperties extends PropertyPage implements IWorkbenchPrope
         content.setLayoutData(new GridData(SWT.FILL, SWT.FILL, false, false));
 
         add = new Button(content, SWT.PUSH);
-        add.setText("Add");
+        add.setText(Messages.DividendsProperties_Add);
         add.setLayoutData(new GridData(SWT.FILL, SWT.FILL, false, false));
         add.addSelectionListener(new SelectionAdapter() {
 
@@ -202,7 +202,7 @@ public class DividendsProperties extends PropertyPage implements IWorkbenchPrope
         });
 
         remove = new Button(content, SWT.PUSH);
-        remove.setText("Remove");
+        remove.setText(Messages.DividendsProperties_Remove);
         remove.setLayoutData(new GridData(SWT.FILL, SWT.FILL, false, false));
         remove.addSelectionListener(new SelectionAdapter() {
 

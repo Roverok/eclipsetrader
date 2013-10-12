@@ -46,8 +46,8 @@ public class NamePage extends WizardPage {
     };
 
     public NamePage() {
-        super("name", "Watch List", null);
-        setDescription("Create a new Watch List");
+        super("name", Messages.NamePage_WatchList, null); //$NON-NLS-1$
+        setDescription(Messages.NamePage_CreateNewWatchList);
     }
 
     /* (non-Javadoc)
@@ -61,7 +61,7 @@ public class NamePage extends WizardPage {
         initializeDialogUnits(content);
 
         Label label = new Label(content, SWT.NONE);
-        label.setText("Watch List name:");
+        label.setText(Messages.NamePage_WatchListName);
         name = new Text(content, SWT.BORDER);
         name.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
         name.addModifyListener(modifyListener);
@@ -70,7 +70,7 @@ public class NamePage extends WizardPage {
         label.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 2, 1));
 
         label = new Label(content, SWT.NONE);
-        label.setText("Target repository:");
+        label.setText(Messages.NamePage_TargetRepository);
         label.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 2, 1));
         repository = new ComboViewer(content, SWT.READ_ONLY);
         repository.getControl().setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 2, 1));
@@ -78,7 +78,7 @@ public class NamePage extends WizardPage {
         repository.setContentProvider(new ArrayContentProvider());
         repository.setSorter(new ViewerSorter());
         repository.setInput(getRepositoryService().getRepositories());
-        repository.setSelection(new StructuredSelection(getRepositoryService().getRepository("local")));
+        repository.setSelection(new StructuredSelection(getRepositoryService().getRepository("local"))); //$NON-NLS-1$
     }
 
     /* (non-Javadoc)
@@ -99,11 +99,11 @@ public class NamePage extends WizardPage {
      */
     @Override
     public boolean isPageComplete() {
-        if (name.getText().equals("")) {
+        if (name.getText().equals("")) { //$NON-NLS-1$
             return false;
         }
         if (getRepositoryService().getWatchListFromName(name.getText()) != null) {
-            setErrorMessage("A watch list with the same name already exists. Choose a different name.");
+            setErrorMessage(Messages.NamePage_SameNamePrompt);
             return false;
         }
         if (getErrorMessage() != null) {

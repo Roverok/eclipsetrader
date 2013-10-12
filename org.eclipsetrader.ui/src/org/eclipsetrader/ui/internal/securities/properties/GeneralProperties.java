@@ -72,7 +72,7 @@ public class GeneralProperties extends PropertyPage implements IWorkbenchPropert
     };
 
     public GeneralProperties() {
-        setTitle("General");
+        setTitle(Messages.GeneralProperties_General);
     }
 
     /* (non-Javadoc)
@@ -87,14 +87,14 @@ public class GeneralProperties extends PropertyPage implements IWorkbenchPropert
         initializeDialogUnits(content);
 
         Label label = new Label(content, SWT.NONE);
-        label.setText("Security name:");
+        label.setText(Messages.GeneralProperties_SecurityName);
         name = new Text(content, SWT.BORDER);
         name.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
 
         IStock stock = (IStock) getElement().getAdapter(IStock.class);
         if (stock != null) {
             label = new Label(content, SWT.NONE);
-            label.setText("Currency:");
+            label.setText(Messages.GeneralProperties_Currency);
             currency = new ComboViewer(content, SWT.READ_ONLY);
             currency.setLabelProvider(new LabelProvider() {
 
@@ -113,7 +113,7 @@ public class GeneralProperties extends PropertyPage implements IWorkbenchPropert
         label.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 2, 1));
 
         label = new Label(content, SWT.NONE);
-        label.setText("Target repository:");
+        label.setText(Messages.GeneralProperties_TargetRepository);
         label.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 2, 1));
         label.setEnabled(false);
         repository = new ComboViewer(content, SWT.READ_ONLY);
@@ -171,13 +171,13 @@ public class GeneralProperties extends PropertyPage implements IWorkbenchPropert
      */
     @Override
     public boolean isValid() {
-        if (name.getText().equals("")) {
-            setErrorMessage("The security must have a name.");
+        if (name.getText().equals("")) { //$NON-NLS-1$
+            setErrorMessage(Messages.GeneralProperties_SecurityMustHaveName);
             return false;
         }
         ISecurity security = getRepositoryService().getSecurityFromName(name.getText());
         if (security != null && security != getElement().getAdapter(ISecurity.class)) {
-            setErrorMessage("A security with the same name already exists. Choose a different name.");
+            setErrorMessage(Messages.GeneralProperties_SameNamePrompt);
             return false;
         }
         if (getErrorMessage() != null) {

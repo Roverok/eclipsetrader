@@ -46,7 +46,7 @@ public class GeneralProperties extends PropertyPage implements IWorkbenchPropert
     };
 
     public GeneralProperties() {
-        setTitle("General");
+        setTitle(Messages.GeneralProperties_General);
     }
 
     /* (non-Javadoc)
@@ -61,7 +61,7 @@ public class GeneralProperties extends PropertyPage implements IWorkbenchPropert
         initializeDialogUnits(content);
 
         Label label = new Label(content, SWT.NONE);
-        label.setText("Watch List name:");
+        label.setText(Messages.GeneralProperties_WatchListName);
         name = new Text(content, SWT.BORDER);
         name.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
 
@@ -69,7 +69,7 @@ public class GeneralProperties extends PropertyPage implements IWorkbenchPropert
         label.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 2, 1));
 
         label = new Label(content, SWT.NONE);
-        label.setText("Target repository:");
+        label.setText(Messages.GeneralProperties_TargetRepository);
         label.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 2, 1));
         label.setEnabled(false);
         repository = new ComboViewer(content, SWT.READ_ONLY);
@@ -110,13 +110,13 @@ public class GeneralProperties extends PropertyPage implements IWorkbenchPropert
      */
     @Override
     public boolean isValid() {
-        if (name.getText().equals("")) {
-            setErrorMessage("The watch list must have a name.");
+        if (name.getText().equals("")) { //$NON-NLS-1$
+            setErrorMessage(Messages.GeneralProperties_WatchListMustHaveName);
             return false;
         }
         IWatchList resource = getRepositoryService().getWatchListFromName(name.getText());
         if (resource != null && resource != getElement().getAdapter(IWatchList.class)) {
-            setErrorMessage("A watch list with the same name already exists. Choose a different name.");
+            setErrorMessage(Messages.GeneralProperties_SameNamePrompt);
             return false;
         }
         if (getErrorMessage() != null) {

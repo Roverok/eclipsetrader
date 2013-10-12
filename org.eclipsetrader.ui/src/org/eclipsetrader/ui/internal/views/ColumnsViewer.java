@@ -54,12 +54,12 @@ public class ColumnsViewer {
     private TableViewer selected;
     private Button up;
     private Button down;
-    private Image rightImage = UIActivator.getImageDescriptor("icons/etool16/right.gif").createImage();
-    private Image allRightImage = UIActivator.getImageDescriptor("icons/etool16/all-right.gif").createImage();
-    private Image allLeftImage = UIActivator.getImageDescriptor("icons/etool16/all-left.gif").createImage();
-    private Image leftImage = UIActivator.getImageDescriptor("icons/etool16/left.gif").createImage();
-    private Image upImage = UIActivator.getImageDescriptor("icons/etool16/up.gif").createImage();
-    private Image downImage = UIActivator.getImageDescriptor("icons/etool16/down.gif").createImage();
+    private Image rightImage = UIActivator.getImageDescriptor("icons/etool16/right.gif").createImage(); //$NON-NLS-1$
+    private Image allRightImage = UIActivator.getImageDescriptor("icons/etool16/all-right.gif").createImage(); //$NON-NLS-1$
+    private Image allLeftImage = UIActivator.getImageDescriptor("icons/etool16/all-left.gif").createImage(); //$NON-NLS-1$
+    private Image leftImage = UIActivator.getImageDescriptor("icons/etool16/left.gif").createImage(); //$NON-NLS-1$
+    private Image upImage = UIActivator.getImageDescriptor("icons/etool16/up.gif").createImage(); //$NON-NLS-1$
+    private Image downImage = UIActivator.getImageDescriptor("icons/etool16/down.gif").createImage(); //$NON-NLS-1$
 
     private List<IDataProviderFactory> input = new ArrayList<IDataProviderFactory>();
     private List<IColumn> selection = new ArrayList<IColumn>();
@@ -109,11 +109,11 @@ public class ColumnsViewer {
 
     protected void createLabels(Composite parent) {
         Label label = new Label(parent, SWT.NONE);
-        label.setText("Available columns");
+        label.setText(Messages.ColumnsViewer_AvailableColumns);
         label.setLayoutData(new GridData(SWT.FILL, SWT.TOP, true, false));
 
         label = new Label(parent, SWT.NONE);
-        label.setText("Shown columns");
+        label.setText(Messages.ColumnsViewer_ShownColumns);
         label.setLayoutData(new GridData(SWT.FILL, SWT.TOP, true, false));
     }
 
@@ -234,14 +234,14 @@ public class ColumnsViewer {
                     return column.getDataProviderFactory().getName();
                 }
                 else {
-                    return NLS.bind("{0} ({1})", column.getName(), column.getDataProviderFactory().getName());
+                    return NLS.bind("{0} ({1})", column.getName(), column.getDataProviderFactory().getName()); //$NON-NLS-1$
                 }
             }
         });
         selected.setContentProvider(new ArrayContentProvider());
 
         selected.setColumnProperties(new String[] {
-            "name"
+            "name" //$NON-NLS-1$
         });
         selected.setCellModifier(new ICellModifier() {
 
@@ -261,7 +261,7 @@ public class ColumnsViewer {
                 IColumn column = (IColumn) (element instanceof IColumn ? element : ((Item) element).getData());
                 if (column instanceof Column) {
                     String name = value.toString();
-                    if (name.equals("") || name.equals(column.getDataProviderFactory().getName())) {
+                    if (name.equals("") || name.equals(column.getDataProviderFactory().getName())) { //$NON-NLS-1$
                         name = null;
                     }
                     ((Column) column).setName(name);

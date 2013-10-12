@@ -30,8 +30,8 @@ public class ColumnsPage extends WizardPage {
     private IColumn[] defaultColumns;
 
     public ColumnsPage() {
-        super("columns", "Columns", null);
-        setDescription("Select the columns to display");
+        super("columns", Messages.ColumnsPage_Columns, null); //$NON-NLS-1$
+        setDescription(Messages.ColumnsPage_SelectColumnsToDisplay);
     }
 
     public void setDefaultColumns(IColumn[] defaultColumns) {
