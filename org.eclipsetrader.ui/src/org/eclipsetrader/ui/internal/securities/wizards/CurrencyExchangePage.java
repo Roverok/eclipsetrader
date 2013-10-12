@@ -60,8 +60,8 @@ public class CurrencyExchangePage extends WizardPage {
     };
 
     public CurrencyExchangePage() {
-        super("name", "Currency Exchange", null);
-        setDescription("Create a new Currency Exchange");
+        super("name", Messages.CurrencyExchangePage_CurrencyExchange, null); //$NON-NLS-1$
+        setDescription(Messages.CurrencyExchangePage_CreateCurrencyExchange);
     }
 
     /* (non-Javadoc)
@@ -75,21 +75,21 @@ public class CurrencyExchangePage extends WizardPage {
         initializeDialogUnits(content);
 
         Label label = new Label(content, SWT.NONE);
-        label.setText("Security name:");
+        label.setText(Messages.CurrencyExchangePage_SecurityName);
         name = new Text(content, SWT.BORDER);
         name.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
         name.addModifyListener(modifyListener);
         name.setFocus();
 
         label = new Label(content, SWT.NONE);
-        label.setText("From Currency:");
+        label.setText(Messages.CurrencyExchangePage_FromCurrency);
         fromCurrency = new ComboViewer(content, SWT.READ_ONLY);
         fromCurrency.setLabelProvider(new LabelProvider() {
 
             @Override
             public String getText(Object element) {
                 Locale locale = (Locale) element;
-                return NLS.bind("{0} ({1})", new Object[] {
+                return NLS.bind("{0} ({1})", new Object[] { //$NON-NLS-1$
                         locale.getDisplayCountry(),
                         Currency.getInstance(locale).getCurrencyCode(),
                 });
@@ -99,14 +99,14 @@ public class CurrencyExchangePage extends WizardPage {
         fromCurrency.setSorter(new ViewerSorter());
 
         label = new Label(content, SWT.NONE);
-        label.setText("To Currency:");
+        label.setText(Messages.CurrencyExchangePage_ToCurrency);
         toCurrency = new ComboViewer(content, SWT.READ_ONLY);
         toCurrency.setLabelProvider(new LabelProvider() {
 
             @Override
             public String getText(Object element) {
                 Locale locale = (Locale) element;
-                return NLS.bind("{0} ({1})", new Object[] {
+                return NLS.bind("{0} ({1})", new Object[] { //$NON-NLS-1$
                         locale.getDisplayCountry(),
                         Currency.getInstance(locale).getCurrencyCode(),
                 });
@@ -119,7 +119,7 @@ public class CurrencyExchangePage extends WizardPage {
         label.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 2, 1));
 
         label = new Label(content, SWT.NONE);
-        label.setText("Target repository:");
+        label.setText(Messages.CurrencyExchangePage_TargetRepository);
         label.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 2, 1));
         repository = new ComboViewer(content, SWT.READ_ONLY);
         repository.getControl().setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 2, 1));
@@ -127,7 +127,7 @@ public class CurrencyExchangePage extends WizardPage {
         repository.setContentProvider(new ArrayContentProvider());
         repository.setSorter(new ViewerSorter());
         repository.setInput(getRepositoryService().getRepositories());
-        repository.setSelection(new StructuredSelection(getRepositoryService().getRepository("local")));
+        repository.setSelection(new StructuredSelection(getRepositoryService().getRepository("local"))); //$NON-NLS-1$
 
         List<Locale> locale = new ArrayList<Locale>(Arrays.asList(Locale.getAvailableLocales()));
         Collections.sort(locale, new Comparator<Locale>() {
@@ -194,11 +194,11 @@ public class CurrencyExchangePage extends WizardPage {
      */
     @Override
     public boolean isPageComplete() {
-        if (name.getText().equals("")) {
+        if (name.getText().equals("")) { //$NON-NLS-1$
             return false;
         }
         if (getRepositoryService().getSecurityFromName(name.getText()) != null) {
-            setErrorMessage("A security with the same name already exists. Choose a different name.");
+            setErrorMessage(Messages.CurrencyExchangePage_SameNamePrompt);
             return false;
         }
 

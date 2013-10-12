@@ -39,7 +39,7 @@ public class MarketsProperties extends PropertyPage implements IWorkbenchPropert
     private CheckboxTableViewer markets;
 
     public MarketsProperties() {
-        setTitle("Markets");
+        setTitle(Messages.MarketsProperties_Markets);
     }
 
     /* (non-Javadoc)
@@ -54,7 +54,7 @@ public class MarketsProperties extends PropertyPage implements IWorkbenchPropert
         initializeDialogUnits(content);
 
         marketsLabel = new Label(content, SWT.NONE);
-        marketsLabel.setText("Markets:");
+        marketsLabel.setText(Messages.MarketsProperties_Markets2);
         marketsLabel.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 2, 1));
         markets = CheckboxTableViewer.newCheckList(content, SWT.SINGLE | SWT.BORDER | SWT.V_SCROLL | SWT.H_SCROLL);
         markets.getControl().setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 2, 1));

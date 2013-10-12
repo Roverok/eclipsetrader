@@ -50,8 +50,8 @@ public class IdentifierPage extends WizardPage {
     };
 
     public IdentifierPage() {
-        super("identifier", "Identifier", null);
-        setDescription("Assign a feed identifier to the Security");
+        super("identifier", Messages.IdentifierPage_Identifier, null); //$NON-NLS-1$
+        setDescription(Messages.IdentifierPage_AssignFeedIdentifier);
     }
 
     /* (non-Javadoc)
@@ -65,13 +65,13 @@ public class IdentifierPage extends WizardPage {
         initializeDialogUnits(content);
 
         Label label = new Label(content, SWT.NONE);
-        label.setText("Identifier name:");
+        label.setText(Messages.IdentifierPage_IdentifierName);
         name = new Text(content, SWT.BORDER);
         name.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
         name.addModifyListener(modifyListener);
 
         propertiesLabel = new Label(content, SWT.NONE);
-        propertiesLabel.setText("Properties:");
+        propertiesLabel.setText(Messages.IdentifierPage_Properties);
         propertiesLabel.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 2, 1));
         properties = new FeedPropertiesControl(content);
         properties.getControl().setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 2, 1));
@@ -116,7 +116,7 @@ public class IdentifierPage extends WizardPage {
             properties.setProperties(null);
         }
 
-        boolean hasIdentifier = !name.getText().equals("");
+        boolean hasIdentifier = !name.getText().equals(""); //$NON-NLS-1$
         propertiesLabel.setEnabled(hasIdentifier);
         properties.getTree().setEnabled(hasIdentifier);
     }
@@ -126,7 +126,7 @@ public class IdentifierPage extends WizardPage {
     }
 
     public IFeedIdentifier getFeedIdentifier() {
-        if (!name.getText().equals("")) {
+        if (!name.getText().equals("")) { //$NON-NLS-1$
             if (feedIdentifier == null) {
                 feedIdentifier = new FeedIdentifier(name.getText(), new FeedProperties());
             }

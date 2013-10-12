@@ -30,7 +30,7 @@ public class ColumnsProperties extends PropertyPage implements IWorkbenchPropert
     private ColumnsViewer providers;
 
     public ColumnsProperties() {
-        setTitle("Columns");
+        setTitle(Messages.ColumnsProperties_Columns);
     }
 
     /* (non-Javadoc)

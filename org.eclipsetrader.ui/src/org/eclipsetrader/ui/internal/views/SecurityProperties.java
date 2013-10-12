@@ -29,7 +29,7 @@ public class SecurityProperties extends PropertyPage implements IWorkbenchProper
     private SecuritySelectionControl providers;
 
     public SecurityProperties() {
-        setTitle("Securities");
+        setTitle(Messages.SecurityProperties_Securities);
     }
 
     /* (non-Javadoc)

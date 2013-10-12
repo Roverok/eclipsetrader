@@ -37,7 +37,7 @@ public class SecurityWizard extends Wizard implements INewWizard {
     private MarketsPage marketsPage;
 
     public SecurityWizard() {
-        ImageDescriptor descriptor = ImageDescriptor.createFromURL(UIActivator.getDefault().getBundle().getResource("icons/wizban/newfile_wiz.gif"));
+        ImageDescriptor descriptor = ImageDescriptor.createFromURL(UIActivator.getDefault().getBundle().getResource("icons/wizban/newfile_wiz.gif")); //$NON-NLS-1$
         image = descriptor.createImage();
     }
 
@@ -64,7 +64,7 @@ public class SecurityWizard extends Wizard implements INewWizard {
      */
     @Override
     public String getWindowTitle() {
-        return "New Common Stock";
+        return Messages.SecurityWizard_NewCommonStock;
     }
 
     /* (non-Javadoc)

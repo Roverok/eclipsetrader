@@ -72,7 +72,7 @@ public class CurrencyGeneralProperties extends PropertyPage implements IWorkbenc
     };
 
     public CurrencyGeneralProperties() {
-        setTitle("General");
+        setTitle(Messages.CurrencyGeneralProperties_General);
     }
 
     /* (non-Javadoc)
@@ -87,12 +87,12 @@ public class CurrencyGeneralProperties extends PropertyPage implements IWorkbenc
         initializeDialogUnits(content);
 
         Label label = new Label(content, SWT.NONE);
-        label.setText("Security name:");
+        label.setText(Messages.CurrencyGeneralProperties_SecurityName);
         name = new Text(content, SWT.BORDER);
         name.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
 
         label = new Label(content, SWT.NONE);
-        label.setText("From Currency:");
+        label.setText(Messages.CurrencyGeneralProperties_FromCurrency);
         fromCurrency = new ComboViewer(content, SWT.READ_ONLY);
         fromCurrency.setLabelProvider(new LabelProvider() {
 
@@ -107,7 +107,7 @@ public class CurrencyGeneralProperties extends PropertyPage implements IWorkbenc
         fromCurrency.setInput(getAvailableCurrencies());
 
         label = new Label(content, SWT.NONE);
-        label.setText("To Currency:");
+        label.setText(Messages.CurrencyGeneralProperties_ToCurrency);
         toCurrency = new ComboViewer(content, SWT.READ_ONLY);
         toCurrency.setLabelProvider(new LabelProvider() {
 
@@ -125,7 +125,7 @@ public class CurrencyGeneralProperties extends PropertyPage implements IWorkbenc
         label.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 2, 1));
 
         label = new Label(content, SWT.NONE);
-        label.setText("Target repository:");
+        label.setText(Messages.CurrencyGeneralProperties_TargetRepository);
         label.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 2, 1));
         label.setEnabled(false);
         repository = new ComboViewer(content, SWT.READ_ONLY);
@@ -179,13 +179,13 @@ public class CurrencyGeneralProperties extends PropertyPage implements IWorkbenc
      */
     @Override
     public boolean isValid() {
-        if (name.getText().equals("")) {
-            setErrorMessage("The security must have a name.");
+        if (name.getText().equals("")) { //$NON-NLS-1$
+            setErrorMessage(Messages.CurrencyGeneralProperties_SecurityMustHaveName);
             return false;
         }
         ISecurity security = getRepositoryService().getSecurityFromName(name.getText());
         if (security != null && security != getElement().getAdapter(ISecurity.class)) {
-            setErrorMessage("A security with the same name already exists. Choose a different name.");
+            setErrorMessage(Messages.CurrencyGeneralProperties_SameNamePrompt);
             return false;
         }
         if (getErrorMessage() != null) {

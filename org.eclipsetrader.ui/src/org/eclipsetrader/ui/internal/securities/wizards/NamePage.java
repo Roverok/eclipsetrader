@@ -57,8 +57,8 @@ public class NamePage extends WizardPage {
     };
 
     public NamePage() {
-        super("name", "Common Stock", null);
-        setDescription("Create a New Common Stock Security");
+        super("name", Messages.NamePage_CommonStock, null); //$NON-NLS-1$
+        setDescription(Messages.NamePage_CreateNewCommonStock);
     }
 
     /* (non-Javadoc)
@@ -72,21 +72,21 @@ public class NamePage extends WizardPage {
         initializeDialogUnits(content);
 
         Label label = new Label(content, SWT.NONE);
-        label.setText("Security name:");
+        label.setText(Messages.NamePage_SecurityName);
         name = new Text(content, SWT.BORDER);
         name.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
         name.addModifyListener(modifyListener);
         name.setFocus();
 
         label = new Label(content, SWT.NONE);
-        label.setText("Currency:");
+        label.setText(Messages.NamePage_Currency);
         currency = new ComboViewer(content, SWT.READ_ONLY);
         currency.setLabelProvider(new LabelProvider() {
 
             @Override
             public String getText(Object element) {
                 Locale locale = (Locale) element;
-                return NLS.bind("{0} ({1})", new Object[] {
+                return NLS.bind("{0} ({1})", new Object[] { //$NON-NLS-1$
                         locale.getDisplayCountry(),
                         Currency.getInstance(locale).getCurrencyCode(),
                 });
@@ -101,7 +101,7 @@ public class NamePage extends WizardPage {
         label.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 2, 1));
 
         label = new Label(content, SWT.NONE);
-        label.setText("Target repository:");
+        label.setText(Messages.NamePage_TargetRepository);
         label.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 2, 1));
         repository = new ComboViewer(content, SWT.READ_ONLY);
         repository.getControl().setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 2, 1));
@@ -109,7 +109,7 @@ public class NamePage extends WizardPage {
         repository.setContentProvider(new ArrayContentProvider());
         repository.setSorter(new ViewerSorter());
         repository.setInput(getRepositoryService().getRepositories());
-        repository.setSelection(new StructuredSelection(getRepositoryService().getRepository("local")));
+        repository.setSelection(new StructuredSelection(getRepositoryService().getRepository("local"))); //$NON-NLS-1$
     }
 
     /* (non-Javadoc)
@@ -130,11 +130,11 @@ public class NamePage extends WizardPage {
      */
     @Override
     public boolean isPageComplete() {
-        if (name.getText().equals("")) {
+        if (name.getText().equals("")) { //$NON-NLS-1$
             return false;
         }
         if (getRepositoryService().getSecurityFromName(name.getText()) != null) {
-            setErrorMessage("A security with the same name already exists. Choose a different name.");
+            setErrorMessage(Messages.NamePage_SameNamePrompt);
             return false;
         }
         if (getErrorMessage() != null) {

@@ -84,8 +84,8 @@ import org.osgi.framework.ServiceReference;
 
 public class Level2View extends ViewPart {
 
-    public static final String VIEW_ID = "org.eclipsetrader.ui.views.level2";
-    private static final String VIEW_TITLE_TOOLTIP = "Level II - {0}";
+    public static final String VIEW_ID = "org.eclipsetrader.ui.views.level2"; //$NON-NLS-1$
+    private static final String VIEW_TITLE_TOOLTIP = Messages.Level2View_LevelII;
 
     private IMarketService marketService;
     private IFeedService feedService;
@@ -185,7 +185,7 @@ public class Level2View extends ViewPart {
         ServiceReference<IFeedService> feedServiceReference = context.getServiceReference(IFeedService.class);
         feedService = context.getService(feedServiceReference);
 
-        showMarketMakerAction = new Action("Show Market Maker", IAction.AS_CHECK_BOX) {
+        showMarketMakerAction = new Action("Show Market Maker", IAction.AS_CHECK_BOX) { //$NON-NLS-1$
 
             @Override
             public void run() {
@@ -196,7 +196,7 @@ public class Level2View extends ViewPart {
             }
         };
 
-        hideSummaryAction = new Action("Hide Summary", IAction.AS_CHECK_BOX) {
+        hideSummaryAction = new Action("Hide Summary", IAction.AS_CHECK_BOX) { //$NON-NLS-1$
 
             @Override
             public void run() {
@@ -207,7 +207,7 @@ public class Level2View extends ViewPart {
         };
 
         if (memento != null) {
-            hideSummaryAction.setChecked("true".equals(memento.getString("hide-summary")));
+            hideSummaryAction.setChecked("true".equals(memento.getString("hide-summary"))); //$NON-NLS-1$ //$NON-NLS-2$
         }
 
         IActionBars actionBars = site.getActionBars();
@@ -243,7 +243,7 @@ public class Level2View extends ViewPart {
         group.setLayout(new GridLayout(4, false));
 
         Label label = new Label(group, SWT.NONE);
-        label.setText("Symbol");
+        label.setText(Messages.Level2View_Symbol);
         symbol = new Text(group, SWT.BORDER);
         symbol.setLayoutData(new GridData(Dialog.convertWidthInCharsToPixels(fontMetrics, 15), SWT.DEFAULT));
         symbol.addFocusListener(new FocusAdapter() {
@@ -264,7 +264,7 @@ public class Level2View extends ViewPart {
         final ImageHyperlink connectorButton = new ImageHyperlink(group, SWT.NONE);
         connectorButton.setLayoutData(new GridData(SWT.BEGINNING, SWT.CENTER, false, false));
         connectorButton.setImage(UIActivator.getDefault().getImageRegistry().get(UIConstants.TOOLBAR_ARROW_RIGHT));
-        connectorButton.setToolTipText("Select Data Source");
+        connectorButton.setToolTipText(Messages.Level2View_SelectDataSource);
         connectorButton.addHyperlinkListener(new IHyperlinkListener() {
 
             private Menu dropDownMenu;
@@ -322,7 +322,7 @@ public class Level2View extends ViewPart {
         createBookViewer(content);
 
         if (memento != null) {
-            String s = memento.getString("symbol");
+            String s = memento.getString("symbol"); //$NON-NLS-1$
             if (s != null) {
                 symbol.setText(s);
                 ISecurity security = getSecurityFromSymbol(s);
@@ -335,7 +335,7 @@ public class Level2View extends ViewPart {
                 }
             }
 
-            String id = memento.getString("connector");
+            String id = memento.getString("connector"); //$NON-NLS-1$
             if (id != null) {
                 IFeedConnector connector = feedService.getConnector(id);
                 if (connector == null) {
@@ -367,12 +367,12 @@ public class Level2View extends ViewPart {
      */
     @Override
     public void saveState(IMemento memento) {
-        memento.putString("symbol", symbol.getText());
+        memento.putString("symbol", symbol.getText()); //$NON-NLS-1$
         if (connector != null) {
-            memento.putString("connector", connector.getId());
+            memento.putString("connector", connector.getId()); //$NON-NLS-1$
         }
         if (hideSummaryAction.isChecked()) {
-            memento.putString("hide-summary", "true");
+            memento.putString("hide-summary", "true"); //$NON-NLS-1$ //$NON-NLS-2$
         }
         super.saveState(memento);
     }
@@ -438,44 +438,44 @@ public class Level2View extends ViewPart {
 
         if (showMarketMakerAction.isChecked()) {
             tableColumn = columnIndex < table.getColumnCount() ? table.getColumn(columnIndex) : new TableColumn(table, SWT.CENTER);
-            tableColumn.setText("MM");
+            tableColumn.setText(Messages.Level2View_MM);
             tableLayout.setColumnData(tableColumn, new ColumnWeightData(5));
             columnIndex++;
         }
 
         tableColumn = columnIndex < table.getColumnCount() ? table.getColumn(columnIndex) : new TableColumn(table, SWT.CENTER);
-        tableColumn.setText("#");
+        tableColumn.setText(Messages.Level2View_Number);
         tableLayout.setColumnData(tableColumn, new ColumnWeightData(showMarketMakerAction.isChecked() ? 5 : 6));
         columnIndex++;
 
         tableColumn = columnIndex < table.getColumnCount() ? table.getColumn(columnIndex) : new TableColumn(table, SWT.CENTER);
-        tableColumn.setText("Q.ty");
+        tableColumn.setText(Messages.Level2View_Qty);
         tableLayout.setColumnData(tableColumn, new ColumnWeightData(showMarketMakerAction.isChecked() ? 22 : 24));
         columnIndex++;
 
         tableColumn = columnIndex < table.getColumnCount() ? table.getColumn(columnIndex) : new TableColumn(table, SWT.CENTER);
-        tableColumn.setText("Bid");
+        tableColumn.setText(Messages.Level2View_Bid);
         tableLayout.setColumnData(tableColumn, new ColumnWeightData(showMarketMakerAction.isChecked() ? 18 : 20));
         columnIndex++;
 
         tableColumn = columnIndex < table.getColumnCount() ? table.getColumn(columnIndex) : new TableColumn(table, SWT.CENTER);
-        tableColumn.setText("Ask");
+        tableColumn.setText(Messages.Level2View_Ask);
         tableLayout.setColumnData(tableColumn, new ColumnWeightData(showMarketMakerAction.isChecked() ? 18 : 20));
         columnIndex++;
 
         tableColumn = columnIndex < table.getColumnCount() ? table.getColumn(columnIndex) : new TableColumn(table, SWT.CENTER);
-        tableColumn.setText("Q.ty");
+        tableColumn.setText(Messages.Level2View_Qty);
         tableLayout.setColumnData(tableColumn, new ColumnWeightData(showMarketMakerAction.isChecked() ? 21 : 24));
         columnIndex++;
 
         tableColumn = columnIndex < table.getColumnCount() ? table.getColumn(columnIndex) : new TableColumn(table, SWT.CENTER);
-        tableColumn.setText("#");
+        tableColumn.setText(Messages.Level2View_Number);
         tableLayout.setColumnData(tableColumn, new ColumnWeightData(showMarketMakerAction.isChecked() ? 5 : 6));
         columnIndex++;
 
         if (showMarketMakerAction.isChecked()) {
             tableColumn = columnIndex < table.getColumnCount() ? table.getColumn(columnIndex) : new TableColumn(table, SWT.CENTER);
-            tableColumn.setText("MM");
+            tableColumn.setText(Messages.Level2View_MM);
             tableLayout.setColumnData(tableColumn, new ColumnWeightData(5));
             columnIndex++;
         }
@@ -498,32 +498,32 @@ public class Level2View extends ViewPart {
         label.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, false, 4, 1));
 
         label = new Label(content, SWT.NONE);
-        label.setText("Time");
+        label.setText(Messages.Level2View_Time);
         time = new Label(content, SWT.RIGHT);
         time.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
 
         label = new Label(content, SWT.NONE);
-        label.setText("Volume");
+        label.setText(Messages.Level2View_Volume);
         volume = new Label(content, SWT.RIGHT);
         volume.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
 
         label = new Label(content, SWT.NONE);
-        label.setText("Last Price");
+        label.setText(Messages.Level2View_LastPrice);
         last = new Label(content, SWT.RIGHT);
         last.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
 
         label = new Label(content, SWT.NONE);
-        label.setText("High");
+        label.setText(Messages.Level2View_High);
         high = new Label(content, SWT.RIGHT);
         high.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
 
         label = new Label(content, SWT.NONE);
-        label.setText("Change");
+        label.setText(Messages.Level2View_Change);
         change = new Label(content, SWT.RIGHT);
         change.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
 
         label = new Label(content, SWT.NONE);
-        label.setText("Low");
+        label.setText(Messages.Level2View_Low);
         low = new Label(content, SWT.RIGHT);
         low.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
 
@@ -535,7 +535,7 @@ public class Level2View extends ViewPart {
 
         if (entry != null) {
             if (showMarketMakerAction.isChecked()) {
-                String s = entry.getMarketMaker() != null ? entry.getMarketMaker() : "";
+                String s = entry.getMarketMaker() != null ? entry.getMarketMaker() : ""; //$NON-NLS-1$
                 if (!s.equals(tableItem.getText(columnIndex))) {
                     tableItem.setText(columnIndex, s);
                 }
@@ -562,21 +562,21 @@ public class Level2View extends ViewPart {
         }
         else {
             if (showMarketMakerAction.isChecked()) {
-                tableItem.setText(columnIndex, "");
+                tableItem.setText(columnIndex, ""); //$NON-NLS-1$
                 tableItem.setBackground(columnIndex++, null);
             }
 
-            tableItem.setText(columnIndex, "");
+            tableItem.setText(columnIndex, ""); //$NON-NLS-1$
             tableItem.setBackground(columnIndex++, null);
 
-            tableItem.setText(columnIndex, "");
+            tableItem.setText(columnIndex, ""); //$NON-NLS-1$
             tableItem.setBackground(columnIndex++, null);
 
-            tableItem.setText(columnIndex, "");
+            tableItem.setText(columnIndex, ""); //$NON-NLS-1$
             tableItem.setBackground(columnIndex++, null);
         }
 
-        tableItem.setData("bid", entry);
+        tableItem.setData("bid", entry); //$NON-NLS-1$
     }
 
     protected void updateAsk(TableItem tableItem, IBookEntry entry) {
@@ -584,7 +584,7 @@ public class Level2View extends ViewPart {
 
         if (entry != null) {
             if (showMarketMakerAction.isChecked()) {
-                String s = entry.getMarketMaker() != null ? entry.getMarketMaker() : "";
+                String s = entry.getMarketMaker() != null ? entry.getMarketMaker() : ""; //$NON-NLS-1$
                 if (!s.equals(tableItem.getText(columnIndex))) {
                     tableItem.setText(columnIndex, s);
                 }
@@ -611,21 +611,21 @@ public class Level2View extends ViewPart {
         }
         else {
             if (showMarketMakerAction.isChecked()) {
-                tableItem.setText(columnIndex, "");
+                tableItem.setText(columnIndex, ""); //$NON-NLS-1$
                 tableItem.setBackground(columnIndex--, null);
             }
 
-            tableItem.setText(columnIndex, "");
+            tableItem.setText(columnIndex, ""); //$NON-NLS-1$
             tableItem.setBackground(columnIndex--, null);
 
-            tableItem.setText(columnIndex, "");
+            tableItem.setText(columnIndex, ""); //$NON-NLS-1$
             tableItem.setBackground(columnIndex--, null);
 
-            tableItem.setText(columnIndex, "");
+            tableItem.setText(columnIndex, ""); //$NON-NLS-1$
             tableItem.setBackground(columnIndex--, null);
         }
 
-        tableItem.setData("ask", entry);
+        tableItem.setData("ask", entry); //$NON-NLS-1$
     }
 
     protected void onBookUpdate(IBook book) {
@@ -713,9 +713,9 @@ public class Level2View extends ViewPart {
             }
 
             connector = newConnector;
-            activeConnector.setText(connector != null ? connector.getName() : "");
+            activeConnector.setText(connector != null ? connector.getName() : ""); //$NON-NLS-1$
 
-            if (connector != null && !symbol.getText().equals("")) {
+            if (connector != null && !symbol.getText().equals("")) { //$NON-NLS-1$
                 subscription = connector.subscribeLevel2(symbol.getText());
                 subscription.addSubscriptionListener(subscriptionListener);
 
@@ -816,25 +816,25 @@ public class Level2View extends ViewPart {
     }
 
     protected void update() {
-        time.setText(lastTrade != null && lastTrade.getTime() != null ? timeFormatter.format(lastTrade.getTime()) : "");
-        last.setText(lastTrade != null && lastTrade.getPrice() != null ? priceFormatter.format(lastTrade.getPrice()) : "");
-        volume.setText(lastTrade != null && lastTrade.getVolume() != null ? numberFormatter.format(lastTrade.getVolume()) : "");
+        time.setText(lastTrade != null && lastTrade.getTime() != null ? timeFormatter.format(lastTrade.getTime()) : ""); //$NON-NLS-1$
+        last.setText(lastTrade != null && lastTrade.getPrice() != null ? priceFormatter.format(lastTrade.getPrice()) : ""); //$NON-NLS-1$
+        volume.setText(lastTrade != null && lastTrade.getVolume() != null ? numberFormatter.format(lastTrade.getVolume()) : ""); //$NON-NLS-1$
 
         if (lastTrade != null && lastClose != null && lastClose.getPrice() != null && lastTrade.getPrice() != null) {
             double changePercent = (lastTrade.getPrice() - lastClose.getPrice()) / lastClose.getPrice() * 100.0;
-            change.setText(NLS.bind("{0}{1}%", new Object[] {
-                changePercent < 0 ? "-" : changePercent > 0 ? "+" : "",
+            change.setText(NLS.bind("{0}{1}%", new Object[] { //$NON-NLS-1$
+                changePercent < 0 ? "-" : changePercent > 0 ? "+" : "", //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
                 percentageFormatter.format(Math.abs(changePercent)),
             }));
         }
         else {
-            change.setText("");
+            change.setText(""); //$NON-NLS-1$
         }
     }
 
     protected void update(ITodayOHL todayOHL) {
-        high.setText(todayOHL != null && todayOHL.getHigh() != null ? priceFormatter.format(todayOHL.getHigh()) : "");
-        low.setText(todayOHL != null && todayOHL.getLow() != null ? priceFormatter.format(todayOHL.getLow()) : "");
+        high.setText(todayOHL != null && todayOHL.getHigh() != null ? priceFormatter.format(todayOHL.getHigh()) : ""); //$NON-NLS-1$
+        low.setText(todayOHL != null && todayOHL.getLow() != null ? priceFormatter.format(todayOHL.getLow()) : ""); //$NON-NLS-1$
     }
 
     protected ISecurity getSecurityFromSymbol(String symbol) {
