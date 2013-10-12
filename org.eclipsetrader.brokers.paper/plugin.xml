@@ -6,7 +6,7 @@
       <broker
             class="org.eclipsetrader.internal.brokers.paper.PaperBrokerFactory"
             id="org.eclipsetrader.brokers.paper"
-            name="Paper (Simulated)">
+            name="%PaperSimulated">
       </broker>
    </extension>
    <extension
@@ -15,7 +15,7 @@
             locationURI="popup:org.eclipsetrader.ui.file.trade?after=additions">
          <command
                commandId="org.eclipsetrader.ui.file.trade"
-               label="Paper (Simulated)">
+               label="%PaperSimulated">
             <visibleWhen>
                <and>
                   <count
@@ -34,7 +34,7 @@
          point="org.eclipse.ui.newWizards">
       <category
             id="org.eclipsetrader.brokers.paper.category"
-            name="Paper Broker">
+            name="%PaperBroker">
       </category>
       <wizard
             canFinishEarly="false"
@@ -42,7 +42,7 @@
             class="org.eclipsetrader.internal.brokers.paper.NewAccountWizard"
             hasPages="true"
             id="org.eclipsetrader.brokers.paper.account"
-            name="Account">
+            name="%Account">
       </wizard>
    </extension>
    <extension
@@ -50,7 +50,7 @@
       <page
             class="org.eclipsetrader.internal.brokers.paper.AccountPropertyPage"
             id="org.eclipsetrader.brokers.paper.properties.account"
-            name="Account">
+            name="%Account">
          <enabledWhen>
             <adapt
                   type="org.eclipsetrader.core.trading.IAccount">
