@@ -50,7 +50,7 @@ public class ConnectorsPage extends PropertyPage {
     ComboViewer intradayBackfillFeed;
 
     public ConnectorsPage() {
-        setTitle("Connectors");
+        setTitle(Messages.ConnectorsPage_Connectors);
         noDefaultAndApplyButton();
     }
 
@@ -66,7 +66,7 @@ public class ConnectorsPage extends PropertyPage {
         initializeDialogUnits(content);
 
         Label label = new Label(content, SWT.NONE);
-        label.setText("Live Feed");
+        label.setText(Messages.ConnectorsPage_LineFeed);
         label.setLayoutData(new GridData(convertHorizontalDLUsToPixels(80), SWT.DEFAULT));
         liveFeed = new ComboViewer(content, SWT.READ_ONLY);
         liveFeed.getCombo().setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
@@ -77,8 +77,8 @@ public class ConnectorsPage extends PropertyPage {
             public String getText(Object element) {
                 if (!(element instanceof IFeedConnector)) {
                     IFeedConnector defaultConnector = CoreActivator.getDefault() != null ? CoreActivator.getDefault().getDefaultConnector() : null;
-                    return NLS.bind("Default ({0})", new Object[] {
-                        defaultConnector != null ? defaultConnector.getName() : "None",
+                    return NLS.bind(Messages.ConnectorsPage_Default, new Object[] {
+                        defaultConnector != null ? defaultConnector.getName() : Messages.ConnectorsPage_None,
                     });
                 }
                 return ((IFeedConnector) element).getName();
@@ -97,7 +97,7 @@ public class ConnectorsPage extends PropertyPage {
         liveFeed.setContentProvider(new ArrayContentProvider());
 
         label = new Label(content, SWT.NONE);
-        label.setText("History Backfill");
+        label.setText(Messages.ConnectorsPage_HistoryBackfill);
         label.setLayoutData(new GridData(convertHorizontalDLUsToPixels(80), SWT.DEFAULT));
         backfillFeed = new ComboViewer(content, SWT.READ_ONLY);
         backfillFeed.getCombo().setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
@@ -107,7 +107,7 @@ public class ConnectorsPage extends PropertyPage {
             @Override
             public String getText(Object element) {
                 if (!(element instanceof IBackfillConnector)) {
-                    return "None";
+                    return Messages.ConnectorsPage_None;
                 }
                 return ((IBackfillConnector) element).getName();
             }
@@ -125,7 +125,7 @@ public class ConnectorsPage extends PropertyPage {
         backfillFeed.setContentProvider(new ArrayContentProvider());
 
         label = new Label(content, SWT.NONE);
-        label.setText("Intraday Backfill");
+        label.setText(Messages.ConnectorsPage_IntradayBackfill);
         label.setLayoutData(new GridData(convertHorizontalDLUsToPixels(80), SWT.DEFAULT));
         intradayBackfillFeed = new ComboViewer(content, SWT.READ_ONLY);
         intradayBackfillFeed.getCombo().setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
@@ -136,8 +136,8 @@ public class ConnectorsPage extends PropertyPage {
             public String getText(Object element) {
                 if (!(element instanceof IBackfillConnector)) {
                     Object o = ((IStructuredSelection) backfillFeed.getSelection()).getFirstElement();
-                    return NLS.bind("Default ({0})", new Object[] {
-                        o instanceof IBackfillConnector ? ((IBackfillConnector) o).getName() : "None",
+                    return NLS.bind(Messages.ConnectorsPage_Default, new Object[] {
+                        o instanceof IBackfillConnector ? ((IBackfillConnector) o).getName() : Messages.ConnectorsPage_None,
                     });
                 }
                 return ((IBackfillConnector) element).getName();
@@ -257,7 +257,7 @@ public class ConnectorsPage extends PropertyPage {
             context.ungetService(serviceReference);
             return service;
         } catch (Exception e) {
-            Status status = new Status(IStatus.ERROR, UIActivator.PLUGIN_ID, 0, "Error reading feed service", e);
+            Status status = new Status(IStatus.ERROR, UIActivator.PLUGIN_ID, 0, Messages.ConnectorsPage_ErrorReadingFeedService, e);
             UIActivator.log(status);
         }
         return null;
@@ -274,7 +274,7 @@ public class ConnectorsPage extends PropertyPage {
             context.ungetService(serviceReference);
             return service;
         } catch (Exception e) {
-            Status status = new Status(IStatus.ERROR, UIActivator.PLUGIN_ID, 0, "Error reading trading service", e);
+            Status status = new Status(IStatus.ERROR, UIActivator.PLUGIN_ID, 0, Messages.ConnectorsPage_ErrorReadingTradingService, e);
             UIActivator.log(status);
         }
         return null;

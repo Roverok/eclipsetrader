@@ -49,7 +49,7 @@ public class HolidaysPage extends PropertyPage {
     List<MarketHolidayElement> input;
 
     public HolidaysPage() {
-        setTitle("Holidays");
+        setTitle(Messages.HolidaysPage_Holidays);
         noDefaultAndApplyButton();
     }
 
@@ -95,10 +95,10 @@ public class HolidaysPage extends PropertyPage {
         ((GridData) viewer.getControl().getLayoutData()).heightHint = viewer.getTable().getItemHeight() * 8 + viewer.getTable().getBorderWidth() * 2;
 
         TableColumn tableColumn = new TableColumn(viewer.getTable(), SWT.RIGHT);
-        tableColumn.setText("Date");
+        tableColumn.setText(Messages.HolidaysPage_Date);
         tableLayout.setColumnData(tableColumn, new ColumnPixelData(convertHorizontalDLUsToPixels(60)));
         tableColumn = new TableColumn(viewer.getTable(), SWT.NONE);
-        tableColumn.setText("Description");
+        tableColumn.setText(Messages.HolidaysPage_Description);
         tableLayout.setColumnData(tableColumn, new ColumnWeightData(100));
 
         viewer.setLabelProvider(new MarketHolidayLabelProvider());
@@ -128,7 +128,7 @@ public class HolidaysPage extends PropertyPage {
         content.setLayoutData(new GridData(SWT.FILL, SWT.TOP, false, false));
 
         add = new Button(content, SWT.PUSH);
-        add.setText("Add");
+        add.setText(Messages.HolidaysPage_Add);
         add.setLayoutData(new GridData(SWT.FILL, SWT.TOP, true, false));
         ((GridData) add.getLayoutData()).widthHint = convertHorizontalDLUsToPixels(IDialogConstants.BUTTON_WIDTH);
         add.addSelectionListener(new SelectionAdapter() {
@@ -144,7 +144,7 @@ public class HolidaysPage extends PropertyPage {
         });
 
         edit = new Button(content, SWT.PUSH);
-        edit.setText("Edit");
+        edit.setText(Messages.HolidaysPage_Edit);
         edit.setLayoutData(new GridData(SWT.FILL, SWT.TOP, true, false));
         ((GridData) edit.getLayoutData()).widthHint = convertHorizontalDLUsToPixels(IDialogConstants.BUTTON_WIDTH);
         edit.addSelectionListener(new SelectionAdapter() {
@@ -163,7 +163,7 @@ public class HolidaysPage extends PropertyPage {
         });
 
         remove = new Button(content, SWT.PUSH);
-        remove.setText("Remove");
+        remove.setText(Messages.HolidaysPage_Remove);
         remove.setLayoutData(new GridData(SWT.FILL, SWT.TOP, true, false));
         remove.addSelectionListener(new SelectionAdapter() {
 

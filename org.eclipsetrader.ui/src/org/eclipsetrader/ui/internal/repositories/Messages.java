@@ -24,7 +24,9 @@ public class Messages extends NLS {
     public static String RepositoryExplorer_Paste;
     public static String RepositoryExplorer_Refresh;
     public static String RepositoryExplorer_RefreshJobName;
+	public static String RepositoryMoveJob_RepositoryMove;
     public static String RepositoryTree_Instruments;
+	public static String RepositoryTree_Others;
     public static String RepositoryTree_Watchlists;
     static {
         // initialize resource bundle

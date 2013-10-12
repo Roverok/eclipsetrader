@@ -79,7 +79,7 @@ public class HolidayDialog extends Dialog {
     @Override
     protected void configureShell(Shell newShell) {
         super.configureShell(newShell);
-        newShell.setText("Edit Market Holiday");
+        newShell.setText(Messages.HolidayDialog_EditMarketHoliday);
     }
 
     /* (non-Javadoc)
@@ -95,12 +95,12 @@ public class HolidayDialog extends Dialog {
         content.setLayout(gridLayout);
 
         Label label = new Label(content, SWT.NONE);
-        label.setText("Date");
+        label.setText(Messages.HolidayDialog_Date);
         date = new CDateTime(content, CDT.BORDER | CDT.DATE_SHORT | CDT.DROP_DOWN | CDT.TAB_FIELDS);
         date.setPattern(Util.getDateFormatPattern());
 
         label = new Label(content, SWT.NONE);
-        label.setText("Description");
+        label.setText(Messages.HolidayDialog_Description);
         label.setLayoutData(new GridData(convertHorizontalDLUsToPixels(50), SWT.DEFAULT));
         description = new Text(content, SWT.BORDER);
         description.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
@@ -108,29 +108,29 @@ public class HolidayDialog extends Dialog {
 
         label = new Label(content, SWT.NONE);
         closed = new Button(content, SWT.RADIO);
-        closed.setText("Market is closed");
+        closed.setText(Messages.HolidayDialog_MarketClosed);
 
         label = new Label(content, SWT.NONE);
         open = new Button(content, SWT.RADIO);
-        open.setText("Market is partially open");
+        open.setText(Messages.HolidayDialog_MarketPartiallyOpen);
 
         openTimeLabel = new Label(content, SWT.NONE);
-        openTimeLabel.setText("Open Time");
+        openTimeLabel.setText(Messages.HolidayDialog_OpenTime);
         openTime = new CDateTime(content, CDT.BORDER | CDT.TAB_FIELDS | CDT.SPINNER);
-        openTime.setPattern("HH:mm");
+        openTime.setPattern("HH:mm"); //$NON-NLS-1$
         openTime.setLayoutData(new GridData(convertHorizontalDLUsToPixels(50), SWT.DEFAULT));
-        openTime.setNullText("");
+        openTime.setNullText(""); //$NON-NLS-1$
 
         closeTimeLabel = new Label(content, SWT.NONE);
-        closeTimeLabel.setText("Close Time");
+        closeTimeLabel.setText(Messages.HolidayDialog_CloseTime);
         closeTime = new CDateTime(content, CDT.BORDER | CDT.TAB_FIELDS | CDT.SPINNER);
-        closeTime.setPattern("HH:mm");
+        closeTime.setPattern("HH:mm"); //$NON-NLS-1$
         closeTime.setLayoutData(new GridData(convertHorizontalDLUsToPixels(50), SWT.DEFAULT));
-        closeTime.setNullText("");
+        closeTime.setNullText(""); //$NON-NLS-1$
 
         if (element != null) {
             date.setSelection(element.getDate());
-            description.setText(element.getDescription() != null ? element.getDescription() : "");
+            description.setText(element.getDescription() != null ? element.getDescription() : ""); //$NON-NLS-1$
             closed.setSelection(element.getOpenTime() == null || element.getCloseTime() == null);
             open.setSelection(element.getOpenTime() != null && element.getCloseTime() != null);
             openTime.setSelection(element.getOpenTime());
@@ -138,7 +138,7 @@ public class HolidayDialog extends Dialog {
         }
         else {
             date.setSelection(Calendar.getInstance().getTime());
-            description.setText("");
+            description.setText(""); //$NON-NLS-1$
             closed.setSelection(true);
             open.setSelection(false);
             openTime.setSelection(null);
@@ -177,7 +177,7 @@ public class HolidayDialog extends Dialog {
         if (date.getSelection() == null) {
             return false;
         }
-        if (description.getText().equals("")) {
+        if (description.getText().equals("")) { //$NON-NLS-1$
             return false;
         }
         if (open.getSelection()) {
@@ -206,7 +206,7 @@ public class HolidayDialog extends Dialog {
         }
 
         element.setDate(date.getSelection());
-        element.setDescription(!description.getText().equals("") ? description.getText() : null);
+        element.setDescription(!description.getText().equals("") ? description.getText() : null); //$NON-NLS-1$
         element.setOpenTime(open.getSelection() ? openTime.getSelection() : null);
         element.setCloseTime(open.getSelection() ? closeTime.getSelection() : null);
     }

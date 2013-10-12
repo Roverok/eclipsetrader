@@ -41,7 +41,7 @@ public class MembersPage extends PropertyPage {
     private CheckboxTableViewer members;
 
     public MembersPage() {
-        setTitle("Members");
+        setTitle(Messages.MembersPage_Members);
         noDefaultAndApplyButton();
     }
 
@@ -58,7 +58,7 @@ public class MembersPage extends PropertyPage {
         initializeDialogUnits(content);
 
         showMembers = new Button(content, SWT.RADIO);
-        showMembers.setText("Show members only");
+        showMembers.setText(Messages.MembersPage_ShowMembersOnly);
         showMembers.setLayoutData(new GridData(SWT.BEGINNING, SWT.CENTER, false, false, 2, 1));
         showMembers.setSelection(true);
         showMembers.addSelectionListener(new SelectionAdapter() {
@@ -70,7 +70,7 @@ public class MembersPage extends PropertyPage {
         });
 
         showUnlisted = new Button(content, SWT.RADIO);
-        showUnlisted.setText("Show securities that are not members of other markets");
+        showUnlisted.setText(Messages.MembersPage_ShowSecurities);
         showUnlisted.setLayoutData(new GridData(SWT.BEGINNING, SWT.CENTER, false, false, 2, 1));
         showUnlisted.addSelectionListener(new SelectionAdapter() {
 

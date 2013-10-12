@@ -148,7 +148,7 @@ public class MarketsView extends ViewPart {
 
         newMarketAction = new NewMarketAction(site.getShell());
 
-        deleteAction = new Action("Delete") {
+        deleteAction = new Action(Messages.MarketsView_Delete) {
 
             @Override
             public void run() {
@@ -204,13 +204,13 @@ public class MarketsView extends ViewPart {
         viewer.getTable().setLinesVisible(false);
 
         TableColumn tableColumn = new TableColumn(viewer.getTable(), SWT.NONE);
-        tableColumn.setText("Market");
+        tableColumn.setText(Messages.MarketsView_Market);
         tableColumn.setWidth(150);
         tableColumn = new TableColumn(viewer.getTable(), SWT.NONE);
-        tableColumn.setText("State");
+        tableColumn.setText(Messages.MarketsView_State);
         tableColumn.setWidth(150);
         tableColumn = new TableColumn(viewer.getTable(), SWT.NONE);
-        tableColumn.setText("Message");
+        tableColumn.setText(Messages.MarketsView_Message);
         tableColumn.setWidth(250);
 
         viewer.setLabelProvider(new MarketLabelProvider(marketIcon));
@@ -258,7 +258,7 @@ public class MarketsView extends ViewPart {
 
             @Override
             public void menuAboutToShow(IMenuManager menuManager) {
-                MenuManager newMenu = new MenuManager("New", "group.new");
+                MenuManager newMenu = new MenuManager(Messages.MarketsView_New, "group.new"); //$NON-NLS-2$
                 {
                     newMenu.add(new Separator("top")); //$NON-NLS-1$
                     newMenu.add(newMarketAction);
@@ -266,20 +266,20 @@ public class MarketsView extends ViewPart {
                     newMenu.add(new Separator("bottom")); //$NON-NLS-1$
                 }
                 menuManager.add(newMenu);
-                menuManager.add(new GroupMarker("group.goto"));
-                menuManager.add(new Separator("group.open"));
-                menuManager.add(new GroupMarker("group.openWith"));
-                menuManager.add(new Separator("group.show"));
-                menuManager.add(new Separator("group.edit"));
-                menuManager.add(new GroupMarker("group.reorganize"));
-                menuManager.add(new GroupMarker("group.port"));
-                menuManager.add(new Separator("group.generate"));
-                menuManager.add(new Separator("group.search"));
-                menuManager.add(new Separator("group.build"));
+                menuManager.add(new GroupMarker("group.goto")); //$NON-NLS-1$
+                menuManager.add(new Separator("group.open")); //$NON-NLS-1$
+                menuManager.add(new GroupMarker("group.openWith")); //$NON-NLS-1$
+                menuManager.add(new Separator("group.show")); //$NON-NLS-1$
+                menuManager.add(new Separator("group.edit")); //$NON-NLS-1$
+                menuManager.add(new GroupMarker("group.reorganize")); //$NON-NLS-1$
+                menuManager.add(new GroupMarker("group.port")); //$NON-NLS-1$
+                menuManager.add(new Separator("group.generate")); //$NON-NLS-1$
+                menuManager.add(new Separator("group.search")); //$NON-NLS-1$
+                menuManager.add(new Separator("group.build")); //$NON-NLS-1$
                 menuManager.add(new Separator(IWorkbenchActionConstants.MB_ADDITIONS));
-                menuManager.add(new Separator("group.properties"));
+                menuManager.add(new Separator("group.properties")); //$NON-NLS-1$
 
-                menuManager.appendToGroup("group.reorganize", deleteAction);
+                menuManager.appendToGroup("group.reorganize", deleteAction); //$NON-NLS-1$
             }
         });
         viewer.getControl().setMenu(menuMgr.createContextMenu(viewer.getControl()));

@@ -26,7 +26,10 @@ public class Messages extends NLS {
     public static String ImportDataPage_Title;
     public static String ImportDataPage_ToLabel;
     public static String ImportDataPage_TypeLabel;
-    static {
+    public static String NotificationPopup_CloseNotificationJob;
+	public static String NotificationPopup_More;
+	public static String NotificationPopup_Notification;
+	static {
         // initialize resource bundle
         NLS.initializeMessages(BUNDLE_NAME, Messages.class);
     }

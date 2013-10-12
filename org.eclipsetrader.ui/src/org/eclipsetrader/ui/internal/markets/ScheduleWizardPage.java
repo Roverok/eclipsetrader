@@ -46,8 +46,8 @@ public class ScheduleWizardPage extends WizardPage {
     ComboViewer timeZone;
 
     public ScheduleWizardPage() {
-        super("schedule", "Schedule", null);
-        setDescription("Set the market's time schedule");
+        super("schedule", Messages.ScheduleWizardPage_Schedule, null); //$NON-NLS-1$
+        setDescription(Messages.ScheduleWizardPage_SetMarketTimeSchedule);
     }
 
     /* (non-Javadoc)
@@ -62,7 +62,7 @@ public class ScheduleWizardPage extends WizardPage {
         initializeDialogUnits(parent);
 
         Label label = new Label(content, SWT.NONE);
-        label.setText("Schedule");
+        label.setText(Messages.ScheduleWizardPage_Schedule);
         label.setLayoutData(new GridData(SWT.BEGINNING, SWT.CENTER, false, false, 2, 1));
         schedule = new TimeScheduleEditor(content);
         ((GridData) schedule.getControl().getLayoutData()).horizontalSpan = 2;
@@ -79,7 +79,7 @@ public class ScheduleWizardPage extends WizardPage {
         schedule.getViewer().refresh();
 
         label = new Label(content, SWT.NONE);
-        label.setText("Week Days");
+        label.setText(Messages.ScheduleWizardPage_WeekDays);
         label.setLayoutData(new GridData(SWT.BEGINNING, SWT.TOP, false, false));
         ((GridData) label.getLayoutData()).widthHint = convertHorizontalDLUsToPixels(80);
         ((GridData) label.getLayoutData()).verticalIndent = convertHorizontalDLUsToPixels(3);
@@ -89,27 +89,27 @@ public class ScheduleWizardPage extends WizardPage {
         group.setLayout(gridLayout);
         group.setLayoutData(new GridData(SWT.BEGINNING, SWT.TOP, false, false));
         mon = new Button(group, SWT.CHECK);
-        mon.setText("Mon");
+        mon.setText(Messages.ScheduleWizardPage_Mon);
         mon.setSelection(true);
         tue = new Button(group, SWT.CHECK);
-        tue.setText("Tue");
+        tue.setText(Messages.ScheduleWizardPage_Tue);
         tue.setSelection(true);
         wed = new Button(group, SWT.CHECK);
-        wed.setText("Wed");
+        wed.setText(Messages.ScheduleWizardPage_Wed);
         wed.setSelection(true);
         thu = new Button(group, SWT.CHECK);
-        thu.setText("Thu");
+        thu.setText(Messages.ScheduleWizardPage_Thu);
         thu.setSelection(true);
         fri = new Button(group, SWT.CHECK);
-        fri.setText("Fri");
+        fri.setText(Messages.ScheduleWizardPage_Fri);
         fri.setSelection(true);
         sun = new Button(group, SWT.CHECK);
-        sun.setText("Sun");
+        sun.setText(Messages.ScheduleWizardPage_Sun);
         sat = new Button(group, SWT.CHECK);
-        sat.setText("Sat");
+        sat.setText(Messages.ScheduleWizardPage_Sat);
 
         label = new Label(content, SWT.NONE);
-        label.setText("Time Zone");
+        label.setText(Messages.ScheduleWizardPage_TimeZone);
         timeZone = new ComboViewer(content, SWT.READ_ONLY);
         timeZone.getCombo().setVisibleItemCount(15);
         timeZone.setLabelProvider(new LabelProvider());

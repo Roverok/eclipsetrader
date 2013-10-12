@@ -91,7 +91,7 @@ public class TimeScheduleEditor extends Observable {
                     case 1:
                         return timeFormat.format(e.getCloseTime());
                     case 2:
-                        return e.getDescription() != null ? e.getDescription() : "";
+                        return e.getDescription() != null ? e.getDescription() : ""; //$NON-NLS-1$
                 }
             }
             return ""; //$NON-NLS-1$
@@ -121,13 +121,13 @@ public class TimeScheduleEditor extends Observable {
         viewer.getControl().setLayoutData(gridData);
 
         TableColumn tableColumn = new TableColumn(viewer.getTable(), SWT.NONE);
-        tableColumn.setText("Open");
+        tableColumn.setText(Messages.TimeScheduleEditor_Open);
         tableColumn.setWidth(70);
         tableColumn = new TableColumn(viewer.getTable(), SWT.NONE);
-        tableColumn.setText("Close");
+        tableColumn.setText(Messages.TimeScheduleEditor_Close);
         tableColumn.setWidth(70);
         tableColumn = new TableColumn(viewer.getTable(), SWT.NONE);
-        tableColumn.setText("Description");
+        tableColumn.setText(Messages.TimeScheduleEditor_Description);
         tableColumn.setWidth(150);
 
         viewer.setLabelProvider(new ScheduleElementLabelProvider());
@@ -157,9 +157,9 @@ public class TimeScheduleEditor extends Observable {
                     case 1:
                         return e.getCloseTime();
                     case 2:
-                        return e.getDescription() != null ? e.getDescription() : "";
+                        return e.getDescription() != null ? e.getDescription() : ""; //$NON-NLS-1$
                 }
-                return "";
+                return ""; //$NON-NLS-1$
             }
 
             @Override
@@ -174,7 +174,7 @@ public class TimeScheduleEditor extends Observable {
                         e.setCloseTime(normalizeDate((Date) value));
                         break;
                     case 2:
-                        e.setDescription("".equals(value) ? null : value.toString());
+                        e.setDescription("".equals(value) ? null : value.toString()); //$NON-NLS-1$
                         break;
                 }
                 viewer.refresh();
@@ -191,7 +191,7 @@ public class TimeScheduleEditor extends Observable {
             }
         });
         viewer.setColumnProperties(new String[] {
-                "0", "1", "2"
+                "0", "1", "2" //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
         });
         viewer.setCellEditors(new CellEditor[] {
                 new CDateTimeCellEditor(viewer.getTable(), CDT.TIME_SHORT),
@@ -220,7 +220,7 @@ public class TimeScheduleEditor extends Observable {
         content.setLayoutData(new GridData(SWT.FILL, SWT.TOP, false, false));
 
         add = new Button(content, SWT.PUSH);
-        add.setText("Add");
+        add.setText(Messages.TimeScheduleEditor_Add);
         add.addSelectionListener(new SelectionAdapter() {
 
             @Override
@@ -243,7 +243,7 @@ public class TimeScheduleEditor extends Observable {
         add.setLayoutData(new GridData(SWT.FILL, SWT.TOP, false, false));
 
         remove = new Button(content, SWT.PUSH);
-        remove.setText("Remove");
+        remove.setText(Messages.TimeScheduleEditor_Remove);
         remove.addSelectionListener(new SelectionAdapter() {
 
             @Override
