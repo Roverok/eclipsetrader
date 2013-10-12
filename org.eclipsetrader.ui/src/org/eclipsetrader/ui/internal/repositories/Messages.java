@@ -16,7 +16,10 @@ import org.eclipse.osgi.util.NLS;
 public class Messages extends NLS {
 
     private static final String BUNDLE_NAME = "org.eclipsetrader.ui.internal.repositories.messages"; //$NON-NLS-1$
-    public static String RepositoryExplorer_CollapseAll;
+    public static String Navigator_CollapseAll;
+	public static String Navigator_Delete;
+	public static String Navigator_ExpandAll;
+	public static String RepositoryExplorer_CollapseAll;
     public static String RepositoryExplorer_Copy;
     public static String RepositoryExplorer_Delete;
     public static String RepositoryExplorer_DeleteConfirmMessage;

@@ -97,7 +97,7 @@ public class Navigator extends ViewPart {
 
         site.setSelectionProvider(new SelectionProvider());
 
-        collapseAllAction = new Action("Collapse All", imageRegistry.getDescriptor(UIConstants.COLLAPSEALL_ICON)) {
+        collapseAllAction = new Action(Messages.Navigator_CollapseAll, imageRegistry.getDescriptor(UIConstants.COLLAPSEALL_ICON)) {
 
             @Override
             public void run() {
@@ -105,7 +105,7 @@ public class Navigator extends ViewPart {
             }
         };
 
-        expandAllAction = new Action("Expand All", imageRegistry.getDescriptor(UIConstants.EXPANDALL_ICON)) {
+        expandAllAction = new Action(Messages.Navigator_ExpandAll, imageRegistry.getDescriptor(UIConstants.EXPANDALL_ICON)) {
 
             @Override
             public void run() {
@@ -113,7 +113,7 @@ public class Navigator extends ViewPart {
             }
         };
 
-        deleteAction = new Action("Delete") {
+        deleteAction = new Action(Messages.Navigator_Delete) {
 
             @Override
             public void run() {
@@ -219,23 +219,23 @@ public class Navigator extends ViewPart {
 
             @Override
             public void menuAboutToShow(IMenuManager menuManager) {
-                menuManager.add(new Separator("group.new"));
-                menuManager.add(new GroupMarker("group.goto"));
-                menuManager.add(new Separator("group.open"));
-                menuManager.add(new GroupMarker("group.openWith"));
-                menuManager.add(new Separator("group.trade"));
-                menuManager.add(new GroupMarker("group.tradeWith"));
-                menuManager.add(new Separator("group.show"));
-                menuManager.add(new Separator("group.edit"));
-                menuManager.add(new GroupMarker("group.reorganize"));
-                menuManager.add(new GroupMarker("group.port"));
-                menuManager.add(new Separator("group.generate"));
-                menuManager.add(new Separator("group.search"));
-                menuManager.add(new Separator("group.build"));
+                menuManager.add(new Separator("group.new")); //$NON-NLS-1$
+                menuManager.add(new GroupMarker("group.goto")); //$NON-NLS-1$
+                menuManager.add(new Separator("group.open")); //$NON-NLS-1$
+                menuManager.add(new GroupMarker("group.openWith")); //$NON-NLS-1$
+                menuManager.add(new Separator("group.trade")); //$NON-NLS-1$
+                menuManager.add(new GroupMarker("group.tradeWith")); //$NON-NLS-1$
+                menuManager.add(new Separator("group.show")); //$NON-NLS-1$
+                menuManager.add(new Separator("group.edit")); //$NON-NLS-1$
+                menuManager.add(new GroupMarker("group.reorganize")); //$NON-NLS-1$
+                menuManager.add(new GroupMarker("group.port")); //$NON-NLS-1$
+                menuManager.add(new Separator("group.generate")); //$NON-NLS-1$
+                menuManager.add(new Separator("group.search")); //$NON-NLS-1$
+                menuManager.add(new Separator("group.build")); //$NON-NLS-1$
                 menuManager.add(new Separator(IWorkbenchActionConstants.MB_ADDITIONS));
-                menuManager.add(new Separator("group.properties"));
+                menuManager.add(new Separator("group.properties")); //$NON-NLS-1$
 
-                menuManager.appendToGroup("group.show", new Action("Expand All") {
+                menuManager.appendToGroup("group.show", new Action(Messages.Navigator_ExpandAll) { //$NON-NLS-1$
 
                     @Override
                     public void run() {
@@ -245,7 +245,7 @@ public class Navigator extends ViewPart {
                         }
                     }
                 });
-                menuManager.appendToGroup("group.reorganize", deleteAction);
+                menuManager.appendToGroup("group.reorganize", deleteAction); //$NON-NLS-1$
             }
         });
         viewer.getControl().setMenu(menuMgr.createContextMenu(viewer.getControl()));
@@ -257,7 +257,7 @@ public class Navigator extends ViewPart {
             public void open(OpenEvent event) {
                 try {
                     IHandlerService service = (IHandlerService) getSite().getService(IHandlerService.class);
-                    service.executeCommand("org.eclipse.ui.file.open", null);
+                    service.executeCommand("org.eclipse.ui.file.open", null); //$NON-NLS-1$
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -285,9 +285,9 @@ public class Navigator extends ViewPart {
         viewer.setInput(view);
 
         if (memento != null) {
-            String s = memento.getString("expanded");
+            String s = memento.getString("expanded"); //$NON-NLS-1$
             if (s != null) {
-                String[] sr = s.split(";");
+                String[] sr = s.split(";"); //$NON-NLS-1$
                 final Set<Integer> itemHash = new HashSet<Integer>();
                 for (int i = 0; i < sr.length; i++) {
                     try {
@@ -335,11 +335,11 @@ public class Navigator extends ViewPart {
             StringBuffer s = new StringBuffer();
             for (int i = 0; i < o.length; i++) {
                 if (i != 0) {
-                    s.append(";");
+                    s.append(";"); //$NON-NLS-1$
                 }
                 s.append(o[i].hashCode());
             }
-            memento.putString("expanded", s.toString());
+            memento.putString("expanded", s.toString()); //$NON-NLS-1$
         }
 
         super.saveState(memento);
