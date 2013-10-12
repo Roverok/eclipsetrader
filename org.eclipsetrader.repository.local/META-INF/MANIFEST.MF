@@ -9,6 +9,7 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
  org.eclipsetrader.core
 Bundle-ActivationPolicy: lazy
+Bundle-Localization: plugin
 Import-Package: javax.xml.bind;version="[2.1.0,2.2.0)",
  javax.xml.bind.annotation;version="[2.1.0,2.2.0)",
  javax.xml.bind.annotation.adapters;version="[2.1.0,2.2.0)",
