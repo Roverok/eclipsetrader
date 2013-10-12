@@ -6,7 +6,7 @@
       <repository
             class="org.eclipsetrader.repository.local.internal.RepositoryFactory"
             id="org.eclipsetrader.repository.local"
-            name="Local"
+            name="%Local"
             scheme="local">
       </repository>
    </extension>
