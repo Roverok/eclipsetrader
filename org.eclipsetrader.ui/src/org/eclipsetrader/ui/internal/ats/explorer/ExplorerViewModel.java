@@ -141,7 +141,7 @@ public class ExplorerViewModel extends TreeStructureAdvisor implements IObservab
          */
         @Override
         public String toString() {
-            return "Instruments";
+            return Messages.ExplorerViewModel_Instruments;
         }
     }
 
@@ -249,7 +249,7 @@ public class ExplorerViewModel extends TreeStructureAdvisor implements IObservab
          */
         @Override
         public String toString() {
-            return "Scripts";
+            return Messages.ExplorerViewModel_Scripts;
         }
     }
 

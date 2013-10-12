@@ -33,7 +33,7 @@ public class RepositoryTree implements IView {
 
     private SecurityContainerObject instrumentsContainer = new SecurityContainerObject(Messages.RepositoryTree_Instruments);
     private WatchListContainerObject watchlistsContainer = new WatchListContainerObject(Messages.RepositoryTree_Watchlists);
-    private OthersContainerObject othersContainer = new OthersContainerObject("Others");
+    private OthersContainerObject othersContainer = new OthersContainerObject(Messages.RepositoryTree_Others);
 
     public RepositoryTree(IRepositoryService service) {
         this.service = service;

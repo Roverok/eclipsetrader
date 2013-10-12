@@ -56,15 +56,15 @@ import org.eclipsetrader.ui.internal.SwtUtil.IFadeListener;
 public class NotificationPopup extends Window {
 
     private static final int TITLE_HEIGHT = 24;
-    private static final String LABEL_NOTIFICATION = "Notification";
-    private static final String LABEL_JOB_CLOSE = "Close Notification Job";
+    private static final String LABEL_NOTIFICATION = Messages.NotificationPopup_Notification;
+    private static final String LABEL_JOB_CLOSE = Messages.NotificationPopup_CloseNotificationJob;
     private static final int MAX_WIDTH = 400;
     private static final int MIN_HEIGHT = 100;
     private static final long DEFAULT_DELAY_CLOSE = 8 * 1000;
     private static final int PADDING_EDGE = 5;
     private long delayClose = DEFAULT_DELAY_CLOSE;
 
-    private static final String NOTIFICATIONS_HIDDEN = "more...";
+    private static final String NOTIFICATIONS_HIDDEN = Messages.NotificationPopup_More;
     private static final int NUM_NOTIFICATIONS_TO_DISPLAY = 4;
 
     protected LocalResourceManager resources;

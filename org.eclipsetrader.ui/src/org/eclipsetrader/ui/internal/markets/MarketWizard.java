@@ -39,7 +39,7 @@ public class MarketWizard extends Wizard {
      */
     @Override
     public void addPages() {
-        setWindowTitle("New Market");
+        setWindowTitle(Messages.MarketWizard_NewMarket);
         addPage(generalPage = new GeneralWizardPage(marketService));
         addPage(schedulePage = new ScheduleWizardPage());
         addPage(connectorsPage = new ConnectorsWizardPage());

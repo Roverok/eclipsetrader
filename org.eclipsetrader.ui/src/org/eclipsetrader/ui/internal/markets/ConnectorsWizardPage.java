@@ -43,8 +43,8 @@ public class ConnectorsWizardPage extends WizardPage {
     private List<Object> connectors = new ArrayList<Object>();
 
     public ConnectorsWizardPage() {
-        super("connectors", "Connectors", null);
-        setDescription("Select the connectors used by this market");
+        super("connectors", Messages.ConnectorsWizardPage_Connectors, null); //$NON-NLS-1$
+        setDescription(Messages.ConnectorsWizardPage_SelectConnectors);
     }
 
     /* (non-Javadoc)
@@ -59,7 +59,7 @@ public class ConnectorsWizardPage extends WizardPage {
         initializeDialogUnits(parent);
 
         Label label = new Label(content, SWT.NONE);
-        label.setText("Live Feed");
+        label.setText(Messages.ConnectorsWizardPage_LiveFeed);
         label.setLayoutData(new GridData(convertHorizontalDLUsToPixels(80), SWT.DEFAULT));
         liveFeed = new ComboViewer(content, SWT.READ_ONLY);
         liveFeed.getCombo().setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
@@ -70,8 +70,8 @@ public class ConnectorsWizardPage extends WizardPage {
             public String getText(Object element) {
                 if (!(element instanceof IFeedConnector)) {
                     IFeedConnector defaultConnector = CoreActivator.getDefault().getDefaultConnector();
-                    return NLS.bind("- Default ({0}) -", new Object[] {
-                        defaultConnector != null ? defaultConnector.getName() : "None",
+                    return NLS.bind(Messages.ConnectorsWizardPage_Default, new Object[] {
+                        defaultConnector != null ? defaultConnector.getName() : Messages.ConnectorsWizardPage_None,
                     });
                 }
                 return ((IFeedConnector) element).getName();
@@ -109,7 +109,7 @@ public class ConnectorsWizardPage extends WizardPage {
             context.ungetService(serviceReference);
             return service;
         } catch (Exception e) {
-            Status status = new Status(IStatus.ERROR, UIActivator.PLUGIN_ID, 0, "Error reading feed service", e);
+            Status status = new Status(IStatus.ERROR, UIActivator.PLUGIN_ID, 0, Messages.ConnectorsWizardPage_ErrorReadingFeedService, e);
             UIActivator.getDefault().getLog().log(status);
         }
         return null;

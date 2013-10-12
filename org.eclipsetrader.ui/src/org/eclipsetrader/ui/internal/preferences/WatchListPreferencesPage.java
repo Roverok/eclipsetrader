@@ -68,11 +68,11 @@ public class WatchListPreferencesPage extends PreferencePage implements IWorkben
         content.setLayout(gridLayout);
 
         alternateBackground = new Button(content, SWT.CHECK);
-        alternateBackground.setText("Alternate rows background");
+        alternateBackground.setText(Messages.WatchListPreferencesPage_AlternateRowsBackground);
         alternateBackground.setLayoutData(new GridData(SWT.BEGINNING, SWT.CENTER, false, false, 2, 1));
 
         enableTickDecorator = new Button(content, SWT.CHECK);
-        enableTickDecorator.setText("Enable highlights");
+        enableTickDecorator.setText(Messages.WatchListPreferencesPage_EnableHilights);
         enableTickDecorator.setLayoutData(new GridData(SWT.BEGINNING, SWT.CENTER, false, false, 2, 1));
         enableTickDecorator.addSelectionListener(new SelectionAdapter() {
 
@@ -83,24 +83,24 @@ public class WatchListPreferencesPage extends PreferencePage implements IWorkben
         });
 
         Label label = new Label(content, SWT.NONE);
-        label.setText("Positive highlight");
+        label.setText(Messages.WatchListPreferencesPage_PositiveHighlight);
         label.setLayoutData(new GridData(SWT.BEGINNING, SWT.CENTER, false, false));
         ((GridData) label.getLayoutData()).horizontalIndent = convertHorizontalDLUsToPixels(18);
         positiveTickColor = new ColorSelector(content);
 
         label = new Label(content, SWT.NONE);
-        label.setText("Negative highlight");
+        label.setText(Messages.WatchListPreferencesPage_NegativeHighlight);
         label.setLayoutData(new GridData(SWT.BEGINNING, SWT.CENTER, false, false));
         ((GridData) label.getLayoutData()).horizontalIndent = convertHorizontalDLUsToPixels(18);
         negativeTickColor = new ColorSelector(content);
 
         drawTickOutline = new Button(content, SWT.CHECK);
-        drawTickOutline.setText("Highlight outline");
+        drawTickOutline.setText(Messages.WatchListPreferencesPage_HilightOutline);
         drawTickOutline.setLayoutData(new GridData(SWT.BEGINNING, SWT.CENTER, false, false, 2, 1));
         ((GridData) drawTickOutline.getLayoutData()).horizontalIndent = convertHorizontalDLUsToPixels(18);
 
         fadeToBackground = new Button(content, SWT.CHECK);
-        fadeToBackground.setText("Fade to background");
+        fadeToBackground.setText(Messages.WatchListPreferencesPage_FadeToBackground);
         fadeToBackground.setLayoutData(new GridData(SWT.BEGINNING, SWT.CENTER, false, false, 2, 1));
         ((GridData) fadeToBackground.getLayoutData()).horizontalIndent = convertHorizontalDLUsToPixels(18);
 

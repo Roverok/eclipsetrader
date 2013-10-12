@@ -44,13 +44,13 @@ public class PreferenceInitializer extends AbstractPreferenceInitializer {
         IPreferenceStore preferences = UIActivator.getDefault().getPreferenceStore();
 
         PeriodList list = new PeriodList();
-        list.add(new Period("2 Years", TimeSpan.years(2), TimeSpan.days(1)));
-        list.add(new Period("1 Year", TimeSpan.years(1), TimeSpan.days(1)));
-        list.add(new Period("6 Months (30min)", TimeSpan.months(6), TimeSpan.minutes(30)));
-        list.add(new Period("3 Months (30min)", TimeSpan.months(3), TimeSpan.minutes(30)));
-        list.add(new Period("1 Month (15min)", TimeSpan.months(1), TimeSpan.minutes(15)));
-        list.add(new Period("5 Days (5min)", TimeSpan.days(5), TimeSpan.minutes(5)));
-        list.add(new Period("1 Day (1min)", TimeSpan.days(1), TimeSpan.minutes(1)));
+        list.add(new Period(Messages.PreferenceInitializer_2Years, TimeSpan.years(2), TimeSpan.days(1)));
+        list.add(new Period(Messages.PreferenceInitializer_1Year, TimeSpan.years(1), TimeSpan.days(1)));
+        list.add(new Period(Messages.PreferenceInitializer_6Months, TimeSpan.months(6), TimeSpan.minutes(30)));
+        list.add(new Period(Messages.PreferenceInitializer_3Months, TimeSpan.months(3), TimeSpan.minutes(30)));
+        list.add(new Period(Messages.PreferenceInitializer_1Month, TimeSpan.months(1), TimeSpan.minutes(15)));
+        list.add(new Period(Messages.PreferenceInitializer_5Days, TimeSpan.days(5), TimeSpan.minutes(5)));
+        list.add(new Period(Messages.PreferenceInitializer_1Day, TimeSpan.days(1), TimeSpan.minutes(1)));
         try {
             preferences.setDefault(UIActivator.PREFS_CHART_PERIODS, marshal(list));
         } catch (Exception e) {
@@ -58,12 +58,12 @@ public class PreferenceInitializer extends AbstractPreferenceInitializer {
         }
 
         StringBuilder sb = new StringBuilder();
-        sb.append(TimeSpan.days(1)).append(",");
-        sb.append(TimeSpan.minutes(1)).append(",");
-        sb.append(TimeSpan.minutes(5)).append(",");
-        sb.append(TimeSpan.minutes(10)).append(",");
-        sb.append(TimeSpan.minutes(15)).append(",");
-        sb.append(TimeSpan.minutes(30)).append(",");
+        sb.append(TimeSpan.days(1)).append(","); //$NON-NLS-1$
+        sb.append(TimeSpan.minutes(1)).append(","); //$NON-NLS-1$
+        sb.append(TimeSpan.minutes(5)).append(","); //$NON-NLS-1$
+        sb.append(TimeSpan.minutes(10)).append(","); //$NON-NLS-1$
+        sb.append(TimeSpan.minutes(15)).append(","); //$NON-NLS-1$
+        sb.append(TimeSpan.minutes(30)).append(","); //$NON-NLS-1$
         sb.append(TimeSpan.minutes(60));
         preferences.setDefault(UIActivator.PREFS_CHART_BARS, sb.toString());
     }

@@ -49,7 +49,7 @@ public class GeneralPage extends PropertyPage {
     private ComboViewer timeZone;
 
     public GeneralPage() {
-        setTitle("General");
+        setTitle(Messages.GeneralPage_General);
         noDefaultAndApplyButton();
     }
 
@@ -65,7 +65,7 @@ public class GeneralPage extends PropertyPage {
         initializeDialogUnits(content);
 
         Label label = new Label(content, SWT.NONE);
-        label.setText("Schedule");
+        label.setText(Messages.GeneralPage_Schedule);
         label.setLayoutData(new GridData(convertHorizontalDLUsToPixels(80), SWT.DEFAULT));
         ((GridData) label.getLayoutData()).horizontalSpan = 2;
         schedule = new TimeScheduleEditor(content);
@@ -83,14 +83,14 @@ public class GeneralPage extends PropertyPage {
         });
 
         label = new Label(content, SWT.NONE);
-        label.setText("Excluded Days");
+        label.setText(Messages.GeneralPage_ExcludedDays);
         label.setLayoutData(new GridData(convertHorizontalDLUsToPixels(80), SWT.DEFAULT));
         ((GridData) label.getLayoutData()).horizontalSpan = 2;
         excluded = new ExclusionScheduleEditor(content);
         ((GridData) excluded.getControl().getLayoutData()).horizontalSpan = 2;
 
         label = new Label(content, SWT.NONE);
-        label.setText("Week Days");
+        label.setText(Messages.GeneralPage_WeekDays);
         label.setLayoutData(new GridData(SWT.BEGINNING, SWT.TOP, false, false));
         ((GridData) label.getLayoutData()).verticalIndent = convertHorizontalDLUsToPixels(3);
         Composite group = new Composite(content, SWT.NONE);
@@ -99,22 +99,22 @@ public class GeneralPage extends PropertyPage {
         group.setLayout(gridLayout);
         group.setLayoutData(new GridData(SWT.BEGINNING, SWT.TOP, false, false));
         mon = new Button(group, SWT.CHECK);
-        mon.setText("Mon");
+        mon.setText(Messages.GeneralPage_Mon);
         tue = new Button(group, SWT.CHECK);
-        tue.setText("Tue");
+        tue.setText(Messages.GeneralPage_Tue);
         wed = new Button(group, SWT.CHECK);
-        wed.setText("Wed");
+        wed.setText(Messages.GeneralPage_Wed);
         thu = new Button(group, SWT.CHECK);
-        thu.setText("Thu");
+        thu.setText(Messages.GeneralPage_Thu);
         fri = new Button(group, SWT.CHECK);
-        fri.setText("Fri");
+        fri.setText(Messages.GeneralPage_Fri);
         sun = new Button(group, SWT.CHECK);
-        sun.setText("Sun");
+        sun.setText(Messages.GeneralPage_Sun);
         sat = new Button(group, SWT.CHECK);
-        sat.setText("Sat");
+        sat.setText(Messages.GeneralPage_Sat);
 
         label = new Label(content, SWT.NONE);
-        label.setText("Time Zone");
+        label.setText(Messages.GeneralPage_TimeZone);
         timeZone = new ComboViewer(content, SWT.READ_ONLY);
         timeZone.getCombo().setVisibleItemCount(15);
         timeZone.setLabelProvider(new LabelProvider());

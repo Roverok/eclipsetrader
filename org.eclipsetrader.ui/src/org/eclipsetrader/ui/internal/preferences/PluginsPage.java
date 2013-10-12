@@ -46,7 +46,7 @@ public class PluginsPage extends PreferencePage implements IWorkbenchPreferenceP
         content.setLayout(gridLayout);
 
         Label label = new Label(content, SWT.NONE);
-        label.setText("Expand the tree to edit preferences for a specific plugin.");
+        label.setText(Messages.PluginsPage_ExpandTree);
         label.setLayoutData(new GridData(SWT.BEGINNING, SWT.CENTER, false, false, 2, 1));
 
         return content;

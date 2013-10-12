@@ -46,7 +46,7 @@ public class WorkbenchPreferencePage extends PreferencePage implements IWorkbenc
         content.setLayout(gridLayout);
 
         Label label = new Label(content, SWT.NONE);
-        label.setText("Expand the tree to edit general application preferences.");
+        label.setText(Messages.WorkbenchPreferencePage_ExpandTree);
         label.setLayoutData(new GridData(SWT.BEGINNING, SWT.CENTER, false, false, 2, 1));
 
         return content;

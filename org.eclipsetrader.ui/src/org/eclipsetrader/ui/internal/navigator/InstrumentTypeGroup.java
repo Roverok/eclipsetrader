@@ -41,8 +41,8 @@ public class InstrumentTypeGroup implements INavigatorContentGroup, IExecutableE
      */
     @Override
     public void setInitializationData(IConfigurationElement config, String propertyName, Object data) throws CoreException {
-        id = config.getAttribute("id");
-        name = config.getAttribute("name");
+        id = config.getAttribute("id"); //$NON-NLS-1$
+        name = config.getAttribute("name"); //$NON-NLS-1$
     }
 
     /* (non-Javadoc)
@@ -69,7 +69,7 @@ public class InstrumentTypeGroup implements INavigatorContentGroup, IExecutableE
         Set<IAdaptable> elementsSet = new HashSet<IAdaptable>(Arrays.asList(elements));
         List<IViewItem> result = new ArrayList<IViewItem>();
 
-        NavigatorViewItem viewItem = new NavigatorViewItem(null, "Stocks");
+        NavigatorViewItem viewItem = new NavigatorViewItem(null, Messages.InstrumentTypeGroup_Stocks);
         for (Iterator<IAdaptable> iter = elementsSet.iterator(); iter.hasNext();) {
             IAdaptable e = iter.next();
             Object reference = e.getAdapter(IStock.class);
@@ -82,7 +82,7 @@ public class InstrumentTypeGroup implements INavigatorContentGroup, IExecutableE
             result.add(viewItem);
         }
 
-        viewItem = new NavigatorViewItem(null, "Currencies");
+        viewItem = new NavigatorViewItem(null, Messages.InstrumentTypeGroup_Currencies);
         for (Iterator<IAdaptable> iter = elementsSet.iterator(); iter.hasNext();) {
             IAdaptable e = iter.next();
             Object reference = e.getAdapter(ICurrencyExchange.class);
@@ -95,7 +95,7 @@ public class InstrumentTypeGroup implements INavigatorContentGroup, IExecutableE
             result.add(viewItem);
         }
 
-        viewItem = new NavigatorViewItem(null, "WatchLists");
+        viewItem = new NavigatorViewItem(null, Messages.InstrumentTypeGroup_WatchLists);
         for (Iterator<IAdaptable> iter = elementsSet.iterator(); iter.hasNext();) {
             IAdaptable e = iter.next();
             Object reference = e.getAdapter(IWatchList.class);

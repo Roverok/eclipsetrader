@@ -118,10 +118,10 @@ public class ExclusionScheduleEditor {
         viewer.getControl().setLayoutData(gridData);
 
         TableColumn tableColumn = new TableColumn(viewer.getTable(), SWT.NONE);
-        tableColumn.setText("From");
+        tableColumn.setText(Messages.ExclusionScheduleEditor_From);
         tableColumn.setWidth(70);
         tableColumn = new TableColumn(viewer.getTable(), SWT.NONE);
-        tableColumn.setText("To");
+        tableColumn.setText(Messages.ExclusionScheduleEditor_To);
         tableColumn.setWidth(70);
 
         viewer.setLabelProvider(new ScheduleElementLabelProvider());
@@ -151,7 +151,7 @@ public class ExclusionScheduleEditor {
                     case 1:
                         return e.getToDate();
                 }
-                return "";
+                return ""; //$NON-NLS-1$
             }
 
             @Override
@@ -180,7 +180,7 @@ public class ExclusionScheduleEditor {
             }
         });
         viewer.setColumnProperties(new String[] {
-                "0", "1"
+                "0", "1" //$NON-NLS-1$ //$NON-NLS-2$
         });
         viewer.setCellEditors(new CellEditor[] {
                 new CDateTimeCellEditor(viewer.getTable(), CDT.DATE_SHORT),
@@ -208,7 +208,7 @@ public class ExclusionScheduleEditor {
         content.setLayoutData(new GridData(SWT.FILL, SWT.TOP, false, false));
 
         add = new Button(content, SWT.PUSH);
-        add.setText("Add");
+        add.setText(Messages.ExclusionScheduleEditor_Add);
         add.addSelectionListener(new SelectionAdapter() {
 
             @Override
@@ -229,7 +229,7 @@ public class ExclusionScheduleEditor {
         add.setLayoutData(new GridData(SWT.FILL, SWT.TOP, false, false));
 
         remove = new Button(content, SWT.PUSH);
-        remove.setText("Remove");
+        remove.setText(Messages.ExclusionScheduleEditor_Remove);
         remove.addSelectionListener(new SelectionAdapter() {
 
             @Override

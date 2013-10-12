@@ -28,7 +28,7 @@ public class RepositoryMoveJob extends Job {
     private IRepository destinationRepository;
 
     public RepositoryMoveJob(IRepositoryService service, IAdaptable[] objects, IRepository destinationRepository) {
-        super("Repository Move");
+        super(Messages.RepositoryMoveJob_RepositoryMove);
 
         this.service = service;
         this.objects = objects;

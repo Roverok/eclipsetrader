@@ -71,7 +71,7 @@ public class BarsPreferencePage extends PreferencePage implements IWorkbenchPref
         content.setLayout(gridLayout);
 
         Label label = new Label(content, SWT.NONE);
-        label.setText("Bar aggregation sizes to import from backfill data providers.");
+        label.setText(Messages.BarsPreferencePage_BarAggregationSizes);
         label.setLayoutData(new GridData(SWT.BEGINNING, SWT.CENTER, false, false, 2, 1));
 
         viewer = new ListViewer(content, SWT.BORDER | SWT.MULTI);
@@ -82,7 +82,7 @@ public class BarsPreferencePage extends PreferencePage implements IWorkbenchPref
             @Override
             public String getText(Object element) {
                 TimeSpan timeSpan = (TimeSpan) element;
-                return NLS.bind("{0} {1}", new Object[] {
+                return NLS.bind("{0} {1}", new Object[] { //$NON-NLS-1$
                     String.valueOf(timeSpan.getLength()), timeSpan.getUnits()
                 });
             }
@@ -109,7 +109,7 @@ public class BarsPreferencePage extends PreferencePage implements IWorkbenchPref
         buttons.setLayoutData(new GridData(SWT.CENTER, SWT.TOP, false, false));
 
         add = new Button(buttons, SWT.PUSH);
-        add.setText("Add");
+        add.setText(Messages.BarsPreferencePage_Add);
         add.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
         add.addSelectionListener(new SelectionAdapter() {
 
@@ -124,7 +124,7 @@ public class BarsPreferencePage extends PreferencePage implements IWorkbenchPref
         });
 
         remove = new Button(buttons, SWT.PUSH);
-        remove.setText("Remove");
+        remove.setText(Messages.BarsPreferencePage_Remove);
         remove.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
         remove.addSelectionListener(new SelectionAdapter() {
 
@@ -159,7 +159,7 @@ public class BarsPreferencePage extends PreferencePage implements IWorkbenchPref
 
         list.clear();
         String value = preferences.getString(UIActivator.PREFS_CHART_BARS);
-        String[] s = value.split(",");
+        String[] s = value.split(","); //$NON-NLS-1$
         for (int i = 0; i < s.length; i++) {
             TimeSpan timeSpan = TimeSpan.fromString(s[i]);
             if (timeSpan != null) {
@@ -180,7 +180,7 @@ public class BarsPreferencePage extends PreferencePage implements IWorkbenchPref
 
         StringBuilder sb = new StringBuilder();
         for (TimeSpan timeSpan : list) {
-            sb.append(timeSpan).append(",");
+            sb.append(timeSpan).append(","); //$NON-NLS-1$
         }
         sb.deleteCharAt(sb.length() - 1);
         preferences.setDefault(UIActivator.PREFS_CHART_BARS, sb.toString());

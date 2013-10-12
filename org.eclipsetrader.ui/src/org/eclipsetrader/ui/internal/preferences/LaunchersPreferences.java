@@ -41,7 +41,7 @@ import org.eclipsetrader.ui.internal.UIActivator;
 
 public class LaunchersPreferences extends PreferencePage implements IWorkbenchPreferencePage {
 
-    public static final String LAUNCHERS_EXTENSION_ID = "org.eclipsetrader.core.launchers";
+    public static final String LAUNCHERS_EXTENSION_ID = "org.eclipsetrader.core.launchers"; //$NON-NLS-1$
 
     CheckboxTableViewer startupLaunchers;
     Button startAllLaunchers;
@@ -49,7 +49,7 @@ public class LaunchersPreferences extends PreferencePage implements IWorkbenchPr
     CheckboxTableViewer runLaunchers;
 
     public LaunchersPreferences() {
-        super("Launchers");
+        super("Launchers"); //$NON-NLS-1$
     }
 
     /* (non-Javadoc)
@@ -71,7 +71,7 @@ public class LaunchersPreferences extends PreferencePage implements IWorkbenchPr
         content.setLayout(gridLayout);
 
         startAllLaunchers = new Button(content, SWT.RADIO);
-        startAllLaunchers.setText("Start All Services");
+        startAllLaunchers.setText(Messages.LaunchersPreferences_StartAllServices);
         startAllLaunchers.setLayoutData(new GridData(SWT.BEGINNING, SWT.CENTER, false, false, 2, 1));
         startAllLaunchers.addSelectionListener(new SelectionAdapter() {
 
@@ -82,7 +82,7 @@ public class LaunchersPreferences extends PreferencePage implements IWorkbenchPr
         });
 
         startSelectedLaunchers = new Button(content, SWT.RADIO);
-        startSelectedLaunchers.setText("Start Services Selected Below");
+        startSelectedLaunchers.setText(Messages.LaunchersPreferences_StartServicesSelectedBellow);
         startSelectedLaunchers.setLayoutData(new GridData(SWT.BEGINNING, SWT.CENTER, false, false, 2, 1));
         startSelectedLaunchers.addSelectionListener(new SelectionAdapter() {
 
@@ -100,12 +100,12 @@ public class LaunchersPreferences extends PreferencePage implements IWorkbenchPr
 
             @Override
             public String getText(Object element) {
-                return ((IConfigurationElement) element).getAttribute("name");
+                return ((IConfigurationElement) element).getAttribute("name"); //$NON-NLS-1$
             }
         });
 
         Label label = new Label(content, SWT.NONE);
-        label.setText("Services Launched at Startup");
+        label.setText(Messages.LaunchersPreferences_ServiceLaunchedAtStartup);
         label.setLayoutData(new GridData(SWT.BEGINNING, SWT.CENTER, false, false, 2, 1));
 
         startupLaunchers = CheckboxTableViewer.newCheckList(content, SWT.BORDER);
@@ -116,7 +116,7 @@ public class LaunchersPreferences extends PreferencePage implements IWorkbenchPr
 
             @Override
             public String getText(Object element) {
-                return ((IConfigurationElement) element).getAttribute("name");
+                return ((IConfigurationElement) element).getAttribute("name"); //$NON-NLS-1$
             }
         });
 
@@ -128,7 +128,7 @@ public class LaunchersPreferences extends PreferencePage implements IWorkbenchPr
 
                 @Override
                 public int compare(IConfigurationElement o1, IConfigurationElement o2) {
-                    return o1.getAttribute("name").compareToIgnoreCase(o2.getAttribute("name"));
+                    return o1.getAttribute("name").compareToIgnoreCase(o2.getAttribute("name")); //$NON-NLS-1$ //$NON-NLS-2$
                 }
             });
 
@@ -154,11 +154,11 @@ public class LaunchersPreferences extends PreferencePage implements IWorkbenchPr
             startupLaunchers.setAllChecked(false);
             runLaunchers.setAllChecked(false);
 
-            Set<String> startupSet = new HashSet<String>(Arrays.asList(preferenceStore.getString("STARTUP_LAUNCHERS").split(";")));
-            Set<String> runSet = new HashSet<String>(Arrays.asList(preferenceStore.getString("RUN_LAUNCHERS").split(";")));
+            Set<String> startupSet = new HashSet<String>(Arrays.asList(preferenceStore.getString("STARTUP_LAUNCHERS").split(";"))); //$NON-NLS-1$ //$NON-NLS-2$
+            Set<String> runSet = new HashSet<String>(Arrays.asList(preferenceStore.getString("RUN_LAUNCHERS").split(";"))); //$NON-NLS-1$ //$NON-NLS-2$
 
             for (int i = 0; i < configElements.length; i++) {
-                String id = configElements[i].getAttribute("id");
+                String id = configElements[i].getAttribute("id"); //$NON-NLS-1$
                 if (startupSet.contains(id)) {
                     startupLaunchers.setChecked(configElements[i], true);
                 }
@@ -168,7 +168,7 @@ public class LaunchersPreferences extends PreferencePage implements IWorkbenchPr
             }
         }
 
-        startAllLaunchers.setSelection(preferenceStore.getBoolean("RUN_ALL_LAUNCHERS"));
+        startAllLaunchers.setSelection(preferenceStore.getBoolean("RUN_ALL_LAUNCHERS")); //$NON-NLS-1$
         startSelectedLaunchers.setSelection(!startAllLaunchers.getSelection());
         runLaunchers.getControl().setEnabled(startSelectedLaunchers.getSelection());
 
@@ -185,26 +185,26 @@ public class LaunchersPreferences extends PreferencePage implements IWorkbenchPr
         StringBuffer sb = new StringBuffer();
         Object[] o = startupLaunchers.getCheckedElements();
         for (int i = 0; i < o.length; i++) {
-            String id = ((IConfigurationElement) o[i]).getAttribute("id");
+            String id = ((IConfigurationElement) o[i]).getAttribute("id"); //$NON-NLS-1$
             if (i != 0) {
-                sb.append(";");
+                sb.append(";"); //$NON-NLS-1$
             }
             sb.append(id);
         }
-        preferenceStore.setValue("STARTUP_LAUNCHERS", sb.toString());
+        preferenceStore.setValue("STARTUP_LAUNCHERS", sb.toString()); //$NON-NLS-1$
 
         sb = new StringBuffer();
         o = runLaunchers.getCheckedElements();
         for (int i = 0; i < o.length; i++) {
-            String id = ((IConfigurationElement) o[i]).getAttribute("id");
+            String id = ((IConfigurationElement) o[i]).getAttribute("id"); //$NON-NLS-1$
             if (i != 0) {
-                sb.append(";");
+                sb.append(";"); //$NON-NLS-1$
             }
             sb.append(id);
         }
-        preferenceStore.setValue("RUN_LAUNCHERS", sb.toString());
+        preferenceStore.setValue("RUN_LAUNCHERS", sb.toString()); //$NON-NLS-1$
 
-        preferenceStore.setValue("RUN_ALL_LAUNCHERS", startAllLaunchers.getSelection());
+        preferenceStore.setValue("RUN_ALL_LAUNCHERS", startAllLaunchers.getSelection()); //$NON-NLS-1$
 
         return super.performOk();
     }

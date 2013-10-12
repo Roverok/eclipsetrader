@@ -28,8 +28,8 @@ public class GeneralWizardPage extends WizardPage {
     MarketService marketService;
 
     public GeneralWizardPage(MarketService marketService) {
-        super("general", "General", null);
-        setDescription("Set the market's name");
+        super("general", Messages.GeneralWizardPage_General, null); //$NON-NLS-1$
+        setDescription(Messages.GeneralWizardPage_SetMarketsName);
 
         this.marketService = marketService;
     }
@@ -46,7 +46,7 @@ public class GeneralWizardPage extends WizardPage {
         initializeDialogUnits(parent);
 
         Label label = new Label(content, SWT.NONE);
-        label.setText("Name");
+        label.setText(Messages.GeneralWizardPage_Name);
         label.setLayoutData(new GridData(SWT.BEGINNING, SWT.CENTER, false, false, 2, 1));
         name = new Text(content, SWT.BORDER);
         name.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 2, 1));
@@ -66,12 +66,12 @@ public class GeneralWizardPage extends WizardPage {
      */
     @Override
     public boolean isPageComplete() {
-        if (name.getText().equals("")) {
+        if (name.getText().equals("")) { //$NON-NLS-1$
             return false;
         }
 
         if (marketService.getMarket(name.getText()) != null) {
-            setErrorMessage("Another market with the same name exists. Choose another name.");
+            setErrorMessage(Messages.GeneralWizardPage_AnotherMarketExists);
             return false;
         }
 
