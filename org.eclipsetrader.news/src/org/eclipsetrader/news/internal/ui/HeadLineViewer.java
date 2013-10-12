@@ -190,7 +190,7 @@ public class HeadLineViewer extends ViewPart {
             }
         }
 
-        refreshAction = new Action("Refresh") { //$NON-NLS-1$
+        refreshAction = new Action(Messages.HeadLineViewer_Refresh) { 
 
             @Override
             public void run() {
@@ -207,7 +207,7 @@ public class HeadLineViewer extends ViewPart {
         refreshAction.setImageDescriptor(Activator.getImageDescriptor("icons/elcl16/refresh.gif")); //$NON-NLS-1$
         refreshAction.setDisabledImageDescriptor(Activator.getImageDescriptor("icons/dlcl16/refresh.gif")); //$NON-NLS-1$
 
-        showPreviousAction = new Action("Previous") { //$NON-NLS-1$
+        showPreviousAction = new Action(Messages.HeadLineViewer_Previous) { 
 
             @Override
             public void run() {
@@ -221,7 +221,7 @@ public class HeadLineViewer extends ViewPart {
         showPreviousAction.setImageDescriptor(Activator.getImageDescriptor("icons/elcl16/prev_nav.gif")); //$NON-NLS-1$
         showPreviousAction.setDisabledImageDescriptor(Activator.getImageDescriptor("icons/dlcl16/prev_nav.gif")); //$NON-NLS-1$
 
-        showNextAction = new Action("Next") { //$NON-NLS-1$
+        showNextAction = new Action(Messages.HeadLineViewer_Next) { 
 
             @Override
             public void run() {
@@ -235,7 +235,7 @@ public class HeadLineViewer extends ViewPart {
         showNextAction.setImageDescriptor(Activator.getImageDescriptor("icons/elcl16/next_nav.gif")); //$NON-NLS-1$
         showNextAction.setDisabledImageDescriptor(Activator.getImageDescriptor("icons/dlcl16/next_nav.gif")); //$NON-NLS-1$
 
-        openAction = new Action("Open") { //$NON-NLS-1$
+        openAction = new Action(Messages.HeadLineViewer_Open) { 
 
             @Override
             public void run() {
@@ -257,7 +257,7 @@ public class HeadLineViewer extends ViewPart {
                 }
             }
         };
-        markAsReadAction = new Action("Mark as Read") { //$NON-NLS-1$
+        markAsReadAction = new Action(Messages.HeadLineViewer_MarkAsRead) { 
 
             @Override
             public void run() {
@@ -270,7 +270,7 @@ public class HeadLineViewer extends ViewPart {
                 service.updateHeadLines(headLines);
             }
         };
-        markAllAsReadAction = new Action("Mark All as Read") { //$NON-NLS-1$
+        markAllAsReadAction = new Action(Messages.HeadLineViewer_MarkAllAsRead) { 
 
             @Override
             public void run() {

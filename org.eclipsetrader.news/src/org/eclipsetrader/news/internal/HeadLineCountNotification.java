@@ -23,15 +23,15 @@ import org.eclipsetrader.ui.INotification;
 
 public class HeadLineCountNotification implements INotification, Comparable<HeadLineCountNotification> {
 
-    private static final String LABEL_TEXT = "{0}";
-    private static final String DESCRIPTION_TEXT = "News has {0} new unreaded headline(s)";
+    private static final String LABEL_TEXT = "{0}"; //$NON-NLS-1$
+    private static final String DESCRIPTION_TEXT = Messages.HeadLineCountNotification_NewsHasUnreadedHeadline;
 
     private String label;
     private String description;
 
     public HeadLineCountNotification(int count) {
         this.label = NLS.bind(LABEL_TEXT, new Object[] {
-            "News"
+            Messages.HeadLineCountNotification_News
         });
         this.description = NLS.bind(DESCRIPTION_TEXT, new Object[] {
             count
@@ -59,7 +59,7 @@ public class HeadLineCountNotification implements INotification, Comparable<Head
      */
     @Override
     public Image getNotificationImage() {
-        return Activator.getDefault().getImageRegistry().get("normal_icon");
+        return Activator.getDefault().getImageRegistry().get("normal_icon"); //$NON-NLS-1$
     }
 
     /* (non-Javadoc)
@@ -71,7 +71,7 @@ public class HeadLineCountNotification implements INotification, Comparable<Head
         try {
             page.showView(HeadLineViewer.VIEW_ID);
         } catch (PartInitException e) {
-            Status status = new Status(IStatus.WARNING, Activator.PLUGIN_ID, 0, "Unexpected error activating view", null);
+            Status status = new Status(IStatus.WARNING, Activator.PLUGIN_ID, 0, Messages.HeadLineCountNotification_UnexpectedError, null);
             Activator.log(status);
         }
     }
