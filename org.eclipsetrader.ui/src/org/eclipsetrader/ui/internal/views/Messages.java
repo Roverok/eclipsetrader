@@ -34,6 +34,8 @@ public class Messages extends NLS {
 	public static String NamePage_WatchList;
 	public static String NamePage_WatchListName;
 	public static String SecurityProperties_Securities;
+	public static String SecuritySelectionControl_AvailableInstruments;
+	public static String SecuritySelectionControl_SelectedInstruments;
 	public static String WatchListWizard_Ask;
 	public static String WatchListWizard_AskSize;
 	public static String WatchListWizard_Bid;
