@@ -49,8 +49,8 @@ public class SettingsPage extends WizardPage {
     };
 
     public SettingsPage() {
-        super("settings");
-        setTitle("Settings");
+        super("settings"); //$NON-NLS-1$
+        setTitle(Messages.SettingsPage_Settings);
     }
 
     /* (non-Javadoc)
@@ -62,7 +62,7 @@ public class SettingsPage extends WizardPage {
         composite.setLayout(new GridLayout(2, false));
 
         Label label = new Label(composite, SWT.NONE);
-        label.setText("Currency");
+        label.setText(Messages.SettingsPage_Currency);
         currency = new ComboViewer(composite, SWT.DROP_DOWN | SWT.READ_ONLY);
         currency.setLabelProvider(new LabelProvider());
         currency.setContentProvider(new ArrayContentProvider());
@@ -80,12 +80,12 @@ public class SettingsPage extends WizardPage {
         currency.setSelection(new StructuredSelection(Currency.getInstance(Locale.getDefault())));
 
         label = new Label(composite, SWT.NONE);
-        label.setText("Initial Balance");
+        label.setText(Messages.SettingsPage_InitialBalance);
         balance = new Spinner(composite, SWT.BORDER);
         balance.setValues(0, 0, 999999999, 2, 10000, 100000);
 
         label = new Label(composite, SWT.NONE);
-        label.setText("Expenses Scheme");
+        label.setText(Messages.SettingsPage_ExpensesScheme);
         expenses = new ComboViewer(composite, SWT.DROP_DOWN | SWT.READ_ONLY);
         expenses.setLabelProvider(new LabelProvider());
         expenses.setContentProvider(new ArrayContentProvider());

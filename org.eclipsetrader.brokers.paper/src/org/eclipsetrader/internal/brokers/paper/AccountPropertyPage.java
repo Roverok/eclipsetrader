@@ -92,12 +92,12 @@ public class AccountPropertyPage extends PropertyPage implements IWorkbenchPrope
         applyDialogFont(composite);
 
         Label label = new Label(composite, SWT.NONE);
-        label.setText("Name");
+        label.setText(Messages.AccountPropertyPage_Name);
         name = new Text(composite, SWT.BORDER);
         name.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
 
         label = new Label(composite, SWT.NONE);
-        label.setText("Currency");
+        label.setText(Messages.AccountPropertyPage_Currency);
         currency = new ComboViewer(composite, SWT.DROP_DOWN | SWT.READ_ONLY);
         currency.setLabelProvider(new LabelProvider());
         currency.setContentProvider(new ArrayContentProvider());
@@ -114,12 +114,12 @@ public class AccountPropertyPage extends PropertyPage implements IWorkbenchPrope
         currency.setInput(c.toArray());
 
         label = new Label(composite, SWT.NONE);
-        label.setText("Balance");
+        label.setText(Messages.AccountPropertyPage_Balance);
         balance = new Spinner(composite, SWT.BORDER);
         balance.setValues(0, 0, 999999999, 2, 10000, 100000);
 
         label = new Label(composite, SWT.NONE);
-        label.setText("Expenses Scheme");
+        label.setText(Messages.AccountPropertyPage_ExpensesScheme);
         expenses = new ComboViewer(composite, SWT.DROP_DOWN | SWT.READ_ONLY);
         expenses.setLabelProvider(new LabelProvider());
         expenses.setContentProvider(new ArrayContentProvider());
@@ -159,7 +159,7 @@ public class AccountPropertyPage extends PropertyPage implements IWorkbenchPrope
      */
     @Override
     public boolean isValid() {
-        if (name.getText().equals("")) {
+        if (name.getText().equals("")) { //$NON-NLS-1$
             return false;
         }
         return super.isValid();

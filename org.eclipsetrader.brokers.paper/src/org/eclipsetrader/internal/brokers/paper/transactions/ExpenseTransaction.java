@@ -86,7 +86,7 @@ public class ExpenseTransaction implements ITransaction {
     @Override
     @XmlTransient
     public String getDescription() {
-        return "Expenses";
+        return Messages.ExpenseTransaction_Expenses;
     }
 
     /* (non-Javadoc)

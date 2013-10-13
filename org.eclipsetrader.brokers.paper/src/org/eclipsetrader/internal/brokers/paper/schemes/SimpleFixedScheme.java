@@ -60,6 +60,6 @@ public class SimpleFixedScheme implements IExpenseScheme {
      */
     @Override
     public String toString() {
-        return "Simple Fixed (9.95)";
+        return Messages.SimpleFixedScheme_SimpleFixedScheme;
     }
 }

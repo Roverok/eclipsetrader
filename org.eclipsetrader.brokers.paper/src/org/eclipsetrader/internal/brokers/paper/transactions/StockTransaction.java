@@ -86,7 +86,7 @@ public class StockTransaction implements ITransaction {
     @Override
     @XmlTransient
     public String getDescription() {
-        return NLS.bind("{1} {0} at {2}", new Object[] {
+        return NLS.bind(Messages.StockTransaction_Description, new Object[] {
                 security.getName(),
                 String.valueOf(quantity),
                 String.valueOf(price),
