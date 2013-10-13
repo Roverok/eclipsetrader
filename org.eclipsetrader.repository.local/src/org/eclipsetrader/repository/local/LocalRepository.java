@@ -46,14 +46,14 @@ import org.eclipsetrader.repository.local.internal.stores.RepositoryStore;
 
 public class LocalRepository implements IRepository, ISchedulingRule {
 
-    public static final String URI_SCHEMA = "local";
-    public static final String URI_SECURITY_PART = "securities";
-    public static final String URI_SECURITY_HISTORY_PART = "securities/history";
-    public static final String URI_SECURITY_INTRADAY_HISTORY_PART = "securities/history/{0}/{1}";
-    public static final String URI_WATCHLIST_PART = "watchlists";
-    public static final String URI_TRADE_PART = "trades";
-    public static final String URI_SCRIPT_PART = "scripts";
-    public static final String URI_STRATEGY_PART = "strategies";
+    public static final String URI_SCHEMA = "local"; //$NON-NLS-1$
+    public static final String URI_SECURITY_PART = "securities"; //$NON-NLS-1$
+    public static final String URI_SECURITY_HISTORY_PART = "securities/history"; //$NON-NLS-1$
+    public static final String URI_SECURITY_INTRADAY_HISTORY_PART = "securities/history/{0}/{1}"; //$NON-NLS-1$
+    public static final String URI_WATCHLIST_PART = "watchlists"; //$NON-NLS-1$
+    public static final String URI_TRADE_PART = "trades"; //$NON-NLS-1$
+    public static final String URI_SCRIPT_PART = "scripts"; //$NON-NLS-1$
+    public static final String URI_STRATEGY_PART = "strategies"; //$NON-NLS-1$
 
     public static final String IDENTIFIERS_FILE = "identifiers.xml"; //$NON-NLS-1$
     public static final String SECURITIES_FILE = "securities.xml"; //$NON-NLS-1$
@@ -424,6 +424,6 @@ public class LocalRepository implements IRepository, ISchedulingRule {
      */
     @Override
     public String toString() {
-        return "Local";
+        return Messages.LocalRepository_Local;
     }
 }
