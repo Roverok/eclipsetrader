@@ -59,7 +59,7 @@ public class MarketPropertiesHandler extends AbstractHandler {
     protected void openPropertiesDialog(Shell shell, final IAdaptable adaptableElement) {
         if (adaptableElement.getAdapter(Market.class) != null) {
             PropertyPageManager pageManager = new PropertyPageManager();
-            pageManager.addToRoot(new PriorityPreferenceNode("org.eclipsetrader.ui.propertypages.markets.general", new GeneralPage(), -1));
+            pageManager.addToRoot(new PriorityPreferenceNode("org.eclipsetrader.ui.propertypages.markets.general", new GeneralPage(), -1)); //$NON-NLS-1$
             PropertyPageContributorManager.getManager().contribute(pageManager, adaptableElement);
 
             for (Object nodeObj : pageManager.getElements(PreferenceManager.PRE_ORDER)) {
@@ -75,7 +75,7 @@ public class MarketPropertiesHandler extends AbstractHandler {
                 protected void configureShell(Shell newShell) {
                     super.configureShell(newShell);
                     Market market = (Market) adaptableElement.getAdapter(Market.class);
-                    newShell.setText("Properties for " + market.getName());
+                    newShell.setText(Messages.MarketPropertiesHandler_PropertiesFor + market.getName());
                 }
             };
             dlg.open();

@@ -97,12 +97,12 @@ public class FeedPropertiesControl {
                 case 1: {
                     if (element instanceof PropertyElement) {
                         String value = ((PropertyElement) element).getValue();
-                        return value != null ? value : "<default>";
+                        return value != null ? value : Messages.FeedPropertiesControl_Default;
                     }
                     break;
                 }
             }
-            return "";
+            return ""; //$NON-NLS-1$
         }
 
         /* (non-Javadoc)
@@ -179,17 +179,17 @@ public class FeedPropertiesControl {
 
         viewer = new TreeViewer(container, SWT.MULTI | SWT.BORDER | SWT.V_SCROLL | SWT.H_SCROLL);
         TreeColumn treeColumn = new TreeColumn(viewer.getTree(), SWT.NONE);
-        treeColumn.setText("Property");
+        treeColumn.setText(Messages.FeedPropertiesControl_Property);
         tableLayout.setColumnData(treeColumn, new ColumnWeightData(35));
         treeColumn = new TreeColumn(viewer.getTree(), SWT.NONE);
-        treeColumn.setText("Value");
+        treeColumn.setText(Messages.FeedPropertiesControl_Value);
         tableLayout.setColumnData(treeColumn, new ColumnWeightData(65));
 
         viewer.setLabelProvider(new PropertiesLabelProvider());
         viewer.setContentProvider(new PropertiesContentProvider());
         viewer.setSorter(new ViewerSorter());
         viewer.setColumnProperties(new String[] {
-                null, "value"
+                null, "value" //$NON-NLS-1$
         });
         viewer.setCellEditors(new CellEditor[] {
                 null, new TextCellEditor(viewer.getTree())
@@ -198,13 +198,13 @@ public class FeedPropertiesControl {
 
             @Override
             public boolean canModify(Object element, String property) {
-                return element instanceof PropertyElement && "value".equals(property);
+                return element instanceof PropertyElement && "value".equals(property); //$NON-NLS-1$
             }
 
             @Override
             public Object getValue(Object element, String property) {
-                if (element instanceof PropertyElement && "value".equals(property)) {
-                    return ((PropertyElement) element).getValue() != null ? ((PropertyElement) element).getValue() : "";
+                if (element instanceof PropertyElement && "value".equals(property)) { //$NON-NLS-1$
+                    return ((PropertyElement) element).getValue() != null ? ((PropertyElement) element).getValue() : ""; //$NON-NLS-1$
                 }
                 return null;
             }
@@ -212,7 +212,7 @@ public class FeedPropertiesControl {
             @Override
             public void modify(Object object, String property, Object value) {
                 PropertyElement element = (PropertyElement) (object instanceof TreeItem ? ((TreeItem) object).getData() : object);
-                element.setValue("".equals(value) ? null : value.toString());
+                element.setValue("".equals(value) ? null : value.toString()); //$NON-NLS-1$
                 viewer.update(element, new String[] {
                     property
                 });
@@ -320,22 +320,22 @@ public class FeedPropertiesControl {
     protected PropertyElementContainer[] buildInput() {
         Map<String, PropertyElementContainer> containers = new HashMap<String, PropertyElementContainer>();
 
-        IExtensionPoint extensionPoint = Platform.getExtensionRegistry().getExtensionPoint("org.eclipsetrader.core.connectors");
+        IExtensionPoint extensionPoint = Platform.getExtensionRegistry().getExtensionPoint("org.eclipsetrader.core.connectors"); //$NON-NLS-1$
         if (extensionPoint != null) {
             IConfigurationElement[] configElements = extensionPoint.getConfigurationElements();
             for (int j = 0; j < configElements.length; j++) {
                 String name = configElements[j].getDeclaringExtension().getLabel();
-                if (name == null || name.equals("")) {
+                if (name == null || name.equals("")) { //$NON-NLS-1$
                     name = configElements[j].getDeclaringExtension().getContributor().getName();
                 }
 
-                if ("property".equals(configElements[j].getName())) {
+                if ("property".equals(configElements[j].getName())) { //$NON-NLS-1$
                     PropertyElementContainer container = containers.get(name);
                     if (container == null) {
                         container = new PropertyElementContainer(name);
                         containers.put(name, container);
                     }
-                    container.createChild(configElements[j].getAttribute("id"), configElements[j].getAttribute("name"));
+                    container.createChild(configElements[j].getAttribute("id"), configElements[j].getAttribute("name")); //$NON-NLS-1$ //$NON-NLS-2$
                 }
             }
         }
