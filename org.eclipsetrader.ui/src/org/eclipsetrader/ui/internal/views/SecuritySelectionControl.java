@@ -47,12 +47,12 @@ public class SecuritySelectionControl {
     private TableViewer selected;
     private Button up;
     private Button down;
-    private Image rightImage = UIActivator.getImageDescriptor("icons/etool16/right.gif").createImage();
-    private Image allRightImage = UIActivator.getImageDescriptor("icons/etool16/all-right.gif").createImage();
-    private Image allLeftImage = UIActivator.getImageDescriptor("icons/etool16/all-left.gif").createImage();
-    private Image leftImage = UIActivator.getImageDescriptor("icons/etool16/left.gif").createImage();
-    private Image upImage = UIActivator.getImageDescriptor("icons/etool16/up.gif").createImage();
-    private Image downImage = UIActivator.getImageDescriptor("icons/etool16/down.gif").createImage();
+    private Image rightImage = UIActivator.getImageDescriptor("icons/etool16/right.gif").createImage(); //$NON-NLS-1$
+    private Image allRightImage = UIActivator.getImageDescriptor("icons/etool16/all-right.gif").createImage(); //$NON-NLS-1$
+    private Image allLeftImage = UIActivator.getImageDescriptor("icons/etool16/all-left.gif").createImage(); //$NON-NLS-1$
+    private Image leftImage = UIActivator.getImageDescriptor("icons/etool16/left.gif").createImage(); //$NON-NLS-1$
+    private Image upImage = UIActivator.getImageDescriptor("icons/etool16/up.gif").createImage(); //$NON-NLS-1$
+    private Image downImage = UIActivator.getImageDescriptor("icons/etool16/down.gif").createImage(); //$NON-NLS-1$
 
     private List<ISecurity> input = new ArrayList<ISecurity>();
     private List<ISecurity> selection = new ArrayList<ISecurity>();
@@ -102,11 +102,11 @@ public class SecuritySelectionControl {
 
     protected void createLabels(Composite parent) {
         Label label = new Label(parent, SWT.NONE);
-        label.setText("Available instruments");
+        label.setText(Messages.SecuritySelectionControl_AvailableInstruments);
         label.setLayoutData(new GridData(SWT.FILL, SWT.TOP, true, false));
 
         label = new Label(parent, SWT.NONE);
-        label.setText("Selected instruments");
+        label.setText(Messages.SecuritySelectionControl_SelectedInstruments);
         label.setLayoutData(new GridData(SWT.FILL, SWT.TOP, true, false));
     }
 
