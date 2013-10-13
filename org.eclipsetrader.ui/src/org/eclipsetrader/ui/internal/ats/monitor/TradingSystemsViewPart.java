@@ -139,12 +139,12 @@ public class TradingSystemsViewPart extends ViewPart {
                 "org.eclipsetrader.ui.providers.gain", //$NON-NLS-1$
             });
             IDialogSettings section = dialogSettings.addNewSection(COLUMN_NAMES);
-            section.put("org.eclipsetrader.ui.providers.LastTrade", "Last"); //$NON-NLS-1$
-            section.put("org.eclipsetrader.ui.providers.BidPrice", "Bid"); //$NON-NLS-1$
-            section.put("org.eclipsetrader.ui.providers.AskPrice", "Ask"); //$NON-NLS-1$
-            section.put("org.eclipsetrader.ui.providers.Position", "Position"); //$NON-NLS-1$
-            section.put("org.eclipsetrader.ui.providers.LastTradeDateTime", "Date / Time"); //$NON-NLS-1$
-            section.put("org.eclipsetrader.ui.providers.gain", "Gain"); //$NON-NLS-1$
+            section.put("org.eclipsetrader.ui.providers.LastTrade", Messages.TradingSystemsViewPart_Last); //$NON-NLS-1$
+            section.put("org.eclipsetrader.ui.providers.BidPrice", Messages.TradingSystemsViewPart_Bid); //$NON-NLS-1$
+            section.put("org.eclipsetrader.ui.providers.AskPrice", Messages.TradingSystemsViewPart_Ask); //$NON-NLS-1$
+            section.put("org.eclipsetrader.ui.providers.Position", Messages.TradingSystemsViewPart_Position); //$NON-NLS-1$
+            section.put("org.eclipsetrader.ui.providers.LastTradeDateTime", Messages.TradingSystemsViewPart_DateTime); //$NON-NLS-1$
+            section.put("org.eclipsetrader.ui.providers.gain", Messages.TradingSystemsViewPart_Gain); //$NON-NLS-1$
             dialogSettings.addNewSection(COLUMN_WIDTHS);
         }
 
@@ -352,16 +352,16 @@ public class TradingSystemsViewPart extends ViewPart {
 
                     switch (item.getTradingSystem().getStatus()) {
                         case ITradingSystem.STATUS_STARTING:
-                            sb.append("starting");
+                            sb.append("starting"); //$NON-NLS-1$
                             break;
                         case ITradingSystem.STATUS_STARTED:
-                            sb.append("started");
+                            sb.append("started"); //$NON-NLS-1$
                             break;
                         case ITradingSystem.STATUS_STOPPING:
-                            sb.append("stopping");
+                            sb.append("stopping"); //$NON-NLS-1$
                             break;
                         case ITradingSystem.STATUS_STOPPED:
-                            sb.append("stopped");
+                            sb.append("stopped"); //$NON-NLS-1$
                             break;
                     }
 
@@ -369,15 +369,15 @@ public class TradingSystemsViewPart extends ViewPart {
                     if (properties != null) {
                         if (properties.isAutostart()) {
                             if (sb.length() != 0) {
-                                sb.append(", ");
+                                sb.append(", "); //$NON-NLS-1$
                             }
-                            sb.append("autostart");
+                            sb.append("autostart"); //$NON-NLS-1$
                         }
                     }
 
                     if (sb.length() != 0) {
-                        sb.insert(0, " [");
-                        sb.append("]");
+                        sb.insert(0, " ["); //$NON-NLS-1$
+                        sb.append("]"); //$NON-NLS-1$
                     }
 
                     return text + sb.toString();
@@ -417,7 +417,7 @@ public class TradingSystemsViewPart extends ViewPart {
                 menuManager.add(new Separator(IWorkbenchActionConstants.MB_ADDITIONS));
                 menuManager.add(new Separator("group.properties")); //$NON-NLS-1$
 
-                menuManager.appendToGroup("group.show", new Action("Expand All") { //$NON-NLS-1$
+                menuManager.appendToGroup("group.show", new Action(Messages.TradingSystemsViewPart_ExpandAll) { //$NON-NLS-1$
 
                     @Override
                     public void run() {

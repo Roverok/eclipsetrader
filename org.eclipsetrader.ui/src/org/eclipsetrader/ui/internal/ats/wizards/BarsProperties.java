@@ -49,7 +49,7 @@ public class BarsProperties extends PropertyPage implements IWorkbenchPropertyPa
     private List<TimeSpan> list = new ArrayList<TimeSpan>();
 
     public BarsProperties() {
-        setTitle("Bars");
+        setTitle(Messages.BarsProperties_Bars);
     }
 
     /* (non-Javadoc)
@@ -71,7 +71,7 @@ public class BarsProperties extends PropertyPage implements IWorkbenchPropertyPa
             @Override
             public String getText(Object element) {
                 TimeSpan timeSpan = (TimeSpan) element;
-                return NLS.bind("{0} {1}", new Object[] {
+                return NLS.bind("{0} {1}", new Object[] { //$NON-NLS-1$
                     String.valueOf(timeSpan.getLength()), timeSpan.getUnits()
                 });
             }
@@ -101,7 +101,7 @@ public class BarsProperties extends PropertyPage implements IWorkbenchPropertyPa
         buttons.setLayoutData(new GridData(SWT.CENTER, SWT.TOP, false, false));
 
         add = new Button(buttons, SWT.PUSH);
-        add.setText("Add");
+        add.setText(Messages.BarsProperties_Add);
         add.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
         add.addSelectionListener(new SelectionAdapter() {
 
@@ -116,7 +116,7 @@ public class BarsProperties extends PropertyPage implements IWorkbenchPropertyPa
         });
 
         remove = new Button(buttons, SWT.PUSH);
-        remove.setText("Remove");
+        remove.setText(Messages.BarsProperties_Remove);
         remove.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
         remove.addSelectionListener(new SelectionAdapter() {
 

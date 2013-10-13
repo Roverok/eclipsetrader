@@ -75,7 +75,7 @@ public class RunSimulationHandler extends AbstractHandler {
     }
 
     private void scheduleJob(final IScriptStrategy strategy, final Date begin, final Date end) {
-        String title = NLS.bind("{0} Simulation", new Object[] {
+        String title = NLS.bind(Messages.RunSimulationHandler_Simulation, new Object[] {
             strategy.getName()
         });
 
@@ -105,7 +105,7 @@ public class RunSimulationHandler extends AbstractHandler {
                         }
                     });
                 } catch (Exception e) {
-                    Status status = new Status(IStatus.ERROR, UIActivator.PLUGIN_ID, "Error running simulation", e);
+                    Status status = new Status(IStatus.ERROR, UIActivator.PLUGIN_ID, "Error running simulation", e); //$NON-NLS-1$
                     return status;
                 } finally {
                     bundleContext.ungetService(serviceReference);

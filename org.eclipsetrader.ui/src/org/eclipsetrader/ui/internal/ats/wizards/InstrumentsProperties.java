@@ -32,7 +32,7 @@ public class InstrumentsProperties extends PropertyPage implements IWorkbenchPro
     private SecuritySelectionControl providers;
 
     public InstrumentsProperties() {
-        setTitle("Instruments");
+        setTitle(Messages.InstrumentsProperties_Instruments);
     }
 
     /* (non-Javadoc)

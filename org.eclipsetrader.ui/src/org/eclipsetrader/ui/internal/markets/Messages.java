@@ -82,6 +82,7 @@ public class Messages extends NLS {
 	public static String MembersPage_Members;
 	public static String MembersPage_ShowMembersOnly;
 	public static String MembersPage_ShowSecurities;
+	public static String NewMarketAction_Market;
     public static String ScheduleWizardPage_Fri;
 	public static String ScheduleWizardPage_Mon;
 	public static String ScheduleWizardPage_Sat;

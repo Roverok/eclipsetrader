@@ -43,8 +43,8 @@ public class BarsPage extends WizardPage {
     private List<TimeSpan> list = new ArrayList<TimeSpan>();
 
     public BarsPage() {
-        super("bars", "Bars", null);
-        setDescription("Sets the bars timespan");
+        super("bars", Messages.BarsPage_Bars, null); //$NON-NLS-1$
+        setDescription(Messages.BarsPage_SetBarTimespan);
     }
 
     /* (non-Javadoc)
@@ -67,7 +67,7 @@ public class BarsPage extends WizardPage {
             @Override
             public String getText(Object element) {
                 TimeSpan timeSpan = (TimeSpan) element;
-                return NLS.bind("{0} {1}", new Object[] {
+                return NLS.bind("{0} {1}", new Object[] { //$NON-NLS-1$
                     String.valueOf(timeSpan.getLength()), timeSpan.getUnits()
                 });
             }
@@ -97,7 +97,7 @@ public class BarsPage extends WizardPage {
         buttons.setLayoutData(new GridData(SWT.CENTER, SWT.TOP, false, false));
 
         add = new Button(buttons, SWT.PUSH);
-        add.setText("Add");
+        add.setText(Messages.BarsPage_Add);
         add.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
         add.addSelectionListener(new SelectionAdapter() {
 
@@ -112,7 +112,7 @@ public class BarsPage extends WizardPage {
         });
 
         remove = new Button(buttons, SWT.PUSH);
-        remove.setText("Remove");
+        remove.setText(Messages.BarsPage_Remove);
         remove.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
         remove.addSelectionListener(new SelectionAdapter() {
 

@@ -31,9 +31,9 @@ import org.eclipsetrader.ui.internal.UIActivator;
 
 public class SimulationParametersDialog extends Dialog {
 
-    public static final String K_BEGIN_DATE = "BEGIN_DATE";
-    public static final String K_END_DATE = "END_DATE";
-    public static final String TODAY = "Today";
+    public static final String K_BEGIN_DATE = "BEGIN_DATE"; //$NON-NLS-1$
+    public static final String K_END_DATE = "END_DATE"; //$NON-NLS-1$
+    public static final String TODAY = Messages.SimulationParametersDialog_Today;
 
     private CDateTime begin;
     private CDateTime end;
@@ -55,7 +55,7 @@ public class SimulationParametersDialog extends Dialog {
     @Override
     protected void configureShell(Shell newShell) {
         super.configureShell(newShell);
-        newShell.setText("Run Simulation");
+        newShell.setText(Messages.SimulationParametersDialog_RunSimulation);
     }
 
     /* (non-Javadoc)
@@ -72,16 +72,16 @@ public class SimulationParametersDialog extends Dialog {
         applyDialogFont(composite);
 
         Label label = new Label(composite, SWT.NONE);
-        label.setText("Begin");
+        label.setText(Messages.SimulationParametersDialog_Begin);
         begin = new CDateTime(composite, CDT.BORDER | CDT.DATE_SHORT | CDT.DROP_DOWN | CDT.TAB_FIELDS);
         begin.setPattern(Util.getDateFormatPattern());
-        begin.setLayoutData(new GridData(convertHorizontalDLUsToPixels("gtk".equals(SWT.getPlatform()) ? 80 : 65), SWT.DEFAULT));
+        begin.setLayoutData(new GridData(convertHorizontalDLUsToPixels("gtk".equals(SWT.getPlatform()) ? 80 : 65), SWT.DEFAULT)); //$NON-NLS-1$
         label = new Label(composite, SWT.NONE);
-        label.setText("End");
+        label.setText(Messages.SimulationParametersDialog_End);
         end = new CDateTime(composite, CDT.BORDER | CDT.DATE_SHORT | CDT.DROP_DOWN | CDT.TAB_FIELDS);
         end.setPattern(Util.getDateFormatPattern());
         end.setNullText(TODAY);
-        end.setLayoutData(new GridData(convertHorizontalDLUsToPixels("gtk".equals(SWT.getPlatform()) ? 80 : 65), SWT.DEFAULT));
+        end.setLayoutData(new GridData(convertHorizontalDLUsToPixels("gtk".equals(SWT.getPlatform()) ? 80 : 65), SWT.DEFAULT)); //$NON-NLS-1$
 
         Calendar calendar = Calendar.getInstance();
         calendar.add(Calendar.DATE, -30);

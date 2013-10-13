@@ -43,7 +43,7 @@ public class ScriptStrategyWizard extends Wizard implements INewWizard {
     private IWorkbench workbench;
 
     public ScriptStrategyWizard() {
-        ImageDescriptor descriptor = ImageDescriptor.createFromURL(UIActivator.getDefault().getBundle().getResource("icons/wizban/newfile_wiz.gif"));
+        ImageDescriptor descriptor = ImageDescriptor.createFromURL(UIActivator.getDefault().getBundle().getResource("icons/wizban/newfile_wiz.gif")); //$NON-NLS-1$
         image = descriptor.createImage();
     }
 
@@ -70,7 +70,7 @@ public class ScriptStrategyWizard extends Wizard implements INewWizard {
      */
     @Override
     public String getWindowTitle() {
-        return "New Script Strategy";
+        return Messages.ScriptStrategyWizard_NewScriptStrategy;
     }
 
     /* (non-Javadoc)

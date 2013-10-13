@@ -25,7 +25,7 @@ public class NewMarketAction extends Action {
     private Shell shell;
 
     public NewMarketAction(Shell shell) {
-        super("Market");
+        super(Messages.NewMarketAction_Market);
         this.shell = shell;
     }
 

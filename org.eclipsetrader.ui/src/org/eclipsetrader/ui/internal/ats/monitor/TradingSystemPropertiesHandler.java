@@ -61,7 +61,7 @@ public class TradingSystemPropertiesHandler extends AbstractHandler {
 
     protected void openPropertiesDialog(Shell shell, final IAdaptable adaptableElement) {
         PropertyPageManager pageManager = new PropertyPageManager();
-        pageManager.addToRoot(new PriorityPreferenceNode(UIActivator.PLUGIN_ID + ".propertypages.general", generalProperties = new GeneralProperties(), -1));
+        pageManager.addToRoot(new PriorityPreferenceNode(UIActivator.PLUGIN_ID + ".propertypages.general", generalProperties = new GeneralProperties(), -1)); //$NON-NLS-1$
         PropertyPageContributorManager.getManager().contribute(pageManager, adaptableElement);
 
         for (Object nodeObj : pageManager.getElements(PreferenceManager.PRE_ORDER)) {
@@ -77,7 +77,7 @@ public class TradingSystemPropertiesHandler extends AbstractHandler {
             protected void configureShell(Shell newShell) {
                 super.configureShell(newShell);
                 TradingSystem element = (TradingSystem) adaptableElement.getAdapter(TradingSystem.class);
-                newShell.setText("Properties for " + element.getStrategy().toString());
+                newShell.setText(Messages.TradingSystemPropertiesHandler_PropertiesFor + element.getStrategy().toString());
             }
         };
         dlg.setHelpAvailable(false);

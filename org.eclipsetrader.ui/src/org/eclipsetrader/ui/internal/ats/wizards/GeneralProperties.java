@@ -52,7 +52,7 @@ public class GeneralProperties extends PropertyPage implements IWorkbenchPropert
     };
 
     public GeneralProperties() {
-        setTitle("General");
+        setTitle(Messages.GeneralProperties_General);
     }
 
     /* (non-Javadoc)
@@ -67,7 +67,7 @@ public class GeneralProperties extends PropertyPage implements IWorkbenchPropert
         initializeDialogUnits(content);
 
         Label label = new Label(content, SWT.NONE);
-        label.setText("Name:");
+        label.setText(Messages.GeneralProperties_Name);
         name = new Text(content, SWT.BORDER);
         name.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
 
@@ -75,7 +75,7 @@ public class GeneralProperties extends PropertyPage implements IWorkbenchPropert
         label.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 2, 1));
 
         label = new Label(content, SWT.NONE);
-        label.setText("Target repository:");
+        label.setText(Messages.GeneralProperties_TargetRepository);
         label.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 2, 1));
         repository = new ComboViewer(content, SWT.READ_ONLY);
         repository.getControl().setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 2, 1));
@@ -83,7 +83,7 @@ public class GeneralProperties extends PropertyPage implements IWorkbenchPropert
         repository.setContentProvider(new ArrayContentProvider());
         repository.setSorter(new ViewerSorter());
         repository.setInput(getRepositoryService().getRepositories());
-        repository.setSelection(new StructuredSelection(getRepositoryService().getRepository("local")));
+        repository.setSelection(new StructuredSelection(getRepositoryService().getRepository("local"))); //$NON-NLS-1$
 
         performDefaults();
         name.addModifyListener(modifyListener);
@@ -119,8 +119,8 @@ public class GeneralProperties extends PropertyPage implements IWorkbenchPropert
      */
     @Override
     public boolean isValid() {
-        if (name.getText().equals("")) {
-            setErrorMessage("The strategy must have a name.");
+        if (name.getText().equals("")) { //$NON-NLS-1$
+            setErrorMessage(Messages.GeneralProperties_StrategyMustHaveName);
             return false;
         }
         if (getErrorMessage() != null) {
