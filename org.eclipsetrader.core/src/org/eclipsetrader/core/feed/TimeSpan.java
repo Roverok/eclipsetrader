@@ -16,7 +16,7 @@ import org.eclipse.osgi.util.NLS;
 public class TimeSpan {
 
     public enum Units {
-        Minutes("min", "Minutes"), Days("d", "Days"), Months("mn", "Monts"), Years("yr", "Years");
+        Minutes("min", Messages.TimeSpan_Minutes), Days("d", Messages.TimeSpan_Days), Months("mn", Messages.TimeSpan_Months), Years("yr", Messages.TimeSpan_Years); //$NON-NLS-1$ //$NON-NLS-3$ //$NON-NLS-5$ //$NON-NLS-7$
 
         private final String name;
         private final String key;
@@ -132,7 +132,7 @@ public class TimeSpan {
     }
 
     public String getDescription() {
-        return NLS.bind("{0} {1}", new Object[] {
+        return NLS.bind("{0} {1}", new Object[] { //$NON-NLS-1$
             String.valueOf(length), units.toString()
         });
     }
@@ -142,7 +142,7 @@ public class TimeSpan {
      */
     @Override
     public String toString() {
-        return NLS.bind("{0}{1}", new Object[] {
+        return NLS.bind("{0}{1}", new Object[] { //$NON-NLS-1$
             String.valueOf(length), units.getKey()
         });
     }
