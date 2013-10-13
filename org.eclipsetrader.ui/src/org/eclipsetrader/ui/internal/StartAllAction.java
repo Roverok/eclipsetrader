@@ -23,10 +23,10 @@ import org.eclipsetrader.core.ILauncher;
 
 public class StartAllAction extends Action {
 
-    public static final String LAUNCHERS_EXTENSION_ID = "org.eclipsetrader.core.launchers";
+    public static final String LAUNCHERS_EXTENSION_ID = "org.eclipsetrader.core.launchers"; //$NON-NLS-1$
 
     public StartAllAction() {
-        super("All");
+        super(Messages.StartAllAction_All);
     }
 
     /* (non-Javadoc)
@@ -34,7 +34,7 @@ public class StartAllAction extends Action {
      */
     @Override
     public void run() {
-        Job job = new Job("Services Startup") {
+        Job job = new Job("Services Startup") { //$NON-NLS-1$
 
             @Override
             protected IStatus run(IProgressMonitor monitor) {
@@ -47,12 +47,12 @@ public class StartAllAction extends Action {
                         for (int j = 0; j < configElements.length; j++) {
                             String id = configElements[j].getAttribute("id"); //$NON-NLS-1$
                             try {
-                                ILauncher launcher = (ILauncher) configElements[j].createExecutableExtension("class");
+                                ILauncher launcher = (ILauncher) configElements[j].createExecutableExtension("class"); //$NON-NLS-1$
                                 if (launcher != null) {
                                     launcher.launch(monitor);
                                 }
                             } catch (Exception e) {
-                                Status status = new Status(IStatus.ERROR, UIActivator.PLUGIN_ID, 0, "Error launching " + id, e);
+                                Status status = new Status(IStatus.ERROR, UIActivator.PLUGIN_ID, 0, "Error launching " + id, e); //$NON-NLS-1$
                                 UIActivator.getDefault().getLog().log(status);
                             }
                         }

@@ -29,6 +29,8 @@ public class Messages extends NLS {
     public static String NotificationPopup_CloseNotificationJob;
 	public static String NotificationPopup_More;
 	public static String NotificationPopup_Notification;
+	public static String StartAllAction_All;
+	public static String StopAllAction_All;
 	static {
         // initialize resource bundle
         NLS.initializeMessages(BUNDLE_NAME, Messages.class);
