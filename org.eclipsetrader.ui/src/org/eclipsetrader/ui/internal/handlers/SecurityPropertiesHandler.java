@@ -78,10 +78,10 @@ public class SecurityPropertiesHandler extends AbstractHandler {
         PropertyPageManager pageManager = new PropertyPageManager();
         if (adaptableElement.getAdapter(Security.class) != null) {
             if (adaptableElement.getAdapter(CurrencyExchange.class) != null) {
-                pageManager.addToRoot(new PriorityPreferenceNode("org.eclipsetrader.ui.propertypages.general", currencyGeneralProperties = new CurrencyGeneralProperties(), -1));
+                pageManager.addToRoot(new PriorityPreferenceNode("org.eclipsetrader.ui.propertypages.general", currencyGeneralProperties = new CurrencyGeneralProperties(), -1)); //$NON-NLS-1$
             }
             else {
-                pageManager.addToRoot(new PriorityPreferenceNode("org.eclipsetrader.ui.propertypages.general", generalProperties = new GeneralProperties(), -1));
+                pageManager.addToRoot(new PriorityPreferenceNode("org.eclipsetrader.ui.propertypages.general", generalProperties = new GeneralProperties(), -1)); //$NON-NLS-1$
             }
         }
         PropertyPageContributorManager.getManager().contribute(pageManager, adaptableElement);
@@ -99,7 +99,7 @@ public class SecurityPropertiesHandler extends AbstractHandler {
             protected void configureShell(Shell newShell) {
                 super.configureShell(newShell);
                 Security security = (Security) adaptableElement.getAdapter(Security.class);
-                newShell.setText("Properties for " + security.getName());
+                newShell.setText(Messages.SecurityPropertiesHandler_PropertiesFor + security.getName());
             }
         };
         dlg.setHelpAvailable(false);
