@@ -69,6 +69,6 @@ public class LimitedProportional2Scheme implements IExpenseScheme {
      */
     @Override
     public String toString() {
-        return "Limited Proportional 2 (0.19%, max=19.0)";
+        return Messages.LimitedProportional2Scheme_LimitedProportional2Scheme;
     }
 }

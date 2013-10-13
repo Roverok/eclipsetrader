@@ -77,6 +77,6 @@ public class TwoLevelsPerShareScheme implements IExpenseScheme {
      */
     @Override
     public String toString() {
-        return "2 Levels Per Share (0.01 < 500, 0.005 > 500, min=1.00)";
+        return Messages.TwoLevelsPerShareScheme_TwoLevelsPerShareScheme;
     }
 }

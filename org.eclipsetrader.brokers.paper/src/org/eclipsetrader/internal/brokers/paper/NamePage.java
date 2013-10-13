@@ -26,8 +26,8 @@ public class NamePage extends WizardPage {
     Text name;
 
     public NamePage() {
-        super("name");
-        setTitle("Name");
+        super("name"); //$NON-NLS-1$
+        setTitle(Messages.NamePage_Name);
     }
 
     /* (non-Javadoc)
@@ -39,7 +39,7 @@ public class NamePage extends WizardPage {
         composite.setLayout(new GridLayout(2, false));
 
         Label label = new Label(composite, SWT.NONE);
-        label.setText("Name");
+        label.setText(Messages.NamePage_Name);
         name = new Text(composite, SWT.BORDER);
         name.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
         name.addModifyListener(new ModifyListener() {
@@ -58,7 +58,7 @@ public class NamePage extends WizardPage {
      */
     @Override
     public boolean isPageComplete() {
-        return !"".equals(name.getText());
+        return !"".equals(name.getText()); //$NON-NLS-1$
     }
 
     public String getAccountDescription() {

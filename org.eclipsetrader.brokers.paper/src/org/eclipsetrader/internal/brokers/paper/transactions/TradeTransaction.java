@@ -95,7 +95,7 @@ public class TradeTransaction implements ITransaction {
     @Override
     @XmlTransient
     public String getDescription() {
-        return NLS.bind("OrderElement {0}", new Object[] {
+        return NLS.bind(Messages.TradeTransaction_Description, new Object[] {
             order.toString(),
         });
     }

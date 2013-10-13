@@ -58,6 +58,6 @@ public class NoExpensesScheme implements IExpenseScheme {
      */
     @Override
     public String toString() {
-        return "None";
+        return Messages.NoExpensesScheme_None;
     }
 }
