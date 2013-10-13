@@ -15,6 +15,7 @@ import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.wizard.Wizard;
 import org.eclipse.ui.INewWizard;
 import org.eclipse.ui.IWorkbench;
+import org.eclipsetrader.internal.brokers.paper.Messages;
 
 public class NewAccountWizard extends Wizard implements INewWizard {
 
@@ -31,6 +32,22 @@ public class NewAccountWizard extends Wizard implements INewWizard {
      */
     @Override
     public void init(IWorkbench workbench, IStructuredSelection selection) {
+    }
+
+    /* (non-Javadoc)
+     * @see org.eclipse.jface.wizard.Wizard#getWindowTitle()
+     */
+    @Override
+    public void dispose() {
+        super.dispose();
+    }
+
+    /* (non-Javadoc)
+     * @see org.eclipse.jface.wizard.Wizard#getWindowTitle()
+     */
+    @Override
+    public String getWindowTitle() {
+        return Messages.NewAccountWizard_NewAccount;
     }
 
     /* (non-Javadoc)

@@ -8,6 +8,7 @@ public class Messages extends NLS {
 	public static String AccountPropertyPage_Currency;
 	public static String AccountPropertyPage_ExpensesScheme;
 	public static String AccountPropertyPage_Name;
+	public static String NewAccountWizard_NewAccount;
 	public static String NamePage_Name;
 	public static String SettingsPage_Currency;
 	public static String SettingsPage_ExpensesScheme;
