@@ -12,6 +12,9 @@ public class Messages extends NLS {
 	public static String TraderActionBarAdvisor_OpenPerspective;
 	public static String TraderActionBarAdvisor_ShowView;
 	public static String TraderActionBarAdvisor_Window;
+	public static String TraderWorkbenchWindowAdvisor_AlwaysExitWithoutPrompt;
+	public static String TraderWorkbenchWindowAdvisor_ConfirmExit;
+	public static String TraderWorkbenchWindowAdvisor_ExitEclipseTrader;
 	static {
 		// initialize resource bundle
 		NLS.initializeMessages(BUNDLE_NAME, Messages.class);

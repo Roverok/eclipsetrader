@@ -98,7 +98,7 @@ public class TraderWorkbenchWindowAdvisor extends WorkbenchWindowAdvisor {
         boolean promptOnExit = preferenceStore.getBoolean(EXIT_PROMPT_ON_CLOSE_LAST_WINDOW);
 
         if (promptOnExit) {
-            MessageDialogWithToggle dlg = MessageDialogWithToggle.openOkCancelConfirm(getWindowConfigurer().getWindow().getShell(), "Confirm Exit", "Exit EclipseTrader ?", "Always exit without prompt", false, null, null);
+            MessageDialogWithToggle dlg = MessageDialogWithToggle.openOkCancelConfirm(getWindowConfigurer().getWindow().getShell(), Messages.TraderWorkbenchWindowAdvisor_ConfirmExit, Messages.TraderWorkbenchWindowAdvisor_ExitEclipseTrader, Messages.TraderWorkbenchWindowAdvisor_AlwaysExitWithoutPrompt, false, null, null);
             if (dlg.getReturnCode() != IDialogConstants.OK_ID) {
                 return false;
             }
@@ -131,14 +131,14 @@ public class TraderWorkbenchWindowAdvisor extends WorkbenchWindowAdvisor {
             title = product.getName();
         }
         if (title == null) {
-            title = "";
+            title = ""; //$NON-NLS-1$
         }
 
         if (currentPage != null) {
             IPerspectiveDescriptor persp = currentPage.getPerspective();
             if (persp != null) {
-                if (!persp.getLabel().equals("") && !persp.getLabel().equals(title)) {
-                    title += " - " + persp.getLabel();
+                if (!persp.getLabel().equals("") && !persp.getLabel().equals(title)) { //$NON-NLS-1$
+                    title += " - " + persp.getLabel(); //$NON-NLS-1$
                 }
             }
         }
@@ -160,7 +160,7 @@ public class TraderWorkbenchWindowAdvisor extends WorkbenchWindowAdvisor {
      */
     @Override
     public boolean isDurableFolder(String perspectiveId, String folderId) {
-        if ("org.eclipsetrader.ui.editorss".equals(folderId)) {
+        if ("org.eclipsetrader.ui.editorss".equals(folderId)) { //$NON-NLS-1$
             return true;
         }
 
