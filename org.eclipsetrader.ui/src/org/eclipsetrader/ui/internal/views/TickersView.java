@@ -67,8 +67,8 @@ import org.eclipsetrader.ui.navigator.SecurityObjectTransfer;
 
 public class TickersView extends ViewPart {
 
-    public static final String VIEW_ID = "org.eclipsetrader.ui.views.tickers";
-    public static final String K_SECURITIES = "securities";
+    public static final String VIEW_ID = "org.eclipsetrader.ui.views.tickers"; //$NON-NLS-1$
+    public static final String K_SECURITIES = "securities"; //$NON-NLS-1$
 
     private BoxViewer viewer;
     private IDialogSettings dialogSettings;
@@ -104,7 +104,7 @@ public class TickersView extends ViewPart {
             dialogSettings = UIActivator.getDefault().getDialogSettings().addNewSection(site.getId());
         }
 
-        deleteAction = new Action("Delete") {
+        deleteAction = new Action(Messages.TickersView_Delete) {
 
             @Override
             public void run() {
@@ -207,7 +207,7 @@ public class TickersView extends ViewPart {
                     l.add(security);
                     input.add(new TickerViewItem(security));
                 } catch (Exception e) {
-                    Status status = new Status(IStatus.ERROR, UIActivator.PLUGIN_ID, "Error loading security " + uri[i], e);
+                    Status status = new Status(IStatus.ERROR, UIActivator.PLUGIN_ID, "Error loading security " + uri[i], e); //$NON-NLS-1$
                     UIActivator.getDefault().getLog().log(status);
                 }
             }

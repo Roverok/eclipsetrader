@@ -26,18 +26,18 @@ import org.eclipsetrader.core.trading.IAlert;
 
 public class TargetPrice implements IExecutableExtension, IAlert, IAdaptable {
 
-    public static final String PLUGIN_ID = "org.eclipsetrader.core.trading.alerts.targetprice";
+    public static final String PLUGIN_ID = "org.eclipsetrader.core.trading.alerts.targetprice"; //$NON-NLS-1$
 
     public static final int F_LAST = 0;
     public static final int F_BID = 1;
     public static final int F_ASK = 2;
 
-    public static final String K_FIELD = "field";
-    public static final String K_PRICE = "price";
-    public static final String K_CROSS = "cross";
+    public static final String K_FIELD = "field"; //$NON-NLS-1$
+    public static final String K_PRICE = "price"; //$NON-NLS-1$
+    public static final String K_CROSS = "cross"; //$NON-NLS-1$
 
     private String id = PLUGIN_ID;
-    private String name = "Target Price";
+    private String name = "Target Price"; //$NON-NLS-1$
 
     int field;
     double price;
@@ -52,9 +52,9 @@ public class TargetPrice implements IExecutableExtension, IAlert, IAdaptable {
         double price = (Double) map.get(K_PRICE);
         boolean cross = (Boolean) map.get(K_CROSS);
 
-        return NLS.bind("{0} price {1} {2}", new Object[] {
-                field == F_LAST ? "Last" : field == F_BID ? "Bid" : "Ask",
-                cross ? "crosses" : "reaches",
+        return NLS.bind(Messages.TargetPrice_Price, new Object[] {
+                field == F_LAST ? Messages.TargetPrice_Last : field == F_BID ? Messages.TargetPrice_Bid : Messages.TargetPrice_Ask,
+                cross ? Messages.TargetPrice_Crosses : Messages.TargetPrice_Reaches,
                 NumberFormat.getInstance().format(price),
         });
     }
@@ -67,8 +67,8 @@ public class TargetPrice implements IExecutableExtension, IAlert, IAdaptable {
      */
     @Override
     public void setInitializationData(IConfigurationElement config, String propertyName, Object data) throws CoreException {
-        id = config.getAttribute("id");
-        name = config.getAttribute("name");
+        id = config.getAttribute("id"); //$NON-NLS-1$
+        name = config.getAttribute("name"); //$NON-NLS-1$
     }
 
     /* (non-Javadoc)

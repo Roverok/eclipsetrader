@@ -94,13 +94,13 @@ import org.osgi.framework.ServiceReference;
 
 public class WatchListView extends ViewPart implements ISaveablePart {
 
-    public static final String VIEW_ID = "org.eclipsetrader.ui.views.watchlist";
+    public static final String VIEW_ID = "org.eclipsetrader.ui.views.watchlist"; //$NON-NLS-1$
 
-    private static final String K_VIEWS = "Views";
-    private static final String K_URI = "uri";
-    private static final String K_SORT_COLUMN = "sortColumn";
-    private static final String K_SORT_DIRECTION = "sortDirection";
-    private static final String COLUMNS_SECTION = "columns";
+    private static final String K_VIEWS = "Views"; //$NON-NLS-1$
+    private static final String K_URI = "uri"; //$NON-NLS-1$
+    private static final String K_SORT_COLUMN = "sortColumn"; //$NON-NLS-1$
+    private static final String K_SORT_DIRECTION = "sortDirection"; //$NON-NLS-1$
+    private static final String COLUMNS_SECTION = "columns"; //$NON-NLS-1$
 
     private URI uri;
     WatchList watchList;
@@ -281,13 +281,13 @@ public class WatchListView extends ViewPart implements ISaveablePart {
             }
         } catch (Exception e) {
             if (uri == null || watchList == null) {
-                throw new PartInitException(NLS.bind("Unable to load view {0}", new Object[] {
-                    uri != null ? uri.toString() : ""
+                throw new PartInitException(NLS.bind(Messages.WatchListView_UnableToLoadView, new Object[] {
+                    uri != null ? uri.toString() : "" //$NON-NLS-1$
                 }), e);
             }
         }
         if (uri == null || watchList == null) {
-            throw new PartInitException(NLS.bind("Unable to load view {0}", new Object[] {
+            throw new PartInitException(NLS.bind(Messages.WatchListView_UnableToLoadView, new Object[] {
                 uri != null ? uri.toString() : ""
             }));
         }
@@ -301,7 +301,7 @@ public class WatchListView extends ViewPart implements ISaveablePart {
 
         pricingEnvironment = new MarketPricingEnvironment(UIActivator.getDefault().getMarketService());
 
-        deleteAction = new Action("Delete") {
+        deleteAction = new Action(Messages.WatchListView_Delete) {
 
             @Override
             public void run() {
@@ -385,7 +385,7 @@ public class WatchListView extends ViewPart implements ISaveablePart {
 
         getSite().setSelectionProvider(viewer);
 
-        Job job = new Job(watchList.getName() + " Startup") {
+        Job job = new Job(watchList.getName() + " Startup") { //$NON-NLS-1$
 
             @Override
             protected IStatus run(IProgressMonitor monitor) {
@@ -603,23 +603,23 @@ public class WatchListView extends ViewPart implements ISaveablePart {
 
             @Override
             public void menuAboutToShow(IMenuManager menuManager) {
-                menuManager.add(new Separator("group.new"));
-                menuManager.add(new GroupMarker("group.goto"));
-                menuManager.add(new Separator("group.open"));
-                menuManager.add(new GroupMarker("group.openWith"));
-                menuManager.add(new Separator("group.trade"));
-                menuManager.add(new GroupMarker("group.tradeWith"));
-                menuManager.add(new Separator("group.show"));
-                menuManager.add(new Separator("group.edit"));
-                menuManager.add(new GroupMarker("group.reorganize"));
-                menuManager.add(new GroupMarker("group.port"));
-                menuManager.add(new Separator("group.generate"));
-                menuManager.add(new Separator("group.search"));
-                menuManager.add(new Separator("group.build"));
+                menuManager.add(new Separator("group.new")); //$NON-NLS-1$
+                menuManager.add(new GroupMarker("group.goto")); //$NON-NLS-1$
+                menuManager.add(new Separator("group.open")); //$NON-NLS-1$
+                menuManager.add(new GroupMarker("group.openWith")); //$NON-NLS-1$
+                menuManager.add(new Separator("group.trade")); //$NON-NLS-1$
+                menuManager.add(new GroupMarker("group.tradeWith")); //$NON-NLS-1$
+                menuManager.add(new Separator("group.show")); //$NON-NLS-1$
+                menuManager.add(new Separator("group.edit")); //$NON-NLS-1$
+                menuManager.add(new GroupMarker("group.reorganize")); //$NON-NLS-1$
+                menuManager.add(new GroupMarker("group.port")); //$NON-NLS-1$
+                menuManager.add(new Separator("group.generate")); //$NON-NLS-1$
+                menuManager.add(new Separator("group.search")); //$NON-NLS-1$
+                menuManager.add(new Separator("group.build")); //$NON-NLS-1$
                 menuManager.add(new Separator(IWorkbenchActionConstants.MB_ADDITIONS));
-                menuManager.add(new Separator("group.properties"));
+                menuManager.add(new Separator("group.properties")); //$NON-NLS-1$
 
-                menuManager.appendToGroup("group.edit", deleteAction);
+                menuManager.appendToGroup("group.edit", deleteAction); //$NON-NLS-1$
             }
         });
         viewer.getControl().setMenu(menuMgr.createContextMenu(viewer.getControl()));

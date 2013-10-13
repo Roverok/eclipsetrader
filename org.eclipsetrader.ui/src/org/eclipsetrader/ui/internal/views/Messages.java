@@ -36,6 +36,9 @@ public class Messages extends NLS {
 	public static String SecurityProperties_Securities;
 	public static String SecuritySelectionControl_AvailableInstruments;
 	public static String SecuritySelectionControl_SelectedInstruments;
+	public static String TickersView_Delete;
+	public static String WatchListView_Delete;
+	public static String WatchListView_UnableToLoadView;
 	public static String WatchListWizard_Ask;
 	public static String WatchListWizard_AskSize;
 	public static String WatchListWizard_Bid;

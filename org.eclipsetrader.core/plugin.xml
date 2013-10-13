@@ -15,17 +15,17 @@
       <launcher
             class="org.eclipsetrader.core.internal.feed.FeedServiceLauncher"
             id="org.eclipsetrader.feed.launcher"
-            name="Live Data Feed">
+            name="%LiveDataFeed">
       </launcher>
       <launcher
             class="org.eclipsetrader.core.internal.trading.TradingServiceLauncher"
             id="org.eclipsetrader.trading.launcher"
-            name="Trading Service">
+            name="%TradingService">
       </launcher>
       <launcher
             class="org.eclipsetrader.core.internal.ats.TradingSystemsLauncher"
             id="org.eclipsetrader.core.ats.launcher"
-            name="Automated Trading Systems">
+            name="%AutomatedTradingSystems">
       </launcher>
    </extension>
    <extension
