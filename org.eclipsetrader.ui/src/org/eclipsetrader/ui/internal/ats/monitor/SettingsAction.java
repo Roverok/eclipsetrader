@@ -28,10 +28,10 @@ public class SettingsAction extends Action implements ISelectionChangedListener 
     private TradingSystemsViewPart view;
 
     public SettingsAction(Shell shell, TradingSystemsViewPart view) {
-        super("Settings");
+        super(Messages.SettingsAction_Settings);
         this.shell = shell;
         this.view = view;
-        setId("settings");
+        setId("settings"); //$NON-NLS-1$
         setActionDefinitionId("org.eclipse.ui.edit.settings"); //$NON-NLS-1$
     }
 
@@ -54,7 +54,7 @@ public class SettingsAction extends Action implements ISelectionChangedListener 
         final IAdaptable adaptableElement = getWrappedElement(view);
 
         PreferenceManager pageManager = new PreferenceManager();
-        pageManager.addToRoot(new PreferenceNode("columns", new ColumnsProperties()));
+        pageManager.addToRoot(new PreferenceNode("columns", new ColumnsProperties())); //$NON-NLS-1$
 
         for (Object nodeObj : pageManager.getElements(PreferenceManager.PRE_ORDER)) {
             IPreferenceNode node = (IPreferenceNode) nodeObj;
@@ -68,7 +68,7 @@ public class SettingsAction extends Action implements ISelectionChangedListener 
             @Override
             protected void configureShell(Shell newShell) {
                 super.configureShell(newShell);
-                newShell.setText("Settings for " + view.getPartName());
+                newShell.setText(Messages.SettingsAction_SettingsFor + view.getPartName());
             }
         };
         dlg.setHelpAvailable(false);

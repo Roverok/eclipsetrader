@@ -43,7 +43,7 @@ public class WatchListWizard extends Wizard implements INewWizard {
     private IWorkbench workbench;
 
     public WatchListWizard() {
-        ImageDescriptor descriptor = ImageDescriptor.createFromURL(UIActivator.getDefault().getBundle().getResource("icons/wizban/newfile_wiz.gif"));
+        ImageDescriptor descriptor = ImageDescriptor.createFromURL(UIActivator.getDefault().getBundle().getResource("icons/wizban/newfile_wiz.gif")); //$NON-NLS-1$
         image = descriptor.createImage();
     }
 
@@ -71,7 +71,7 @@ public class WatchListWizard extends Wizard implements INewWizard {
      */
     @Override
     public String getWindowTitle() {
-        return "New Watch List";
+        return Messages.WatchListWizard_NewWatchList;
     }
 
     /* (non-Javadoc)
@@ -92,16 +92,16 @@ public class WatchListWizard extends Wizard implements INewWizard {
 
         CoreActivator activator = CoreActivator.getDefault();
         IColumn[] defaultColumns = new IColumn[] {
-                new Column("Symbol", activator.getDataProviderFactory("org.eclipsetrader.ui.providers.FeedIdentifier")),
-                new Column("Name", activator.getDataProviderFactory("org.eclipsetrader.ui.providers.SecurityName")),
-                new Column("Last", activator.getDataProviderFactory("org.eclipsetrader.ui.providers.LastTrade")),
-                new Column("Change", activator.getDataProviderFactory("org.eclipsetrader.ui.providers.Change")),
-                new Column("Bid #", activator.getDataProviderFactory("org.eclipsetrader.ui.providers.BidSize")),
-                new Column("Bid", activator.getDataProviderFactory("org.eclipsetrader.ui.providers.BidPrice")),
-                new Column("Ask", activator.getDataProviderFactory("org.eclipsetrader.ui.providers.AskPrice")),
-                new Column("Ask #", activator.getDataProviderFactory("org.eclipsetrader.ui.providers.AskSize")),
-                new Column("Volume", activator.getDataProviderFactory("org.eclipsetrader.ui.providers.TradeVolume")),
-                new Column("Date / Time", activator.getDataProviderFactory("org.eclipsetrader.ui.providers.LastTradeDateTime")),
+                new Column(Messages.WatchListWizard_Symbol, activator.getDataProviderFactory("org.eclipsetrader.ui.providers.FeedIdentifier")), //$NON-NLS-2$
+                new Column(Messages.WatchListWizard_Name, activator.getDataProviderFactory("org.eclipsetrader.ui.providers.SecurityName")), //$NON-NLS-2$
+                new Column(Messages.WatchListWizard_Last, activator.getDataProviderFactory("org.eclipsetrader.ui.providers.LastTrade")), //$NON-NLS-2$
+                new Column(Messages.WatchListWizard_Change, activator.getDataProviderFactory("org.eclipsetrader.ui.providers.Change")), //$NON-NLS-2$
+                new Column(Messages.WatchListWizard_BidSize, activator.getDataProviderFactory("org.eclipsetrader.ui.providers.BidSize")), //$NON-NLS-2$
+                new Column(Messages.WatchListWizard_Bid, activator.getDataProviderFactory("org.eclipsetrader.ui.providers.BidPrice")), //$NON-NLS-2$
+                new Column(Messages.WatchListWizard_Ask, activator.getDataProviderFactory("org.eclipsetrader.ui.providers.AskPrice")), //$NON-NLS-2$
+                new Column(Messages.WatchListWizard_AskSize, activator.getDataProviderFactory("org.eclipsetrader.ui.providers.AskSize")), //$NON-NLS-2$
+                new Column(Messages.WatchListWizard_Volume, activator.getDataProviderFactory("org.eclipsetrader.ui.providers.TradeVolume")), //$NON-NLS-2$
+                new Column(Messages.WatchListWizard_DateTime, activator.getDataProviderFactory("org.eclipsetrader.ui.providers.LastTradeDateTime")), //$NON-NLS-2$
         };
         columnsPage.setDefaultColumns(defaultColumns);
     }
@@ -131,20 +131,20 @@ public class WatchListWizard extends Wizard implements INewWizard {
             IStoreObject storeObject = (IStoreObject) resource.getAdapter(IStoreObject.class);
 
             IDialogSettings dialogSettings = UIActivator.getDefault().getDialogSettingsForView(storeObject.getStore().toURI());
-            IDialogSettings columnsSection = dialogSettings.getSection("columns");
+            IDialogSettings columnsSection = dialogSettings.getSection("columns"); //$NON-NLS-1$
             if (columnsSection == null) {
-                columnsSection = dialogSettings.addNewSection("columns");
+                columnsSection = dialogSettings.addNewSection("columns"); //$NON-NLS-1$
             }
-            columnsSection.put("Symbol", 80);
-            columnsSection.put("Name", 190);
-            columnsSection.put("Last", 60);
-            columnsSection.put("Change", 100);
-            columnsSection.put("Bid #", 80);
-            columnsSection.put("Bid", 60);
-            columnsSection.put("Ask", 60);
-            columnsSection.put("Ask #", 80);
-            columnsSection.put("Volume", 80);
-            columnsSection.put("Date / Time", 150);
+            columnsSection.put(Messages.WatchListWizard_Symbol, 80);
+            columnsSection.put(Messages.WatchListWizard_Name, 190);
+            columnsSection.put(Messages.WatchListWizard_Last, 60);
+            columnsSection.put(Messages.WatchListWizard_Change, 100);
+            columnsSection.put(Messages.WatchListWizard_BidSize, 80);
+            columnsSection.put(Messages.WatchListWizard_Bid, 60);
+            columnsSection.put(Messages.WatchListWizard_Ask, 60);
+            columnsSection.put(Messages.WatchListWizard_AskSize, 80);
+            columnsSection.put(Messages.WatchListWizard_Volume, 80);
+            columnsSection.put(Messages.WatchListWizard_DateTime, 150);
 
             page.showView(WatchListView.VIEW_ID, dialogSettings.getName(), IWorkbenchPage.VIEW_ACTIVATE);
         } catch (PartInitException e) {

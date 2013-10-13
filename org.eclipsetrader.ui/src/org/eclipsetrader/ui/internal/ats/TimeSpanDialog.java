@@ -48,7 +48,7 @@ public class TimeSpanDialog extends Dialog {
     @Override
     protected void configureShell(Shell newShell) {
         super.configureShell(newShell);
-        newShell.setText("Time Span");
+        newShell.setText(Messages.TimeSpanDialog_TimeSpan);
     }
 
     /* (non-Javadoc)
@@ -65,7 +65,7 @@ public class TimeSpanDialog extends Dialog {
         applyDialogFont(composite);
 
         Label label = new Label(composite, SWT.NONE);
-        label.setText("Value");
+        label.setText(Messages.TimeSpanDialog_Value);
         value = new Spinner(composite, SWT.BORDER);
         value.setValues(1, 1, 9999, 0, 1, 10);
         units = new ComboViewer(composite, SWT.DROP_DOWN | SWT.READ_ONLY);

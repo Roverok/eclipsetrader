@@ -65,9 +65,9 @@ public class StrategyPropertiesHandler extends AbstractHandler {
     })
     protected void openPropertiesDialog(Shell shell, final IAdaptable adaptableElement) {
         PropertyPageManager pageManager = new PropertyPageManager();
-        pageManager.addToRoot(new PriorityPreferenceNode(UIActivator.PLUGIN_ID + ".propertypages.general", generalProperties = new GeneralProperties(), -1));
-        pageManager.addToRoot(new PriorityPreferenceNode(UIActivator.PLUGIN_ID + ".propertypages.instruments", new InstrumentsProperties(), 0));
-        pageManager.addToRoot(new PriorityPreferenceNode(UIActivator.PLUGIN_ID + ".propertypages.bars", new BarsProperties(), 0));
+        pageManager.addToRoot(new PriorityPreferenceNode(UIActivator.PLUGIN_ID + ".propertypages.general", generalProperties = new GeneralProperties(), -1)); //$NON-NLS-1$
+        pageManager.addToRoot(new PriorityPreferenceNode(UIActivator.PLUGIN_ID + ".propertypages.instruments", new InstrumentsProperties(), 0)); //$NON-NLS-1$
+        pageManager.addToRoot(new PriorityPreferenceNode(UIActivator.PLUGIN_ID + ".propertypages.bars", new BarsProperties(), 0)); //$NON-NLS-1$
         PropertyPageContributorManager.getManager().contribute(pageManager, adaptableElement);
 
         for (Object nodeObj : pageManager.getElements(PreferenceManager.PRE_ORDER)) {
@@ -83,7 +83,7 @@ public class StrategyPropertiesHandler extends AbstractHandler {
             protected void configureShell(Shell newShell) {
                 super.configureShell(newShell);
                 ScriptStrategy element = (ScriptStrategy) adaptableElement.getAdapter(ScriptStrategy.class);
-                newShell.setText("Properties for " + element.getName());
+                newShell.setText(Messages.StrategyPropertiesHandler_PropertiesFor + element.getName());
             }
         };
         dlg.setHelpAvailable(false);

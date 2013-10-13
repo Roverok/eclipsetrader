@@ -72,7 +72,7 @@ import org.osgi.framework.ServiceReference;
 
 public class ExplorerViewPart extends ViewPart {
 
-    public static final String VIEW_ID = "org.eclipsetrader.ui.ats.views.explorer";
+    public static final String VIEW_ID = "org.eclipsetrader.ui.ats.views.explorer"; //$NON-NLS-1$
 
     private IRepositoryService repositoryService;
     private TreeViewer viewer;
@@ -100,7 +100,7 @@ public class ExplorerViewPart extends ViewPart {
 
         ImageRegistry imageRegistry = UIActivator.getDefault().getImageRegistry();
 
-        collapseAllAction = new Action("Collapse All", imageRegistry.getDescriptor(UIConstants.COLLAPSEALL_ICON)) {
+        collapseAllAction = new Action(Messages.ExplorerViewPart_CollapseAll, imageRegistry.getDescriptor(UIConstants.COLLAPSEALL_ICON)) {
 
             @Override
             public void run() {
@@ -108,7 +108,7 @@ public class ExplorerViewPart extends ViewPart {
             }
         };
 
-        expandAllAction = new Action("Expand All", imageRegistry.getDescriptor(UIConstants.EXPANDALL_ICON)) {
+        expandAllAction = new Action(Messages.ExplorerViewPart_ExpandAll, imageRegistry.getDescriptor(UIConstants.EXPANDALL_ICON)) {
 
             @Override
             public void run() {
@@ -116,14 +116,14 @@ public class ExplorerViewPart extends ViewPart {
             }
         };
 
-        deleteAction = new Action("Delete") {
+        deleteAction = new Action(Messages.ExplorerViewPart_Delete) {
 
             @Override
             public void run() {
                 if (viewer.getSelection().isEmpty()) {
                     return;
                 }
-                if (!MessageDialog.openConfirm(getViewSite().getShell(), getPartName(), "Do you really want to delete the selected item(s) ?")) {
+                if (!MessageDialog.openConfirm(getViewSite().getShell(), getPartName(), Messages.ExplorerViewPart_ConfirmDelete)) {
                     return;
                 }
                 doDeleteAction();
@@ -135,14 +135,14 @@ public class ExplorerViewPart extends ViewPart {
         deleteAction.setActionDefinitionId("org.eclipse.ui.edit.delete"); //$NON-NLS-1$
         deleteAction.setEnabled(false);
 
-        removeAction = new Action("Remove") {
+        removeAction = new Action(Messages.ExplorerViewPart_Remove) {
 
             @Override
             public void run() {
                 if (viewer.getSelection().isEmpty()) {
                     return;
                 }
-                if (!MessageDialog.openConfirm(getViewSite().getShell(), getPartName(), "Do you really want to remove the selected item(s) ?")) {
+                if (!MessageDialog.openConfirm(getViewSite().getShell(), getPartName(), Messages.ExplorerViewPart_ConfirmRemove)) {
                     return;
                 }
                 doRemoveAction();
@@ -220,7 +220,7 @@ public class ExplorerViewPart extends ViewPart {
             public void open(OpenEvent event) {
                 try {
                     IHandlerService service = (IHandlerService) getSite().getService(IHandlerService.class);
-                    service.executeCommand("org.eclipse.ui.file.open", null);
+                    service.executeCommand("org.eclipse.ui.file.open", null); //$NON-NLS-1$
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -282,23 +282,23 @@ public class ExplorerViewPart extends ViewPart {
 
             @Override
             public void menuAboutToShow(IMenuManager menuManager) {
-                menuManager.add(new Separator("group.new"));
-                menuManager.add(new GroupMarker("group.goto"));
-                menuManager.add(new Separator("group.open"));
-                menuManager.add(new GroupMarker("group.openWith"));
-                menuManager.add(new Separator("group.trade"));
-                menuManager.add(new GroupMarker("group.tradeWith"));
-                menuManager.add(new Separator("group.show"));
-                menuManager.add(new Separator("group.edit"));
-                menuManager.add(new GroupMarker("group.reorganize"));
-                menuManager.add(new GroupMarker("group.port"));
-                menuManager.add(new Separator("group.generate"));
-                menuManager.add(new Separator("group.search"));
-                menuManager.add(new Separator("group.build"));
+                menuManager.add(new Separator("group.new")); //$NON-NLS-1$
+                menuManager.add(new GroupMarker("group.goto")); //$NON-NLS-1$
+                menuManager.add(new Separator("group.open")); //$NON-NLS-1$
+                menuManager.add(new GroupMarker("group.openWith")); //$NON-NLS-1$
+                menuManager.add(new Separator("group.trade")); //$NON-NLS-1$
+                menuManager.add(new GroupMarker("group.tradeWith")); //$NON-NLS-1$
+                menuManager.add(new Separator("group.show")); //$NON-NLS-1$
+                menuManager.add(new Separator("group.edit")); //$NON-NLS-1$
+                menuManager.add(new GroupMarker("group.reorganize")); //$NON-NLS-1$
+                menuManager.add(new GroupMarker("group.port")); //$NON-NLS-1$
+                menuManager.add(new Separator("group.generate")); //$NON-NLS-1$
+                menuManager.add(new Separator("group.search")); //$NON-NLS-1$
+                menuManager.add(new Separator("group.build")); //$NON-NLS-1$
                 menuManager.add(new Separator(IWorkbenchActionConstants.MB_ADDITIONS));
-                menuManager.add(new Separator("group.properties"));
+                menuManager.add(new Separator("group.properties")); //$NON-NLS-1$
 
-                menuManager.appendToGroup("group.show", new Action("Expand All") {
+                menuManager.appendToGroup("group.show", new Action(Messages.ExplorerViewPart_ExpandAll) { //$NON-NLS-1$
 
                     @Override
                     public void run() {
@@ -308,8 +308,8 @@ public class ExplorerViewPart extends ViewPart {
                         }
                     }
                 });
-                menuManager.appendToGroup("group.reorganize", removeAction);
-                menuManager.appendToGroup("group.reorganize", deleteAction);
+                menuManager.appendToGroup("group.reorganize", removeAction); //$NON-NLS-1$
+                menuManager.appendToGroup("group.reorganize", deleteAction); //$NON-NLS-1$
             }
         });
         viewer.getControl().setMenu(menuMgr.createContextMenu(viewer.getControl()));

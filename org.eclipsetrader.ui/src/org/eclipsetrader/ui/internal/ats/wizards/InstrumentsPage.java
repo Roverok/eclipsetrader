@@ -28,8 +28,8 @@ public class InstrumentsPage extends WizardPage {
     private SecuritySelectionControl providers;
 
     public InstrumentsPage() {
-        super("instruments", "Instruments", null);
-        setDescription("Sets the instruments to manage");
+        super("instruments", Messages.InstrumentsPage_Instruments, null); //$NON-NLS-1$
+        setDescription(Messages.InstrumentsPage_SetInstruments);
     }
 
     /* (non-Javadoc)

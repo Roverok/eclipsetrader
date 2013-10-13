@@ -55,7 +55,7 @@ import org.eclipsetrader.ui.internal.charts.VOLUME;
 
 public class ReportViewPart extends ViewPart {
 
-    public static final String VIEW_ID = "org.eclipsetrader.ui.ats.views.report";
+    public static final String VIEW_ID = "org.eclipsetrader.ui.ats.views.report"; //$NON-NLS-1$
 
     private BaseChartViewer equityChartViewer;
     private TableViewer tradesViewer;
@@ -82,7 +82,7 @@ public class ReportViewPart extends ViewPart {
         composite.setLayout(new GridLayout(1, false));
 
         Label label = new Label(composite, SWT.NONE);
-        label.setText("Performance");
+        label.setText(Messages.ReportViewPart_Performance);
 
         equityChartViewer = new BaseChartViewer(composite, SWT.BORDER);
         equityChartViewer.setFillAvailableSpace(true);
@@ -92,7 +92,7 @@ public class ReportViewPart extends ViewPart {
         composite.setLayout(new GridLayout(1, false));
 
         label = new Label(composite, SWT.NONE);
-        label.setText("Trades");
+        label.setText(Messages.ReportViewPart_Trades);
 
         tradesViewer = new TableViewer(composite, SWT.MULTI | SWT.BORDER | SWT.FULL_SELECTION);
         tradesViewer.getTable().setHeaderVisible(true);
@@ -114,7 +114,7 @@ public class ReportViewPart extends ViewPart {
         priceNumberFormat.setMaximumFractionDigits(4);
 
         TableViewerColumn vewerColumn = new TableViewerColumn(tradesViewer, SWT.NONE);
-        vewerColumn.getColumn().setText("Date / Time");
+        vewerColumn.getColumn().setText(Messages.ReportViewPart_DateTime);
         vewerColumn.getColumn().setWidth(Dialog.convertHorizontalDLUsToPixels(fontMetrics, 60));
         vewerColumn.setLabelProvider(new CellLabelProvider() {
 
@@ -126,7 +126,7 @@ public class ReportViewPart extends ViewPart {
         });
 
         vewerColumn = new TableViewerColumn(tradesViewer, SWT.NONE);
-        vewerColumn.getColumn().setText("Instrument");
+        vewerColumn.getColumn().setText(Messages.ReportViewPart_Instrument);
         vewerColumn.getColumn().setWidth(Dialog.convertHorizontalDLUsToPixels(fontMetrics, 150));
         vewerColumn.setLabelProvider(new CellLabelProvider() {
 
@@ -140,7 +140,7 @@ public class ReportViewPart extends ViewPart {
         });
 
         vewerColumn = new TableViewerColumn(tradesViewer, SWT.NONE);
-        vewerColumn.getColumn().setText("Side");
+        vewerColumn.getColumn().setText(Messages.ReportViewPart_Side);
         vewerColumn.getColumn().setWidth(Dialog.convertHorizontalDLUsToPixels(fontMetrics, 50));
         vewerColumn.setLabelProvider(new CellLabelProvider() {
 
@@ -154,7 +154,7 @@ public class ReportViewPart extends ViewPart {
         });
 
         vewerColumn = new TableViewerColumn(tradesViewer, SWT.RIGHT);
-        vewerColumn.getColumn().setText("Q.ty");
+        vewerColumn.getColumn().setText(Messages.ReportViewPart_Qty);
         vewerColumn.getColumn().setWidth(Dialog.convertHorizontalDLUsToPixels(fontMetrics, 60));
         vewerColumn.setLabelProvider(new CellLabelProvider() {
 
@@ -168,7 +168,7 @@ public class ReportViewPart extends ViewPart {
         });
 
         vewerColumn = new TableViewerColumn(tradesViewer, SWT.RIGHT);
-        vewerColumn.getColumn().setText("Avg. Price");
+        vewerColumn.getColumn().setText(Messages.ReportViewPart_AvgPrice);
         vewerColumn.getColumn().setWidth(Dialog.convertHorizontalDLUsToPixels(fontMetrics, 60));
         vewerColumn.setLabelProvider(new CellLabelProvider() {
 
@@ -182,7 +182,7 @@ public class ReportViewPart extends ViewPart {
         });
 
         vewerColumn = new TableViewerColumn(tradesViewer, SWT.RIGHT);
-        vewerColumn.getColumn().setText("Amount");
+        vewerColumn.getColumn().setText(Messages.ReportViewPart_Amount);
         vewerColumn.getColumn().setWidth(Dialog.convertHorizontalDLUsToPixels(fontMetrics, 60));
         vewerColumn.setLabelProvider(new CellLabelProvider() {
 
@@ -201,7 +201,7 @@ public class ReportViewPart extends ViewPart {
         });
 
         vewerColumn = new TableViewerColumn(tradesViewer, SWT.NONE);
-        vewerColumn.getColumn().setText("Message");
+        vewerColumn.getColumn().setText(Messages.ReportViewPart_Message);
         vewerColumn.getColumn().setWidth(Dialog.convertHorizontalDLUsToPixels(fontMetrics, 100));
         vewerColumn.setLabelProvider(new CellLabelProvider() {
 
@@ -251,13 +251,13 @@ public class ReportViewPart extends ViewPart {
     }
 
     public void setReport(Report report) {
-        String title = NLS.bind("Report: {0}", new Object[] {
+        String title = NLS.bind(Messages.ReportViewPart_Report1, new Object[] {
             report.getStrategy().getName()
         });
         if (report instanceof SimulationReport) {
             SimulationReport simulationReport = (SimulationReport) report;
             DateFormat dateFormat = Util.getDateFormat();
-            title = NLS.bind("Report: {0} [{1}-{2}]", new Object[] {
+            title = NLS.bind(Messages.ReportViewPart_Report2, new Object[] {
                 report.getStrategy().getName(),
                 dateFormat.format(simulationReport.getBegin()),
                 dateFormat.format(simulationReport.getEnd())

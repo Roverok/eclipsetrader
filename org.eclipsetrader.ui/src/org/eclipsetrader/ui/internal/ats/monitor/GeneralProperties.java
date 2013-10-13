@@ -56,7 +56,7 @@ public class GeneralProperties extends PropertyPage implements IWorkbenchPropert
     };
 
     public GeneralProperties() {
-        setTitle("General");
+        setTitle(Messages.GeneralProperties_General);
     }
 
     /* (non-Javadoc)
@@ -71,7 +71,7 @@ public class GeneralProperties extends PropertyPage implements IWorkbenchPropert
         initializeDialogUnits(content);
 
         Label label = new Label(content, SWT.NONE);
-        label.setText("Broker:");
+        label.setText(Messages.GeneralProperties_Broker);
         label.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 2, 1));
         broker = new ComboViewer(content, SWT.READ_ONLY);
         broker.getControl().setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 2, 1));
@@ -86,7 +86,7 @@ public class GeneralProperties extends PropertyPage implements IWorkbenchPropert
         broker.setSorter(new ViewerSorter());
 
         label = new Label(content, SWT.NONE);
-        label.setText("Account:");
+        label.setText(Messages.GeneralProperties_Account);
         label.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 2, 1));
         account = new ComboViewer(content, SWT.READ_ONLY);
         account.getControl().setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 2, 1));
@@ -105,7 +105,7 @@ public class GeneralProperties extends PropertyPage implements IWorkbenchPropert
         label.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 2, 1));
 
         label = new Label(content, SWT.NONE);
-        label.setText("Initial Backfill Size");
+        label.setText(Messages.GeneralProperties_InitialBackfillSize);
         backfill = new Spinner(content, SWT.BORDER);
         backfill.setValues(0, 0, 99999, 0, 1, 1);
 
@@ -113,7 +113,7 @@ public class GeneralProperties extends PropertyPage implements IWorkbenchPropert
         label.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 2, 1));
 
         autostart = new Button(content, SWT.CHECK);
-        autostart.setText("Start Automatically");
+        autostart.setText(Messages.GeneralProperties_StartAutomatically);
         autostart.setLayoutData(new GridData(SWT.BEGINNING, SWT.CENTER, false, false, 2, 1));
 
         performDefaults();
