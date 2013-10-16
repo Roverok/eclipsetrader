@@ -9,6 +9,7 @@ public class Messages extends NLS {
 	public static String HeadLineViewer_MarkAsRead;
 	public static String HeadLineViewer_Next;
 	public static String HeadLineViewer_Open;
+	public static String HeadLineViewer_OpenInNewBrowser;
 	public static String HeadLineViewer_Previous;
 	public static String HeadLineViewer_Refresh;
 	public static String HeadLineViewer_Security;
