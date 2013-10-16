@@ -41,15 +41,15 @@ public class LINEARREGPropertiesPage extends PropertyPage {
         gridLayout.marginWidth = gridLayout.marginHeight = 0;
         content.setLayout(gridLayout);
         content.setLayoutData(new GridData(GridData.FILL, GridData.FILL, true, true));
-        setTitle("Linear Regression");
+        setTitle(Messages.LinearRegression);
 
         Label label = new Label(content, SWT.NONE);
-        label.setText("Input Field");
+        label.setText(Messages.InputField);
         label.setLayoutData(new GridData(convertHorizontalDLUsToPixels(75), SWT.DEFAULT));
         input = new OHLCFieldInput(content);
 
         label = new Label(content, SWT.NONE);
-        label.setText("Period");
+        label.setText(Messages.Period);
         period = new Spinner(content, SWT.BORDER);
         period.setValues(7, 1, 9999, 0, 1, 5);
 

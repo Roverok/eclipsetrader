@@ -39,10 +39,10 @@ public class TRENDPropertiesPage extends PropertyPage {
         gridLayout.marginWidth = gridLayout.marginHeight = 0;
         content.setLayout(gridLayout);
         content.setLayoutData(new GridData(GridData.FILL, GridData.FILL, true, true));
-        setTitle("A/D Movement Index");
+        setTitle(Messages.ADMovementIndex);
 
         Label label = new Label(content, SWT.NONE);
-        label.setText("Period");
+        label.setText(Messages.Period);
         label.setLayoutData(new GridData(convertHorizontalDLUsToPixels(75), SWT.DEFAULT));
         period = new Spinner(content, SWT.BORDER);
         period.setValues(30, 1, 9999, 0, 1, 5);

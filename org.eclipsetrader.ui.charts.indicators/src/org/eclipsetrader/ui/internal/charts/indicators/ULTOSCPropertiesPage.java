@@ -41,21 +41,21 @@ public class ULTOSCPropertiesPage extends PropertyPage {
         gridLayout.marginWidth = gridLayout.marginHeight = 0;
         content.setLayout(gridLayout);
         content.setLayoutData(new GridData(GridData.FILL, GridData.FILL, true, true));
-        setTitle("Ultimate Oscillator");
+        setTitle(Messages.UltimateOscillator);
 
         Label label = new Label(content, SWT.NONE);
-        label.setText("Short Period");
+        label.setText(Messages.ShortPeriod);
         label.setLayoutData(new GridData(convertHorizontalDLUsToPixels(75), SWT.DEFAULT));
         shortPeriod = new Spinner(content, SWT.BORDER);
         shortPeriod.setValues(7, 1, 9999, 0, 1, 5);
 
         label = new Label(content, SWT.NONE);
-        label.setText("Medium Period");
+        label.setText(Messages.MediumPeriod);
         mediumPeriod = new Spinner(content, SWT.BORDER);
         mediumPeriod.setValues(14, 1, 9999, 0, 1, 5);
 
         label = new Label(content, SWT.NONE);
-        label.setText("Long Period");
+        label.setText(Messages.LongPeriod);
         longPeriod = new Spinner(content, SWT.BORDER);
         longPeriod.setValues(21, 1, 9999, 0, 1, 5);
 

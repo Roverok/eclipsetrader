@@ -39,10 +39,10 @@ public class OBVPropertiesPage extends PropertyPage {
         gridLayout.marginWidth = gridLayout.marginHeight = 0;
         content.setLayout(gridLayout);
         content.setLayoutData(new GridData(GridData.FILL, GridData.FILL, true, true));
-        setTitle("On Balance Volume");
+        setTitle(Messages.OnBalanceVolume);
 
         Label label = new Label(content, SWT.NONE);
-        label.setText("Input Field");
+        label.setText(Messages.InputField);
         label.setLayoutData(new GridData(convertHorizontalDLUsToPixels(75), SWT.DEFAULT));
         input = new OHLCFieldInput(content);
 

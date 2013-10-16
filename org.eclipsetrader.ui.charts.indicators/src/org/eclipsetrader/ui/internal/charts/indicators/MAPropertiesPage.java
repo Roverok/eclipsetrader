@@ -43,20 +43,20 @@ public class MAPropertiesPage extends PropertyPage {
         gridLayout.marginWidth = gridLayout.marginHeight = 0;
         content.setLayout(gridLayout);
         content.setLayoutData(new GridData(GridData.FILL, GridData.FILL, true, true));
-        setTitle("Moving Average");
+        setTitle(Messages.MovingAverage);
 
         Label label = new Label(content, SWT.NONE);
         label.setLayoutData(new GridData(convertHorizontalDLUsToPixels(75), SWT.DEFAULT));
-        label.setText("Input Field");
+        label.setText(Messages.InputField);
         input = new OHLCFieldInput(content);
 
         label = new Label(content, SWT.NONE);
-        label.setText("Period");
+        label.setText(Messages.Period);
         period = new Spinner(content, SWT.BORDER);
         period.setValues(7, 1, 9999, 0, 1, 5);
 
         label = new Label(content, SWT.NONE);
-        label.setText("Type");
+        label.setText(Messages.Type);
         type = new MATypeInput(content);
 
         performDefaults();

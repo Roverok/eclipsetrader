@@ -48,10 +48,10 @@ public class BBANDSGeneralPropertiesPage extends PropertyPage {
         gridLayout.marginWidth = gridLayout.marginHeight = 0;
         content.setLayout(gridLayout);
         content.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true));
-        setTitle("General");
+        setTitle(Messages.General);
 
         Label label = new Label(content, SWT.NONE);
-        label.setText("Label");
+        label.setText(Messages.Label);
         label.setLayoutData(new GridData(convertHorizontalDLUsToPixels(75), SWT.DEFAULT));
         text = new Text(content, SWT.BORDER);
         text.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
@@ -61,7 +61,7 @@ public class BBANDSGeneralPropertiesPage extends PropertyPage {
         ((GridData) label.getLayoutData()).heightHint = convertVerticalDLUsToPixels(5);
 
         override = new Button(content, SWT.CHECK);
-        override.setText("Override color theme");
+        override.setText(Messages.OverrideColorTheme);
         override.setLayoutData(new GridData(SWT.BEGINNING, SWT.CENTER, false, false, 2, 1));
         override.addSelectionListener(new SelectionAdapter() {
 
@@ -75,22 +75,22 @@ public class BBANDSGeneralPropertiesPage extends PropertyPage {
         label.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 2, 1));
 
         label = new Label(content, SWT.NONE);
-        label.setText("Upper Line Color");
+        label.setText(Messages.UpperLineColor);
         upperLineColor = new ColorSelector(content);
         upperLineColor.setColorValue(new RGB(0, 0, 255));
-        upperLineColor.getButton().setData("label", label);
+        upperLineColor.getButton().setData("label", label); //$NON-NLS-1$
 
         label = new Label(content, SWT.NONE);
-        label.setText("Middle Line Color");
+        label.setText(Messages.MiddleLineColor);
         middleLineColor = new ColorSelector(content);
         middleLineColor.setColorValue(new RGB(0, 0, 255));
-        middleLineColor.getButton().setData("label", label);
+        middleLineColor.getButton().setData("label", label); //$NON-NLS-1$
 
         label = new Label(content, SWT.NONE);
-        label.setText("Lower Line Color");
+        label.setText(Messages.LowerLineColor);
         lowerLineColor = new ColorSelector(content);
         lowerLineColor.setColorValue(new RGB(0, 0, 255));
-        lowerLineColor.getButton().setData("label", label);
+        lowerLineColor.getButton().setData("label", label); //$NON-NLS-1$
 
         performDefaults();
 
@@ -138,10 +138,10 @@ public class BBANDSGeneralPropertiesPage extends PropertyPage {
 
     protected void updateControlsEnablement() {
         upperLineColor.setEnabled(override.getSelection());
-        ((Label) upperLineColor.getButton().getData("label")).setEnabled(override.getSelection());
+        ((Label) upperLineColor.getButton().getData("label")).setEnabled(override.getSelection()); //$NON-NLS-1$
         middleLineColor.setEnabled(override.getSelection());
-        ((Label) middleLineColor.getButton().getData("label")).setEnabled(override.getSelection());
+        ((Label) middleLineColor.getButton().getData("label")).setEnabled(override.getSelection()); //$NON-NLS-1$
         lowerLineColor.setEnabled(override.getSelection());
-        ((Label) lowerLineColor.getButton().getData("label")).setEnabled(override.getSelection());
+        ((Label) lowerLineColor.getButton().getData("label")).setEnabled(override.getSelection()); //$NON-NLS-1$
     }
 }

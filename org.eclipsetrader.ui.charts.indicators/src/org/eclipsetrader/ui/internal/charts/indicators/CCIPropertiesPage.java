@@ -39,10 +39,10 @@ public class CCIPropertiesPage extends PropertyPage {
         gridLayout.marginWidth = gridLayout.marginHeight = 0;
         content.setLayout(gridLayout);
         content.setLayoutData(new GridData(GridData.FILL, GridData.FILL, true, true));
-        setTitle("Commodity Channel Index");
+        setTitle(Messages.CommodityChannelIndex);
 
         Label label = new Label(content, SWT.NONE);
-        label.setText("Period");
+        label.setText(Messages.Period);
         label.setLayoutData(new GridData(convertHorizontalDLUsToPixels(75), SWT.DEFAULT));
         period = new Spinner(content, SWT.BORDER);
         period.setValues(7, 1, 9999, 0, 1, 5);

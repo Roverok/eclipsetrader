@@ -47,30 +47,30 @@ public class STOCHPropertiesPage extends PropertyPage {
         gridLayout.marginWidth = gridLayout.marginHeight = 0;
         content.setLayout(gridLayout);
         content.setLayoutData(new GridData(GridData.FILL, GridData.FILL, true, true));
-        setTitle("Stochastic");
+        setTitle(Messages.Stochastic);
 
         Label label = new Label(content, SWT.NONE);
-        label.setText("K Fast Period");
+        label.setText(Messages.KFastPeriod);
         label.setLayoutData(new GridData(convertHorizontalDLUsToPixels(75), SWT.DEFAULT));
         kFastPeriod = new Spinner(content, SWT.BORDER);
         kFastPeriod.setValues(7, 1, 9999, 0, 1, 5);
 
         label = new Label(content, SWT.NONE);
-        label.setText("K Slow Period");
+        label.setText(Messages.KSlowPeriod);
         kSlowPeriod = new Spinner(content, SWT.BORDER);
         kSlowPeriod.setValues(21, 1, 9999, 0, 1, 5);
 
         label = new Label(content, SWT.NONE);
-        label.setText("K MA Type");
+        label.setText(Messages.KMAType);
         kMaType = new MATypeInput(content);
 
         label = new Label(content, SWT.NONE);
-        label.setText("D Period");
+        label.setText(Messages.DPeriod);
         dPeriod = new Spinner(content, SWT.BORDER);
         dPeriod.setValues(14, 1, 9999, 0, 1, 5);
 
         label = new Label(content, SWT.NONE);
-        label.setText("D MA Type");
+        label.setText(Messages.DMAType);
         dMaType = new MATypeInput(content);
 
         label = new Label(content, SWT.NONE);
@@ -78,11 +78,11 @@ public class STOCHPropertiesPage extends PropertyPage {
         ((GridData) label.getLayoutData()).heightHint = convertVerticalDLUsToPixels(5);
 
         label = new Label(content, SWT.NONE);
-        label.setText("K Line Style");
+        label.setText(Messages.KLineStyle);
         kLineStyle = new RenderStyleInput(content);
 
         label = new Label(content, SWT.NONE);
-        label.setText("D Line Style");
+        label.setText(Messages.DLineStyle);
         dLineStyle = new RenderStyleInput(content);
 
         performDefaults();

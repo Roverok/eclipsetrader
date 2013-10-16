@@ -51,11 +51,11 @@ public class MACDPropertiesPage extends PropertyPage {
         gridLayout.marginWidth = gridLayout.marginHeight = 0;
         content.setLayout(gridLayout);
         content.setLayoutData(new GridData(GridData.FILL, GridData.FILL, true, true));
-        setTitle("M/A Convergence / Divergence");
+        setTitle(Messages.MAConvergenceDivergence);
 
         Label label = new Label(content, SWT.NONE);
         label.setLayoutData(new GridData(convertHorizontalDLUsToPixels(75), SWT.DEFAULT));
-        label.setText("Input Field");
+        label.setText(Messages.InputField);
         input = new OHLCFieldInput(content);
 
         label = new Label(content, SWT.NONE);
@@ -63,30 +63,30 @@ public class MACDPropertiesPage extends PropertyPage {
         ((GridData) label.getLayoutData()).heightHint = convertVerticalDLUsToPixels(5);
 
         label = new Label(content, SWT.NONE);
-        label.setText("Fast Period");
+        label.setText(Messages.FastPeriod);
         fastPeriod = new Spinner(content, SWT.BORDER);
         fastPeriod.setValues(7, 1, 9999, 0, 1, 5);
 
         label = new Label(content, SWT.NONE);
-        label.setText("Fast MA Type");
+        label.setText(Messages.FastMAType);
         fastMaType = new MATypeInput(content);
 
         label = new Label(content, SWT.NONE);
-        label.setText("Slow Period");
+        label.setText(Messages.SlowPeriod);
         slowPeriod = new Spinner(content, SWT.BORDER);
         slowPeriod.setValues(21, 1, 9999, 0, 1, 5);
 
         label = new Label(content, SWT.NONE);
-        label.setText("Slow MA Type");
+        label.setText(Messages.SlowMAType);
         slowMaType = new MATypeInput(content);
 
         label = new Label(content, SWT.NONE);
-        label.setText("Signal Period");
+        label.setText(Messages.SignalPeriod);
         signalPeriod = new Spinner(content, SWT.BORDER);
         signalPeriod.setValues(14, 1, 9999, 0, 1, 5);
 
         label = new Label(content, SWT.NONE);
-        label.setText("Signal MA Type");
+        label.setText(Messages.SignalMAType);
         signalMaType = new MATypeInput(content);
 
         label = new Label(content, SWT.NONE);
@@ -94,15 +94,15 @@ public class MACDPropertiesPage extends PropertyPage {
         ((GridData) label.getLayoutData()).heightHint = convertVerticalDLUsToPixels(5);
 
         label = new Label(content, SWT.NONE);
-        label.setText("MACD Line Style");
+        label.setText(Messages.MACDLineStyle);
         macdLineStyle = new RenderStyleInput(content);
 
         label = new Label(content, SWT.NONE);
-        label.setText("Signal Line Style");
+        label.setText(Messages.SignalLineStyle);
         signalLineStyle = new RenderStyleInput(content);
 
         label = new Label(content, SWT.NONE);
-        label.setText("Histheresis Line Style");
+        label.setText(Messages.HisteresisLineStyle);
         histLineStyle = new RenderStyleInput(content);
 
         performDefaults();

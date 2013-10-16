@@ -48,10 +48,10 @@ public class GeneralPropertiesPage extends PropertyPage {
         gridLayout.marginWidth = gridLayout.marginHeight = 0;
         content.setLayout(gridLayout);
         content.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true));
-        setTitle("General");
+        setTitle(Messages.General);
 
         Label label = new Label(content, SWT.NONE);
-        label.setText("Label");
+        label.setText(Messages.Label);
         label.setLayoutData(new GridData(convertHorizontalDLUsToPixels(75), SWT.DEFAULT));
         text = new Text(content, SWT.BORDER);
         text.setLayoutData(new GridData(GridData.FILL, GridData.CENTER, true, false));
@@ -61,7 +61,7 @@ public class GeneralPropertiesPage extends PropertyPage {
         ((GridData) label.getLayoutData()).heightHint = convertVerticalDLUsToPixels(5);
 
         label = new Label(content, SWT.NONE);
-        label.setText("Style");
+        label.setText(Messages.Style);
         style = new RenderStyleInput(content);
 
         label = new Label(content, SWT.NONE);
@@ -69,7 +69,7 @@ public class GeneralPropertiesPage extends PropertyPage {
         ((GridData) label.getLayoutData()).heightHint = convertVerticalDLUsToPixels(5);
 
         override = new Button(content, SWT.CHECK);
-        override.setText("Override color theme");
+        override.setText(Messages.OverrideColorTheme);
         override.setLayoutData(new GridData(SWT.BEGINNING, SWT.CENTER, false, false, 2, 1));
         override.addSelectionListener(new SelectionAdapter() {
 
@@ -83,10 +83,10 @@ public class GeneralPropertiesPage extends PropertyPage {
         label.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 2, 1));
 
         label = new Label(content, SWT.NONE);
-        label.setText("Color");
+        label.setText(Messages.Color);
         color = new ColorSelector(content);
         color.setColorValue(new RGB(0, 0, 255));
-        color.getButton().setData("label", label);
+        color.getButton().setData("label", label); //$NON-NLS-1$
 
         performDefaults();
 
@@ -130,6 +130,6 @@ public class GeneralPropertiesPage extends PropertyPage {
 
     protected void updateControlsEnablement() {
         color.setEnabled(override.getSelection());
-        ((Label) color.getButton().getData("label")).setEnabled(override.getSelection());
+        ((Label) color.getButton().getData("label")).setEnabled(override.getSelection()); //$NON-NLS-1$
     }
 }
