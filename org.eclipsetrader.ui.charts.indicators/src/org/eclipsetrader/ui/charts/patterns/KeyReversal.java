@@ -45,9 +45,9 @@ public class KeyReversal implements IChartObjectFactory, IGeneralPropertiesAdapt
      */
     @Override
     public void setInitializationData(IConfigurationElement config, String propertyName, Object data) throws CoreException {
-        id = config.getAttribute("id");
-        factoryName = config.getAttribute("name");
-        name = config.getAttribute("name");
+        id = config.getAttribute("id"); //$NON-NLS-1$
+        factoryName = config.getAttribute("name"); //$NON-NLS-1$
+        name = config.getAttribute("name"); //$NON-NLS-1$
     }
 
     /* (non-Javadoc)
@@ -130,11 +130,11 @@ public class KeyReversal implements IChartObjectFactory, IGeneralPropertiesAdapt
 
             if (outBars[0].getHigh() < outBars[1].getHigh() && outBars[0].getLow() > outBars[1].getLow()) {
                 if (outBars[1].getClose() >= outBars[0].getHigh()) {
-                    object.add(new PatternBox(outBars, color, getName(), "Bullish"));
+                    object.add(new PatternBox(outBars, color, getName(), Messages.Bullish));
                     i -= outBars.length;
                 }
                 else if (outBars[1].getClose() <= outBars[0].getLow()) {
-                    object.add(new PatternBox(outBars, color, getName(), "Bearish"));
+                    object.add(new PatternBox(outBars, color, getName(), Messages.Bearish));
                     i -= outBars.length;
                 }
             }
@@ -151,12 +151,12 @@ public class KeyReversal implements IChartObjectFactory, IGeneralPropertiesAdapt
         ChartParameters parameters = new ChartParameters();
 
         if (!factoryName.equals(name)) {
-            parameters.setParameter("name", name);
+            parameters.setParameter("name", name); //$NON-NLS-1$
         }
 
-        parameters.setParameter("style", renderStyle.getName());
+        parameters.setParameter("style", renderStyle.getName()); //$NON-NLS-1$
         if (color != null) {
-            parameters.setParameter("color", color);
+            parameters.setParameter("color", color); //$NON-NLS-1$
         }
 
         return parameters;
@@ -167,9 +167,9 @@ public class KeyReversal implements IChartObjectFactory, IGeneralPropertiesAdapt
      */
     @Override
     public void setParameters(IChartParameters parameters) {
-        name = parameters.hasParameter("name") ? parameters.getString("name") : factoryName;
+        name = parameters.hasParameter("name") ? parameters.getString("name") : factoryName; //$NON-NLS-1$ //$NON-NLS-2$
 
-        renderStyle = parameters.hasParameter("style") ? RenderStyle.getStyleFromName(parameters.getString("style")) : RenderStyle.Line;
-        color = parameters.getColor("color");
+        renderStyle = parameters.hasParameter("style") ? RenderStyle.getStyleFromName(parameters.getString("style")) : RenderStyle.Line; //$NON-NLS-1$ //$NON-NLS-2$
+        color = parameters.getColor("color"); //$NON-NLS-1$
     }
 }
