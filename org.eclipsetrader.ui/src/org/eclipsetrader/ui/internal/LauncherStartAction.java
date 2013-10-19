@@ -32,7 +32,7 @@ public class LauncherStartAction extends Action {
      */
     @Override
     public void run() {
-        Job job = new Job(launcher.getName() + " Startup") {
+        Job job = new Job(launcher.getName() + Messages.LauncherStartAction_Startup) {
 
             @Override
             protected IStatus run(IProgressMonitor monitor) {

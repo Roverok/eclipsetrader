@@ -12,7 +12,7 @@
 package org.eclipsetrader.ui.charts;
 
 public enum OHLCField {
-    Open("open", "Open"), High("high", "High"), Low("low", "Low"), Close("close", "Close");
+    Open("open", Messages.OHLCField_Open), High("high", Messages.OHLCField_High), Low("low", Messages.OHLCField_Low), Close("close", Messages.OHLCField_Close); //$NON-NLS-1$ //$NON-NLS-3$ //$NON-NLS-5$ //$NON-NLS-7$
 
     private String name;
     private String description;

@@ -23,7 +23,7 @@ import org.eclipsetrader.core.ILauncher;
 
 public class StartAllAction extends Action {
 
-    public static final String LAUNCHERS_EXTENSION_ID = "org.eclipsetrader.core.launchers"; //$NON-NLS-1$
+    public static final String LAUNCHERS_EXTENSION_ID = "org.eclipsetrader.core.launchers"; 
 
     public StartAllAction() {
         super(Messages.StartAllAction_All);
@@ -34,7 +34,7 @@ public class StartAllAction extends Action {
      */
     @Override
     public void run() {
-        Job job = new Job("Services Startup") { //$NON-NLS-1$
+        Job job = new Job(Messages.StartAllAction_ServicesStartup) { 
 
             @Override
             protected IStatus run(IProgressMonitor monitor) {
@@ -45,14 +45,14 @@ public class StartAllAction extends Action {
                         IConfigurationElement[] configElements = extensionPoint.getConfigurationElements();
 
                         for (int j = 0; j < configElements.length; j++) {
-                            String id = configElements[j].getAttribute("id"); //$NON-NLS-1$
+                            String id = configElements[j].getAttribute("id"); 
                             try {
-                                ILauncher launcher = (ILauncher) configElements[j].createExecutableExtension("class"); //$NON-NLS-1$
+                                ILauncher launcher = (ILauncher) configElements[j].createExecutableExtension("class"); 
                                 if (launcher != null) {
                                     launcher.launch(monitor);
                                 }
                             } catch (Exception e) {
-                                Status status = new Status(IStatus.ERROR, UIActivator.PLUGIN_ID, 0, "Error launching " + id, e); //$NON-NLS-1$
+                                Status status = new Status(IStatus.ERROR, UIActivator.PLUGIN_ID, 0, "Error launching " + id, e); 
                                 UIActivator.getDefault().getLog().log(status);
                             }
                         }

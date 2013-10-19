@@ -352,16 +352,16 @@ public class TradingSystemsViewPart extends ViewPart {
 
                     switch (item.getTradingSystem().getStatus()) {
                         case ITradingSystem.STATUS_STARTING:
-                            sb.append("starting"); //$NON-NLS-1$
+                            sb.append(Messages.TradingSystemsViewPart_Starting); 
                             break;
                         case ITradingSystem.STATUS_STARTED:
-                            sb.append("started"); //$NON-NLS-1$
+                            sb.append(Messages.TradingSystemsViewPart_Started); 
                             break;
                         case ITradingSystem.STATUS_STOPPING:
-                            sb.append("stopping"); //$NON-NLS-1$
+                            sb.append(Messages.TradingSystemsViewPart_Stopping); 
                             break;
                         case ITradingSystem.STATUS_STOPPED:
-                            sb.append("stopped"); //$NON-NLS-1$
+                            sb.append(Messages.TradingSystemsViewPart_Stopped); 
                             break;
                     }
 
@@ -371,7 +371,7 @@ public class TradingSystemsViewPart extends ViewPart {
                             if (sb.length() != 0) {
                                 sb.append(", "); //$NON-NLS-1$
                             }
-                            sb.append("autostart"); //$NON-NLS-1$
+                            sb.append(Messages.TradingSystemsViewPart_Autostart); 
                         }
                     }
 

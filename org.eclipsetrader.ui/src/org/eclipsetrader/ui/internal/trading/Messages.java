@@ -29,7 +29,8 @@ public class Messages extends NLS {
     public static String MarketTradingPage_None_Element;
     public static String MarketTradingPage_Title;
     public static String NewAlertWizard_WindowTitle;
-    public static String OrderDialog_ActionLabel;
+    public static String OrderDialog_Account;
+	public static String OrderDialog_ActionLabel;
     public static String OrderDialog_BrokerLabel;
     public static String OrderDialog_ExpireLabel;
     public static String OrderDialog_LimitPriceLabel;

@@ -170,7 +170,7 @@ public class OrderDialog extends TitleAreaDialog {
     }
 
     protected boolean isValid() {
-        if (symbol.getText().equals("")) {
+        if (symbol.getText().equals("")) { //$NON-NLS-1$
             return false;
         }
 
@@ -296,7 +296,7 @@ public class OrderDialog extends TitleAreaDialog {
         brokerCombo.setInput(tradingService.getBrokers());
 
         label = new Label(content, SWT.NONE);
-        label.setText("Account");
+        label.setText(Messages.OrderDialog_Account);
         accountCombo = new ComboViewer(content, SWT.BORDER | SWT.READ_ONLY | SWT.DROP_DOWN);
         accountCombo.getControl().setLayoutData(new GridData(SWT.FILL, SWT.CENTER, false, false));
         accountCombo.setContentProvider(new ArrayContentProvider());
@@ -456,7 +456,7 @@ public class OrderDialog extends TitleAreaDialog {
                 if (!brokerCombo.getSelection().isEmpty()) {
                     IBroker connector = (IBroker) ((IStructuredSelection) brokerCombo.getSelection()).getFirstElement();
                     security = connector.getSecurityFromSymbol(symbol.getText());
-                    symbolDescription.setText(security != null ? security.getName() : "");
+                    symbolDescription.setText(security != null ? security.getName() : ""); //$NON-NLS-1$
                 }
                 getButton(OK).setEnabled(isValid());
             }
@@ -567,7 +567,7 @@ public class OrderDialog extends TitleAreaDialog {
                 }
             }
 
-            if (!orderReference.getText().equals("")) {
+            if (!orderReference.getText().equals("")) { //$NON-NLS-1$
                 order.setReference(orderReference.getText());
             }
 
