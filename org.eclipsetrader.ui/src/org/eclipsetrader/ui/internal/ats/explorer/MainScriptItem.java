@@ -78,6 +78,6 @@ public class MainScriptItem implements ExplorerViewItem {
      */
     @Override
     public String toString() {
-        return "Main";
+        return Messages.MainScriptItem_Main;
     }
 }

@@ -38,7 +38,7 @@ public class ScriptWizard extends Wizard implements INewWizard {
     private IWorkbench workbench;
 
     public ScriptWizard() {
-        ImageDescriptor descriptor = ImageDescriptor.createFromURL(UIActivator.getDefault().getBundle().getResource("icons/wizban/newfile_wiz.gif"));
+        ImageDescriptor descriptor = ImageDescriptor.createFromURL(UIActivator.getDefault().getBundle().getResource("icons/wizban/newfile_wiz.gif")); //$NON-NLS-1$
         image = descriptor.createImage();
     }
 
@@ -63,7 +63,7 @@ public class ScriptWizard extends Wizard implements INewWizard {
      */
     @Override
     public String getWindowTitle() {
-        return "New Script";
+        return Messages.ScriptWizard_NewScript;
     }
 
     /* (non-Javadoc)
