@@ -93,7 +93,9 @@ public class OrderDialog extends TitleAreaDialog {
         @Override
         public void selectionChanged(SelectionChangedEvent event) {
             IStructuredSelection selection = (IStructuredSelection) event.getSelection();
-            price.setEnabled(selection.getFirstElement() == IOrderType.Limit);
+            price.setEnabled(selection.getFirstElement() == IOrderType.Limit ||
+                    selection.getFirstElement() == IOrderType.Stop ||
+                    selection.getFirstElement() == IOrderType.StopLimit);
 
             updateSummary();
 
@@ -184,7 +186,7 @@ public class OrderDialog extends TitleAreaDialog {
         }
 
         IOrderType orderType = (IOrderType) ((IStructuredSelection) typeCombo.getSelection()).getFirstElement();
-        if (orderType == IOrderType.Limit) {
+        if (orderType == IOrderType.Limit || orderType == IOrderType.Stop || orderType == IOrderType.StopLimit) {
             try {
                 double price = priceFormat.parse(this.price.getText()).doubleValue();
                 if (price <= 0) {
@@ -523,7 +525,7 @@ public class OrderDialog extends TitleAreaDialog {
 
             double price = 0.0;
             IOrderType orderType = (IOrderType) ((IStructuredSelection) typeCombo.getSelection()).getFirstElement();
-            if (orderType == IOrderType.Limit) {
+            if (orderType == IOrderType.Limit || orderType == IOrderType.Stop || orderType == IOrderType.StopLimit) {
                 price = priceFormat.parse(this.price.getText()).doubleValue();
             }
             else if (limitPrice != null) {
