@@ -50,7 +50,7 @@ public class DataImportJob extends Job {
     private BackfillConnector connector = new BackfillConnector();
 
     public DataImportJob(ISecurity[] securities, int mode, Date fromDate, Date toDate, TimeSpan[] timeSpan) {
-        super("Import Data");
+        super(Messages.DataImportJob_ImportData);
         this.securities = securities;
         this.mode = mode;
         this.fromDate = fromDate;
@@ -68,7 +68,7 @@ public class DataImportJob extends Job {
             IRepositoryService repositoryService = getRepositoryService();
 
             for (ISecurity security : securities) {
-                monitor.subTask(security.getName().replace("&", "&&"));
+                monitor.subTask(security.getName().replace("&", "&&")); //$NON-NLS-1$ //$NON-NLS-2$
 
                 try {
                     IFeedIdentifier identifier = (IFeedIdentifier) security.getAdapter(IFeedIdentifier.class);
@@ -165,12 +165,12 @@ public class DataImportJob extends Job {
                             }
                         }
                         else {
-                            Status status = new Status(IStatus.WARNING, YahooJapanActivator.PLUGIN_ID, 0, "Missing data for " + security.getName(), null);
+                            Status status = new Status(IStatus.WARNING, YahooJapanActivator.PLUGIN_ID, 0, Messages.DataImportJob_MissingDataFor + security.getName(), null);
                             YahooJapanActivator.log(status);
                         }
                     }
                 } catch (Exception e) {
-                    Status status = new Status(IStatus.ERROR, YahooJapanActivator.PLUGIN_ID, 0, "Error downloading data for " + security, e);
+                    Status status = new Status(IStatus.ERROR, YahooJapanActivator.PLUGIN_ID, 0, "Error downloading data for " + security, e); //$NON-NLS-1$
                     YahooJapanActivator.log(status);
                 }
 

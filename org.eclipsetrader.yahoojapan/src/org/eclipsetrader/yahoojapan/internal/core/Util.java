@@ -102,10 +102,10 @@ public class Util {
         method.setQueryString(new NameValuePair[] {
                 new NameValuePair("code", symbol),
                 new NameValuePair("sy", String.valueOf(fromDate.get(Calendar.YEAR))),
-                new NameValuePair("sm", String.valueOf(fromDate.get(Calendar.MONTH))),
+                new NameValuePair("sm", String.valueOf(fromDate.get(Calendar.MONTH) + 1)),
                 new NameValuePair("sd", String.valueOf(fromDate.get(Calendar.DAY_OF_MONTH))),
                 new NameValuePair("ey", String.valueOf(toDate.get(Calendar.YEAR))),
-                new NameValuePair("em", String.valueOf(toDate.get(Calendar.MONTH))),
+                new NameValuePair("em", String.valueOf(toDate.get(Calendar.MONTH) + 1)),
                 new NameValuePair("ed", String.valueOf(toDate.get(Calendar.DAY_OF_MONTH))),
                 new NameValuePair("tm", "d"),
 //                new NameValuePair("p", "1"),
@@ -154,14 +154,14 @@ public class Util {
         Calendar toDate = Calendar.getInstance();
         toDate.setTime(to);
 
-        GetMethod method = new GetMethod("http://" + historyFeedHost + "/stocks/history/");
+        GetMethod method = new GetMethod("http://" + historyFeedHost + "/history/");
         method.setQueryString(new NameValuePair[] {
                 new NameValuePair("code", symbol),
                 new NameValuePair("sy", String.valueOf(toDate.get(Calendar.YEAR))),
-                new NameValuePair("sm", String.valueOf(toDate.get(Calendar.MONTH))),
+                new NameValuePair("sm", String.valueOf(toDate.get(Calendar.MONTH) + 1)),
                 new NameValuePair("sd", String.valueOf(toDate.get(Calendar.DAY_OF_MONTH))),
                 new NameValuePair("ey", String.valueOf(fromDate.get(Calendar.YEAR))),
-                new NameValuePair("em", String.valueOf(fromDate.get(Calendar.MONTH))),
+                new NameValuePair("em", String.valueOf(fromDate.get(Calendar.MONTH) + 1)),
                 new NameValuePair("ed", String.valueOf(fromDate.get(Calendar.DAY_OF_MONTH))),
                 new NameValuePair("tm", "d"),
                 new NameValuePair("p", String.valueOf(page)),
