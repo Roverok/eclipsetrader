@@ -62,7 +62,7 @@ import org.eclipsetrader.ui.internal.charts.DataImportJob;
 
 public class HistoryDataEditorPart extends ViewPart implements ISaveablePart {
 
-    public static final String VIEW_ID = "org.eclipsetrader.ui.editors.history";
+    public static final String VIEW_ID = "org.eclipsetrader.ui.editors.history"; //$NON-NLS-1$
 
     public static final String K_VIEWS = "Views"; //$NON-NLS-1$
     public static final String K_URI = "uri"; //$NON-NLS-1$
@@ -151,7 +151,7 @@ public class HistoryDataEditorPart extends ViewPart implements ISaveablePart {
         updateAction.setImageDescriptor(UIActivator.imageDescriptorFromPlugin("icons/etool16/refresh.gif")); //$NON-NLS-1$
         updateAction.setEnabled(true);
 
-        editAction = new Action("Edit") {
+        editAction = new Action(Messages.HistoryDataEditorPart_Edit) {
 
             @Override
             public void run() {
@@ -173,7 +173,7 @@ public class HistoryDataEditorPart extends ViewPart implements ISaveablePart {
         };
         editAction.setEnabled(true);
 
-        goIntoAction = new Action("Zoom-In") {
+        goIntoAction = new Action(Messages.HistoryDataEditorPart_ZoomIn) {
 
             @Override
             public void run() {
@@ -182,15 +182,15 @@ public class HistoryDataEditorPart extends ViewPart implements ISaveablePart {
                 }
             }
         };
-        goIntoAction.setImageDescriptor(UIActivator.getImageDescriptor("icons/elcl16/zoom_in.png"));
+        goIntoAction.setImageDescriptor(UIActivator.getImageDescriptor("icons/elcl16/zoom_in.png")); //$NON-NLS-1$
         goIntoAction.setEnabled(false);
 
-        backUpAction = new Action("Zoom-Out") {
+        backUpAction = new Action(Messages.HistoryDataEditorPart_ZoomOut) {
 
             @Override
             public void run() {
                 if (stackLayout.topControl != editor.getControl()) {
-                    setContentDescription("");
+                    setContentDescription(""); //$NON-NLS-1$
                     stackLayout.topControl = editor.getControl();
                     stackContainer.layout();
                 }
@@ -198,7 +198,7 @@ public class HistoryDataEditorPart extends ViewPart implements ISaveablePart {
                 backUpAction.setEnabled(stackLayout.topControl != editor.getControl());
             }
         };
-        backUpAction.setImageDescriptor(UIActivator.getImageDescriptor("icons/elcl16/zoom_out.png"));
+        backUpAction.setImageDescriptor(UIActivator.getImageDescriptor("icons/elcl16/zoom_out.png")); //$NON-NLS-1$
         backUpAction.setEnabled(false);
     }
 
@@ -238,7 +238,7 @@ public class HistoryDataEditorPart extends ViewPart implements ISaveablePart {
 
         if (security != null) {
             setPartName(NLS.bind("{0} - {1}", new Object[] { //$NON-NLS-1$
-                security.getName(), "History",
+                security.getName(), Messages.HistoryDataEditorPart_History,
             }));
 
             editor.load(security);
@@ -252,21 +252,21 @@ public class HistoryDataEditorPart extends ViewPart implements ISaveablePart {
 
             @Override
             public void menuAboutToShow(IMenuManager menuManager) {
-                menuManager.add(new Separator("group.new"));
-                menuManager.add(new GroupMarker("group.goto"));
-                menuManager.add(new Separator("group.show"));
-                menuManager.add(new Separator("group.edit"));
-                menuManager.add(new GroupMarker("group.reorganize"));
-                menuManager.add(new GroupMarker("group.port"));
-                menuManager.add(new Separator("group.generate"));
-                menuManager.add(new Separator("group.search"));
-                menuManager.add(new Separator("group.build"));
+                menuManager.add(new Separator("group.new")); //$NON-NLS-1$
+                menuManager.add(new GroupMarker("group.goto")); //$NON-NLS-1$
+                menuManager.add(new Separator("group.show")); //$NON-NLS-1$
+                menuManager.add(new Separator("group.edit")); //$NON-NLS-1$
+                menuManager.add(new GroupMarker("group.reorganize")); //$NON-NLS-1$
+                menuManager.add(new GroupMarker("group.port")); //$NON-NLS-1$
+                menuManager.add(new Separator("group.generate")); //$NON-NLS-1$
+                menuManager.add(new Separator("group.search")); //$NON-NLS-1$
+                menuManager.add(new Separator("group.build")); //$NON-NLS-1$
                 menuManager.add(new Separator(IWorkbenchActionConstants.MB_ADDITIONS));
-                menuManager.add(new Separator("group.properties"));
+                menuManager.add(new Separator("group.properties")); //$NON-NLS-1$
 
-                menuManager.appendToGroup("group.goto", goIntoAction);
-                menuManager.appendToGroup("group.goto", backUpAction);
-                menuManager.appendToGroup("group.edit", editAction);
+                menuManager.appendToGroup("group.goto", goIntoAction); //$NON-NLS-1$
+                menuManager.appendToGroup("group.goto", backUpAction); //$NON-NLS-1$
+                menuManager.appendToGroup("group.edit", editAction); //$NON-NLS-1$
             }
         });
         editor.getViewer().getControl().setMenu(contextMenuManager.createContextMenu(editor.getViewer().getControl()));
