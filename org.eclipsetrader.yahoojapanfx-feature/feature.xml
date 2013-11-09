@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="org.eclipsetrader.yahoojapanfx"
+      label="%featureName"
+      version="0.0.1.qualifier"
+      provider-name="%providerName">
+
+   <description>
+      %description
+   </description>
+
+   <copyright>
+      %copyright
+   </copyright>
+
+   <license>
+      %license
+   </license>
+
+   <url>
+      <discovery label="Sourceforge.jp" url="http://eclipsetrader-j.sourceforge.jp/updates"/>
+   </url>
+
+   <requires>
+      <import feature="org.htmlparser" version="1.6.0" match="compatible"/>
+      <import feature="com.sun.syndication" version="1.0.0" match="compatible"/>
+      <import feature="org.eclipsetrader.platform" version="1.0.0" match="compatible"/>
+      <import feature="org.apache.commons" version="1.0.0" match="compatible"/>
+   </requires>
+
+   <plugin
+         id="org.eclipsetrader.yahoojapanfx"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.apache.commons.codec"
+         download-size="0"
+         install-size="0"
+         version="1.3.0.v200906221723"
+         unpack="false"/>
+
+   <plugin
+         id="org.apache.commons.httpclient"
+         download-size="0"
+         install-size="0"
+         version="3.1.0.v200906221723"
+         unpack="false"/>
+
+
+</feature>

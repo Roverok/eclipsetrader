@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+   <extension
+         name="%YahooJAPANFx"
+         point="org.eclipsetrader.core.connectors">
+      <connector
+            class="org.eclipsetrader.yahoojapanfx.internal.core.connector.SnapshotConnector"
+            id="org.eclipsetrader.yahoojapanfx"
+            name="%YahooJAPANFx">
+      </connector>
+      <backfill
+            class="org.eclipsetrader.yahoojapanfx.internal.core.connector.BackfillConnector"
+            id="org.eclipsetrader.yahoojapanfx"
+            name="%YahooJAPANFx">
+      </backfill>
+      <property
+            id="org.eclipsetrader.yahoojapanfx.symbol"
+            name="%Symbol">
+      </property>
+   </extension>
+   <extension
+         point="org.eclipse.ui.importWizards">
+      <wizard
+            category="org.eclipsetrader.ui.import.data"
+            class="org.eclipsetrader.yahoojapanfx.internal.ui.wizards.DataImportWizard"
+            id="org.eclipsetrader.yahoojapanfx.data"
+            name="%YahooJAPANFx">
+         <description>
+            %YahooJAPANFx.ImportWizards.description
+         </description>
+      </wizard>
+   </extension>
+   <extension
+         point="org.eclipsetrader.core.providers">
+      <provider
+            class="org.eclipsetrader.yahoojapanfx.internal.ui.FeedIdentifierFactory"
+            id="org.eclipsetrader.yahoojapanfx.providers.symbol"
+            name="%Symbol">
+      </provider>
+   </extension>
+
+</plugin>
