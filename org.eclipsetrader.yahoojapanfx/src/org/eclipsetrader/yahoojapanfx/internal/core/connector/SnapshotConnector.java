@@ -21,7 +21,6 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Collection;
 import java.util.HashMap;
-import java.util.Hashtable;
 import java.util.Map;
 import java.util.TimeZone;
 import java.util.zip.GZIPInputStream;
@@ -51,21 +50,6 @@ public class SnapshotConnector implements Runnable, IFeedConnector2, IExecutable
     private static SnapshotConnector instance;
 
     private String streamingServer = "fx.yahoo.co.jp"; //$NON-NLS-1$
-
-    private static final String PREZZO = "[L=]"; //$NON-NLS-1$
-    private static final String TRADE = "[LC=]"; //$NON-NLS-1$
-    private static final String ORA = "[TLT]"; //$NON-NLS-1$
-    private static final String DATA = "[DATA_ULT]"; //$NON-NLS-1$
-    private static final String VOLUME = "[CV]"; //$NON-NLS-1$
-    private static final String MINIMO = "[LO]"; //$NON-NLS-1$
-    private static final String MASSIMO = "[HI]"; //$NON-NLS-1$
-    private static final String APERTURA = "[OP1]"; //$NON-NLS-1$
-    private static final String PRECEDENTE = "[LIE]"; //$NON-NLS-1$
-    private static final String BID_QUANTITA = "[BS1]"; //$NON-NLS-1$
-    private static final String BID_PREZZO = "[BP1]"; //$NON-NLS-1$
-    private static final String ASK_QUANTITA = "[AS1]"; //$NON-NLS-1$
-    private static final String ASK_PREZZO = "[AP1]"; //$NON-NLS-1$
-    private static final String CHANGE = "[CHG]"; //$NON-NLS-1$
 
     private String id;
     private String name;
@@ -411,27 +395,20 @@ public class SnapshotConnector implements Runnable, IFeedConnector2, IExecutable
 
     protected void fetchLatestSnapshot(HttpClient client, String[] symbols) {
         try {
-            Hashtable<String, String> hashTable = new Hashtable<String, String>();
-
             HttpMethod method = Util.getSnapshotFeedMethod(streamingServer);
 
-            BufferedReader bufferedreader = null;
+            BufferedReader in = null;
             try {
-//                if (WebConnector.getInstance().getCookie() != null) {
-//                    client.getState().addCookies(WebConnector.getInstance().getCookie());
-//                }
                 client.executeMethod(method);
 
                 if ((method.getResponseHeader("Content-Encoding") != null) && (method.getResponseHeader("Content-Encoding").getValue().equals("gzip"))) {
-                	bufferedreader = new BufferedReader(new InputStreamReader(new GZIPInputStream(method.getResponseBodyAsStream())));
+                	in = new BufferedReader(new InputStreamReader(new GZIPInputStream(method.getResponseBodyAsStream())));
                 } else {
-                	bufferedreader = new BufferedReader(new InputStreamReader(method.getResponseBodyAsStream()));
+                	in = new BufferedReader(new InputStreamReader(method.getResponseBodyAsStream()));
                 }
-//                bufferedreader = new BufferedReader(new InputStreamReader(method.getResponseBodyAsStream(), "UTF-8"));
                 StringBuilder sb = new StringBuilder(1000);
                 String inputLine;
-                while ((inputLine = bufferedreader.readLine()) != null) {
-//                    System.out.println(inputLine);
+                while ((inputLine = in.readLine()) != null) {
                     sb.append(inputLine);
                 }
 
@@ -441,22 +418,12 @@ public class SnapshotConnector implements Runnable, IFeedConnector2, IExecutable
                 JSONObject obj = new JSONObject(sb.toString());
                 JSONObject arate = obj.getJSONObject("rate");
                 String date = obj.getString("date");
-                String company = obj.getString("company");
+//                String company = obj.getString("company");
                 for (int i = 0; i < symbols.length; i++) {
                 	String symbol = (symbols[i].length() > 6 ? symbols[i].substring(0, 6) : symbols[i]);
                 	if (arate.has(symbol)) {
-                        hashTable = new Hashtable<String, String>();
                         JSONObject o = arate.getJSONObject(symbol);
-                        hashTable.put(DATA, year + "/" + date);
-                        hashTable.put(ASK_PREZZO, o.getJSONObject("ask").getString("value"));
-                        hashTable.put(BID_PREZZO, o.getJSONObject("bid").getString("value"));
-                        hashTable.put(PRECEDENTE, String.valueOf(Double.parseDouble(o.getJSONObject("bid").getString("value"))
-                        		+ Double.parseDouble(o.getJSONObject("change").getString("value"))));
-                        hashTable.put(APERTURA, o.getJSONObject("open").getString("value"));
-                        hashTable.put(MASSIMO, o.getJSONObject("high").getString("value"));
-                        hashTable.put(MINIMO, o.getJSONObject("low").getString("value"));
-
-                        processSnapshotData(symbols[i], hashTable);
+                        processSnapshotData(symbols[i], o, year + "/" + date);
                     }
                 }
 
@@ -465,8 +432,8 @@ public class SnapshotConnector implements Runnable, IFeedConnector2, IExecutable
                 Activator.log(status);
             } finally {
                 try {
-                    if (bufferedreader != null) {
-                        bufferedreader.close();
+                    if (in != null) {
+                        in.close();
                     }
                     if (method != null) {
                         method.releaseConnection();
@@ -483,7 +450,7 @@ public class SnapshotConnector implements Runnable, IFeedConnector2, IExecutable
         }
     }
 
-    void processSnapshotData(String symbol, Hashtable<String, String> sVal) {
+    void processSnapshotData(String symbol, JSONObject o, String datetime) {
         FeedSubscription subscription = symbolSubscriptions.get(symbol);
         if (subscription == null) {
             return;
@@ -493,38 +460,21 @@ public class SnapshotConnector implements Runnable, IFeedConnector2, IExecutable
         PriceDataType priceData = identifierType.getPriceData();
 
         try {
-            if ((sVal.get(DATA) == null) || ("0".equals(sVal.get(DATA)))) {
-                sVal.put(DATA, new SimpleDateFormat("yyyy/M/d").format(Calendar.getInstance().getTime())); //$NON-NLS-1$
-            }
-//            if (sVal.get(ORA) == null) {
-//                sVal.put(ORA, "00:00:00"); //$NON-NLS-1$
-//            }
-            priceData.setTime(df3.parse(sVal.get(DATA))); //$NON-NLS-1$
+            priceData.setTime(df3.parse(datetime)); //$NON-NLS-1$
         } catch (Exception e) {
-            Status status = new Status(IStatus.ERROR, Activator.PLUGIN_ID, 0, "Error parsing date: " + " (DATE='" + sVal.get(DATA) + "', TIME='" + sVal.get(ORA) + "')", e); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$
+            Status status = new Status(IStatus.ERROR, Activator.PLUGIN_ID, 0, "Error parsing date: " + " (DATETIME='" + datetime + "'", e); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$
             Activator.log(status);
         }
 
-        priceData.setBid(Double.parseDouble(sVal.get(BID_PREZZO)));
-//        priceData.setBidSize(Long.parseLong(sVal.get(BID_QUANTITA)));
-//      priceData.setBidSize(0l);
-        priceData.setAsk(Double.parseDouble(sVal.get(ASK_PREZZO)));
-//        priceData.setAskSize(Long.parseLong(sVal.get(ASK_QUANTITA)));
-//        priceData.setAskSize(0l);
-//        priceData.setVolume(Long.parseLong(sVal.get(VOLUME)));
-        priceData.setLastClose(Double.parseDouble(sVal.get(PRECEDENTE)));
-        priceData.setOpen(Double.parseDouble(sVal.get(APERTURA)));
-        priceData.setHigh(Double.parseDouble(sVal.get(MASSIMO)));
-        priceData.setLow(Double.parseDouble(sVal.get(MINIMO)));
+        priceData.setBid(Double.parseDouble(o.getJSONObject("bid").getString("value")));
+        priceData.setAsk(Double.parseDouble(o.getJSONObject("ask").getString("value")));
+        priceData.setLastClose(Double.parseDouble(o.getJSONObject("bid").getString("value"))
+        		- Double.parseDouble(o.getJSONObject("change").getString("value")));
+        priceData.setOpen(Double.parseDouble(o.getJSONObject("open").getString("value")));
+        priceData.setHigh(Double.parseDouble(o.getJSONObject("high").getString("value")));
+        priceData.setLow(Double.parseDouble(o.getJSONObject("low").getString("value")));
 
-//        double tradePrice = Double.parseDouble(sVal.get(TRADE));
-//        if (tradePrice != 0.0) {
-//            priceData.setLast(tradePrice);
-//            subscription.setTrade(priceData.getTime(), priceData.getLast(), priceData.getLastSize(), priceData.getVolume());
-//        } else {
-//            subscription.setPrice(new org.eclipsetrader.core.feed.Price(priceData.getTime(), Double.parseDouble(sVal.get(PREZZO))));
-//        }
-        priceData.setLast(Double.parseDouble(sVal.get(BID_PREZZO)));
+        priceData.setLast(Double.parseDouble(o.getJSONObject("bid").getString("value")));
         subscription.setTrade(priceData.getTime(), priceData.getLast(), null, null);
 
         if (priceData.getLast() == null || priceData.getLast() == 0.0) {
@@ -536,21 +486,6 @@ public class SnapshotConnector implements Runnable, IFeedConnector2, IExecutable
             subscription.setTodayOHL(priceData.getOpen(), priceData.getHigh(), priceData.getLow());
         }
         subscription.setLastClose(priceData.getLastClose(), null);
-
-//        try {
-//            Object oldValue = subscription.getBook();
-//            IBookEntry[] bidEntry = new IBookEntry[20];
-//            IBookEntry[] askEntry = new IBookEntry[20];
-//            for (int x = 1; x < 9; x++) {
-//                bidEntry[x] = new BookEntry(null, Double.parseDouble(sVal.get("bid_" + String.valueOf(x))), Long.parseLong(sVal.get("bid_volume_" + String.valueOf(x))), null, null);
-//                askEntry[x] = new BookEntry(null, Double.parseDouble(sVal.get("ask_" + String.valueOf(x))), Long.parseLong(sVal.get("ask_volume_" + String.valueOf(x))), null, null);
-//            }
-//            Object newValue = new org.eclipsetrader.core.feed.Book(bidEntry, askEntry);
-//            subscription.setBook((IBook) newValue);
-//            subscription.addDelta(new QuoteDelta(subscription.getIdentifier(), oldValue, newValue));
-//        } catch (Exception e) {
-//            Activator.log(new Status(IStatus.ERROR, Activator.PLUGIN_ID, 0, "Error reading snapshot data", e)); //$NON-NLS-1$
-//        }
     }
 
     public void wakeupNotifyThread() {
