@@ -339,11 +339,12 @@ public class AlertService implements IAlertService {
         IQuote quote = pricingEnvironment.getQuote(instrument);
 
         synchronized (triggeredMap) {
-            for (IAlert alert : triggeredMap.get(instrument)) {
-                alert.setInitialValues(trade, quote);
+            if (triggeredMap.containsKey(instrument)) {
+	            for (IAlert alert : triggeredMap.get(instrument)) {
+                    alert.setInitialValues(trade, quote);
+                }
+	            triggeredMap.remove(instrument);
             }
-
-            triggeredMap.remove(instrument);
         }
 
         fireAlertTriggeredEvent(new AlertEvent(instrument, trade, quote, new IAlert[0]));
