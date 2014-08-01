@@ -42,10 +42,10 @@ public class AROONPropertiesPage extends PropertyPage {
         gridLayout.marginWidth = gridLayout.marginHeight = 0;
         content.setLayout(gridLayout);
         content.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true));
-        setTitle("Moving Average");
+        setTitle(Messages.MovingAverage);
 
         Label label = new Label(content, SWT.NONE);
-        label.setText("Period");
+        label.setText(Messages.Period);
         label.setLayoutData(new GridData(convertHorizontalDLUsToPixels(75), SWT.DEFAULT));
         period = new Spinner(content, SWT.BORDER);
         period.setValues(7, 1, 9999, 0, 1, 5);
@@ -55,11 +55,11 @@ public class AROONPropertiesPage extends PropertyPage {
         ((GridData) label.getLayoutData()).heightHint = convertVerticalDLUsToPixels(5);
 
         label = new Label(content, SWT.NONE);
-        label.setText("Upper Line Style");
+        label.setText(Messages.UpperLineStyle);
         upperLineStyle = new RenderStyleInput(content);
 
         label = new Label(content, SWT.NONE);
-        label.setText("Lower Line Style");
+        label.setText(Messages.LowerLineStyle);
         lowerLineStyle = new RenderStyleInput(content);
 
         performDefaults();

@@ -40,16 +40,16 @@ public class SARPropertiesPage extends PropertyPage {
         gridLayout.marginWidth = gridLayout.marginHeight = 0;
         content.setLayout(gridLayout);
         content.setLayoutData(new GridData(GridData.FILL, GridData.FILL, true, true));
-        setTitle("Parabolic SAR");
+        setTitle(Messages.ParabolicSAR);
 
         Label label = new Label(content, SWT.NONE);
-        label.setText("Acceleration");
+        label.setText(Messages.Acceleration);
         label.setLayoutData(new GridData(convertHorizontalDLUsToPixels(75), SWT.DEFAULT));
         acceleration = new Spinner(content, SWT.BORDER);
         acceleration.setValues(2, 1, 99999, 2, 1, 10);
 
         label = new Label(content, SWT.NONE);
-        label.setText("Maximum");
+        label.setText(Messages.Maximum);
         maximum = new Spinner(content, SWT.BORDER);
         maximum.setValues(20, 1, 99999, 2, 1, 10);
 

@@ -42,7 +42,7 @@ import org.eclipsetrader.core.ILauncher;
 
 public class StartFeedAction implements IWorkbenchWindowActionDelegate, IWorkbenchWindowPulldownDelegate2 {
 
-    public static final String LAUNCHERS_EXTENSION_ID = "org.eclipsetrader.core.launchers";
+    public static final String LAUNCHERS_EXTENSION_ID = "org.eclipsetrader.core.launchers"; //$NON-NLS-1$
 
     private Menu menubarMenu;
     private Menu toolbarMenu;
@@ -103,14 +103,14 @@ public class StartFeedAction implements IWorkbenchWindowActionDelegate, IWorkben
      */
     @Override
     public void run(IAction action) {
-        Job job = new Job("Feed Startup") {
+        Job job = new Job(Messages.StartFeedAction_FeedStartup) {
 
             @Override
             protected IStatus run(IProgressMonitor monitor) {
                 monitor.beginTask(getName(), IProgressMonitor.UNKNOWN);
                 try {
-                    boolean startAll = UIActivator.getDefault().getPreferenceStore().getBoolean("RUN_ALL_LAUNCHERS");
-                    Set<String> set = new HashSet<String>(Arrays.asList(UIActivator.getDefault().getPreferenceStore().getString("RUN_LAUNCHERS").split(";")));
+                    boolean startAll = UIActivator.getDefault().getPreferenceStore().getBoolean("RUN_ALL_LAUNCHERS"); //$NON-NLS-1$
+                    Set<String> set = new HashSet<String>(Arrays.asList(UIActivator.getDefault().getPreferenceStore().getString("RUN_LAUNCHERS").split(";"))); //$NON-NLS-1$ //$NON-NLS-2$
 
                     ILauncher[] launchers = getLaunchers();
                     for (int i = 0; i < launchers.length; i++) {
@@ -118,7 +118,7 @@ public class StartFeedAction implements IWorkbenchWindowActionDelegate, IWorkben
                             try {
                                 launchers[i].launch(monitor);
                             } catch (Exception e) {
-                                Status status = new Status(IStatus.ERROR, UIActivator.PLUGIN_ID, 0, "Error launching " + launchers[i].getId(), e);
+                                Status status = new Status(IStatus.ERROR, UIActivator.PLUGIN_ID, 0, "Error launching " + launchers[i].getId(), e); //$NON-NLS-1$
                                 UIActivator.getDefault().getLog().log(status);
                             }
                         }
@@ -181,12 +181,12 @@ public class StartFeedAction implements IWorkbenchWindowActionDelegate, IWorkben
             for (int j = 0; j < configElements.length; j++) {
                 String id = configElements[j].getAttribute("id"); //$NON-NLS-1$
                 try {
-                    ILauncher launcher = (ILauncher) configElements[j].createExecutableExtension("class");
+                    ILauncher launcher = (ILauncher) configElements[j].createExecutableExtension("class"); //$NON-NLS-1$
                     if (launcher != null) {
                         list.add(launcher);
                     }
                 } catch (Exception e) {
-                    Status status = new Status(IStatus.ERROR, UIActivator.PLUGIN_ID, 0, "Error launching " + id, e);
+                    Status status = new Status(IStatus.ERROR, UIActivator.PLUGIN_ID, 0, "Error launching " + id, e); //$NON-NLS-1$
                     UIActivator.getDefault().getLog().log(status);
                 }
             }

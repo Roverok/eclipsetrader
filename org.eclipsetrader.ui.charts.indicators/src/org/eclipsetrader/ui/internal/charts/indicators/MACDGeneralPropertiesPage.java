@@ -48,10 +48,10 @@ public class MACDGeneralPropertiesPage extends PropertyPage {
         gridLayout.marginWidth = gridLayout.marginHeight = 0;
         content.setLayout(gridLayout);
         content.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true));
-        setTitle("General");
+        setTitle(Messages.General);
 
         Label label = new Label(content, SWT.NONE);
-        label.setText("Label");
+        label.setText(Messages.Label);
         label.setLayoutData(new GridData(convertHorizontalDLUsToPixels(75), SWT.DEFAULT));
         text = new Text(content, SWT.BORDER);
         text.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
@@ -61,7 +61,7 @@ public class MACDGeneralPropertiesPage extends PropertyPage {
         ((GridData) label.getLayoutData()).heightHint = convertVerticalDLUsToPixels(5);
 
         override = new Button(content, SWT.CHECK);
-        override.setText("Override color theme");
+        override.setText(Messages.OverrideColorTheme);
         override.setLayoutData(new GridData(SWT.BEGINNING, SWT.CENTER, false, false, 2, 1));
         override.addSelectionListener(new SelectionAdapter() {
 
@@ -75,22 +75,22 @@ public class MACDGeneralPropertiesPage extends PropertyPage {
         label.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 2, 1));
 
         label = new Label(content, SWT.NONE);
-        label.setText("MACD Line Color");
+        label.setText(Messages.MACDLineColor);
         macdLineColor = new ColorSelector(content);
         macdLineColor.setColorValue(new RGB(0, 0, 255));
-        macdLineColor.getButton().setData("label", label);
+        macdLineColor.getButton().setData("label", label); //$NON-NLS-1$
 
         label = new Label(content, SWT.NONE);
-        label.setText("Signal Line Color");
+        label.setText(Messages.SignalLineColor);
         signalLineColor = new ColorSelector(content);
         signalLineColor.setColorValue(new RGB(0, 0, 255));
-        signalLineColor.getButton().setData("label", label);
+        signalLineColor.getButton().setData("label", label); //$NON-NLS-1$
 
         label = new Label(content, SWT.NONE);
-        label.setText("Histeresis Line Color");
+        label.setText(Messages.HisteresisLineColor);
         histLineColor = new ColorSelector(content);
         histLineColor.setColorValue(new RGB(0, 0, 255));
-        histLineColor.getButton().setData("label", label);
+        histLineColor.getButton().setData("label", label); //$NON-NLS-1$
 
         performDefaults();
 
@@ -138,10 +138,10 @@ public class MACDGeneralPropertiesPage extends PropertyPage {
 
     protected void updateControlsEnablement() {
         macdLineColor.setEnabled(override.getSelection());
-        ((Label) macdLineColor.getButton().getData("label")).setEnabled(override.getSelection());
+        ((Label) macdLineColor.getButton().getData("label")).setEnabled(override.getSelection()); //$NON-NLS-1$
         signalLineColor.setEnabled(override.getSelection());
-        ((Label) signalLineColor.getButton().getData("label")).setEnabled(override.getSelection());
+        ((Label) signalLineColor.getButton().getData("label")).setEnabled(override.getSelection()); //$NON-NLS-1$
         histLineColor.setEnabled(override.getSelection());
-        ((Label) histLineColor.getButton().getData("label")).setEnabled(override.getSelection());
+        ((Label) histLineColor.getButton().getData("label")).setEnabled(override.getSelection()); //$NON-NLS-1$
     }
 }

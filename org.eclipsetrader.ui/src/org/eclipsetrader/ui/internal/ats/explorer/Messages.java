@@ -12,6 +12,7 @@ public class Messages extends NLS {
 	public static String ExplorerViewPart_Delete;
 	public static String ExplorerViewPart_ExpandAll;
 	public static String ExplorerViewPart_Remove;
+	public static String MainScriptItem_Main;
 	static {
 		// initialize resource bundle
 		NLS.initializeMessages(BUNDLE_NAME, Messages.class);

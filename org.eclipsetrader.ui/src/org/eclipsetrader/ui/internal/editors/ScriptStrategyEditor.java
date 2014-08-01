@@ -39,7 +39,7 @@ import org.osgi.framework.ServiceReference;
 
 public class ScriptStrategyEditor extends BaseJavaScriptEditor {
 
-    public static final String VIEW_ID = "org.eclipsetrader.ui.ats.scritpstrategy.editor";
+    public static final String VIEW_ID = "org.eclipsetrader.ui.ats.scritpstrategy.editor"; //$NON-NLS-1$
 
     private URI uri;
     private ScriptStrategy script;
@@ -93,7 +93,7 @@ public class ScriptStrategyEditor extends BaseJavaScriptEditor {
             uri = new URI(dialogSettings.get(UIActivator.K_URI));
             script = (ScriptStrategy) repositoryService.getObjectFromURI(uri);
         } catch (Exception e) {
-            throw new PartInitException("Error loading view " + site.getSecondaryId(), e);
+            throw new PartInitException("Error loading view " + site.getSecondaryId(), e); //$NON-NLS-1$
         }
     }
 
@@ -142,8 +142,8 @@ public class ScriptStrategyEditor extends BaseJavaScriptEditor {
      */
     @Override
     public void doSaveAs() {
-        String newName = "Copy of " + script.getName();
-        InputDialog dlg = new InputDialog(getSite().getShell(), "Save As...", "New name:", newName, null);
+        String newName = Messages.ScriptStrategyEditor_CopyOf + script.getName();
+        InputDialog dlg = new InputDialog(getSite().getShell(), Messages.ScriptStrategyEditor_SaveAs, Messages.ScriptStrategyEditor_NewName, newName, null);
         if (dlg.open() == InputDialog.OK) {
             final ScriptStrategy newScript = new ScriptStrategy(dlg.getValue());
             newScript.setLanguage(script.getLanguage());

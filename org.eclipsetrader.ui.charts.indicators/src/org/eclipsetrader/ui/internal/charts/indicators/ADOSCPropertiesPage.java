@@ -40,16 +40,16 @@ public class ADOSCPropertiesPage extends PropertyPage {
         gridLayout.marginWidth = gridLayout.marginHeight = 0;
         content.setLayout(gridLayout);
         content.setLayoutData(new GridData(GridData.FILL, GridData.FILL, true, true));
-        setTitle("Chaikin A/D Oscillator");
+        setTitle(Messages.ChaikinADOscillator);
 
         Label label = new Label(content, SWT.NONE);
-        label.setText("Fast Period");
+        label.setText(Messages.FastPeriod);
         label.setLayoutData(new GridData(convertHorizontalDLUsToPixels(75), SWT.DEFAULT));
         fastPeriod = new Spinner(content, SWT.BORDER);
         fastPeriod.setValues(3, 1, 9999, 0, 1, 5);
 
         label = new Label(content, SWT.NONE);
-        label.setText("Slow Period");
+        label.setText(Messages.SlowPeriod);
         slowPeriod = new Spinner(content, SWT.BORDER);
         slowPeriod.setValues(10, 1, 9999, 0, 1, 5);
 

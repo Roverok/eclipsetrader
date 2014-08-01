@@ -8,6 +8,10 @@ public class Messages extends NLS {
 	public static String NamePage_Name;
 	public static String NamePage_Script;
 	public static String NamePage_TargetRepository;
+	public static String ScriptStrategyEditor_CopyOf;
+	public static String ScriptStrategyEditor_NewName;
+	public static String ScriptStrategyEditor_SaveAs;
+	public static String ScriptWizard_NewScript;
 	static {
 		// initialize resource bundle
 		NLS.initializeMessages(BUNDLE_NAME, Messages.class);

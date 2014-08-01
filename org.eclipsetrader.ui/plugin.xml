@@ -1560,7 +1560,7 @@
       </category>
       <indicator
             class="org.eclipsetrader.ui.internal.charts.VOLUME"
-            description="Volume"
+            description="%Volume"
             id="org.eclipsetrader.indicators.volume"
             name="%VOL">
       </indicator>

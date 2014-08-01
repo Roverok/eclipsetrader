@@ -44,11 +44,11 @@ public class PPOPropertiesPage extends PropertyPage {
         gridLayout.marginWidth = gridLayout.marginHeight = 0;
         content.setLayout(gridLayout);
         content.setLayoutData(new GridData(GridData.FILL, GridData.FILL, true, true));
-        setTitle("Percentage Price Oscillator");
+        setTitle(Messages.PercentagePriceOscillator);
 
         Label label = new Label(content, SWT.NONE);
         label.setLayoutData(new GridData(convertHorizontalDLUsToPixels(75), SWT.DEFAULT));
-        label.setText("Input Field");
+        label.setText(Messages.InputField);
         input = new OHLCFieldInput(content);
 
         label = new Label(content, SWT.NONE);
@@ -56,17 +56,17 @@ public class PPOPropertiesPage extends PropertyPage {
         ((GridData) label.getLayoutData()).heightHint = convertVerticalDLUsToPixels(5);
 
         label = new Label(content, SWT.NONE);
-        label.setText("Fast Period");
+        label.setText(Messages.FastPeriod);
         fastPeriod = new Spinner(content, SWT.BORDER);
         fastPeriod.setValues(3, 1, 9999, 0, 1, 5);
 
         label = new Label(content, SWT.NONE);
-        label.setText("Slow Period");
+        label.setText(Messages.SlowPeriod);
         slowPeriod = new Spinner(content, SWT.BORDER);
         slowPeriod.setValues(10, 1, 9999, 0, 1, 5);
 
         label = new Label(content, SWT.NONE);
-        label.setText("MA Type");
+        label.setText(Messages.MAType);
         type = new MATypeInput(content);
 
         performDefaults();

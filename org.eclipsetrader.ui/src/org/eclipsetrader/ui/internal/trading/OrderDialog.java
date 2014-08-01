@@ -93,7 +93,9 @@ public class OrderDialog extends TitleAreaDialog {
         @Override
         public void selectionChanged(SelectionChangedEvent event) {
             IStructuredSelection selection = (IStructuredSelection) event.getSelection();
-            price.setEnabled(selection.getFirstElement() == IOrderType.Limit);
+            price.setEnabled(selection.getFirstElement() == IOrderType.Limit ||
+                    selection.getFirstElement() == IOrderType.Stop ||
+                    selection.getFirstElement() == IOrderType.StopLimit);
 
             updateSummary();
 
@@ -170,7 +172,7 @@ public class OrderDialog extends TitleAreaDialog {
     }
 
     protected boolean isValid() {
-        if (symbol.getText().equals("")) {
+        if (symbol.getText().equals("")) { //$NON-NLS-1$
             return false;
         }
 
@@ -184,7 +186,7 @@ public class OrderDialog extends TitleAreaDialog {
         }
 
         IOrderType orderType = (IOrderType) ((IStructuredSelection) typeCombo.getSelection()).getFirstElement();
-        if (orderType == IOrderType.Limit) {
+        if (orderType == IOrderType.Limit || orderType == IOrderType.Stop || orderType == IOrderType.StopLimit) {
             try {
                 double price = priceFormat.parse(this.price.getText()).doubleValue();
                 if (price <= 0) {
@@ -296,7 +298,7 @@ public class OrderDialog extends TitleAreaDialog {
         brokerCombo.setInput(tradingService.getBrokers());
 
         label = new Label(content, SWT.NONE);
-        label.setText("Account");
+        label.setText(Messages.OrderDialog_Account);
         accountCombo = new ComboViewer(content, SWT.BORDER | SWT.READ_ONLY | SWT.DROP_DOWN);
         accountCombo.getControl().setLayoutData(new GridData(SWT.FILL, SWT.CENTER, false, false));
         accountCombo.setContentProvider(new ArrayContentProvider());
@@ -456,7 +458,7 @@ public class OrderDialog extends TitleAreaDialog {
                 if (!brokerCombo.getSelection().isEmpty()) {
                     IBroker connector = (IBroker) ((IStructuredSelection) brokerCombo.getSelection()).getFirstElement();
                     security = connector.getSecurityFromSymbol(symbol.getText());
-                    symbolDescription.setText(security != null ? security.getName() : "");
+                    symbolDescription.setText(security != null ? security.getName() : ""); //$NON-NLS-1$
                 }
                 getButton(OK).setEnabled(isValid());
             }
@@ -523,7 +525,7 @@ public class OrderDialog extends TitleAreaDialog {
 
             double price = 0.0;
             IOrderType orderType = (IOrderType) ((IStructuredSelection) typeCombo.getSelection()).getFirstElement();
-            if (orderType == IOrderType.Limit) {
+            if (orderType == IOrderType.Limit || orderType == IOrderType.Stop || orderType == IOrderType.StopLimit) {
                 price = priceFormat.parse(this.price.getText()).doubleValue();
             }
             else if (limitPrice != null) {
@@ -567,7 +569,7 @@ public class OrderDialog extends TitleAreaDialog {
                 }
             }
 
-            if (!orderReference.getText().equals("")) {
+            if (!orderReference.getText().equals("")) { //$NON-NLS-1$
                 order.setReference(orderReference.getText());
             }
 

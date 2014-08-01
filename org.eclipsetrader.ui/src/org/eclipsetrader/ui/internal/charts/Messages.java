@@ -37,6 +37,10 @@ public class Messages extends NLS {
 	public static String PeriodDialog_Description;
 	public static String PeriodDialog_Last;
 	public static String PeriodDialog_Period;
+
+	public static String PatternChart_Bearish;
+	public static String PatternChart_Bullish;
+	
 	static {
         // initialize resource bundle
         NLS.initializeMessages(BUNDLE_NAME, Messages.class);

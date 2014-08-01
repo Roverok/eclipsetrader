@@ -12,7 +12,7 @@
 package org.eclipsetrader.ui.charts;
 
 public enum MAType {
-    SMA("sma", "Simple"), EMA("ema", "Exponential"), WMA("wma", "Weighted"), DEMA("dema", "Double Exponential"), TEMA("tema", "Triple Exponential"), TRIMA("trima", "Triangular"), KAMA("kama", "Kaufman Adaptive"), MAMA("mama", "MESA Adaptive"), T3("t3", "Triple Exponential (T3)");
+    SMA("sma", Messages.MAType_Simple), EMA("ema", Messages.MAType_Exponential), WMA("wma", Messages.MAType_Weighted), DEMA("dema", Messages.MAType_DoubleExponential), TEMA("tema", Messages.MAType_TripleExponential), TRIMA("trima", Messages.MAType_Triangular), KAMA("kama", Messages.MAType_KaufmanAdaptive), MAMA("mama", Messages.MAType_MESAAdaptive), T3("t3", Messages.MAType_TripleExponentialT3);
 
     private String name;
     private String description;

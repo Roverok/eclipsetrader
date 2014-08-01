@@ -34,7 +34,7 @@ public class StopAllAction extends Action {
      */
     @Override
     public void run() {
-        Job job = new Job("Services Shutdown") { //$NON-NLS-1$
+        Job job = new Job(Messages.StopAllAction_ServicesShutdown) { 
 
             @Override
             protected IStatus run(IProgressMonitor monitor) {

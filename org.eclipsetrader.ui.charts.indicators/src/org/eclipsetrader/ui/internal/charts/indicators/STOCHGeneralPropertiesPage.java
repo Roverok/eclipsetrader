@@ -47,10 +47,10 @@ public class STOCHGeneralPropertiesPage extends PropertyPage {
         gridLayout.marginWidth = gridLayout.marginHeight = 0;
         content.setLayout(gridLayout);
         content.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true));
-        setTitle("General");
+        setTitle(Messages.General);
 
         Label label = new Label(content, SWT.NONE);
-        label.setText("Label");
+        label.setText(Messages.Label);
         label.setLayoutData(new GridData(convertHorizontalDLUsToPixels(75), SWT.DEFAULT));
         text = new Text(content, SWT.BORDER);
         text.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
@@ -60,7 +60,7 @@ public class STOCHGeneralPropertiesPage extends PropertyPage {
         ((GridData) label.getLayoutData()).heightHint = convertVerticalDLUsToPixels(5);
 
         override = new Button(content, SWT.CHECK);
-        override.setText("Override color theme");
+        override.setText(Messages.OverrideColorTheme);
         override.setLayoutData(new GridData(SWT.BEGINNING, SWT.CENTER, false, false, 2, 1));
         override.addSelectionListener(new SelectionAdapter() {
 
@@ -74,16 +74,16 @@ public class STOCHGeneralPropertiesPage extends PropertyPage {
         label.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 2, 1));
 
         label = new Label(content, SWT.NONE);
-        label.setText("K Line Color");
+        label.setText(Messages.KLineColor);
         kLineColor = new ColorSelector(content);
         kLineColor.setColorValue(new RGB(0, 0, 255));
-        kLineColor.getButton().setData("label", label);
+        kLineColor.getButton().setData("label", label); //$NON-NLS-1$
 
         label = new Label(content, SWT.NONE);
-        label.setText("D Line Color");
+        label.setText(Messages.DLineColor);
         dLineColor = new ColorSelector(content);
         dLineColor.setColorValue(new RGB(0, 0, 255));
-        dLineColor.getButton().setData("label", label);
+        dLineColor.getButton().setData("label", label); //$NON-NLS-1$
 
         performDefaults();
 
@@ -127,8 +127,8 @@ public class STOCHGeneralPropertiesPage extends PropertyPage {
 
     protected void updateControlsEnablement() {
         kLineColor.setEnabled(override.getSelection());
-        ((Label) kLineColor.getButton().getData("label")).setEnabled(override.getSelection());
+        ((Label) kLineColor.getButton().getData("label")).setEnabled(override.getSelection()); //$NON-NLS-1$
         dLineColor.setEnabled(override.getSelection());
-        ((Label) dLineColor.getButton().getData("label")).setEnabled(override.getSelection());
+        ((Label) dLineColor.getButton().getData("label")).setEnabled(override.getSelection()); //$NON-NLS-1$
     }
 }

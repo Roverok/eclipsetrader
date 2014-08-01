@@ -17,6 +17,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 import java.util.Observable;
 
@@ -75,7 +76,11 @@ public class MarketService extends Observable implements IMarketService, Runnabl
             list = (MarketList) unmarshaller.unmarshal(file);
         }
         else {
-            list = (MarketList) unmarshaller.unmarshal(FileLocator.openStream(CoreActivator.getDefault().getBundle(), new Path("data").append(REPOSITORY_FILE), false));
+        	try {
+                list = (MarketList) unmarshaller.unmarshal(FileLocator.openStream(CoreActivator.getDefault().getBundle(), new Path("data").append(Locale.getDefault().getLanguage()).append(REPOSITORY_FILE), false));
+        	} catch (Exception e) {
+                list = (MarketList) unmarshaller.unmarshal(FileLocator.openStream(CoreActivator.getDefault().getBundle(), new Path("data").append(REPOSITORY_FILE), false));
+        	}
         }
 
         if (list != null) {

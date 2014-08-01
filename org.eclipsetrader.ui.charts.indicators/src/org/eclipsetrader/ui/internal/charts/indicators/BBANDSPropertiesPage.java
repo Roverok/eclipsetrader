@@ -49,30 +49,30 @@ public class BBANDSPropertiesPage extends PropertyPage {
         gridLayout.marginWidth = gridLayout.marginHeight = 0;
         content.setLayout(gridLayout);
         content.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true));
-        setTitle("Bollinger Bands");
+        setTitle(Messages.BollingerBands);
 
         Label label = new Label(content, SWT.NONE);
         label.setLayoutData(new GridData(convertHorizontalDLUsToPixels(75), SWT.DEFAULT));
-        label.setText("Input Field");
+        label.setText(Messages.InputField);
         input = new OHLCFieldInput(content);
 
         label = new Label(content, SWT.NONE);
-        label.setText("Period");
+        label.setText(Messages.Period);
         period = new Spinner(content, SWT.BORDER);
         period.setValues(7, 1, 9999, 0, 1, 5);
 
         label = new Label(content, SWT.NONE);
-        label.setText("Upper Deviation");
+        label.setText(Messages.UpperDeviation);
         upperDeviation = new Spinner(content, SWT.BORDER);
         upperDeviation.setValues(7, 1, 9999, 2, 1, 5);
 
         label = new Label(content, SWT.NONE);
-        label.setText("Lower Deviation");
+        label.setText(Messages.LowerDeviation);
         lowerDeviation = new Spinner(content, SWT.BORDER);
         lowerDeviation.setValues(7, 1, 9999, 2, 1, 5);
 
         label = new Label(content, SWT.NONE);
-        label.setText("MA Type");
+        label.setText(Messages.MAType);
         type = new MATypeInput(content);
 
         label = new Label(content, SWT.NONE);
@@ -80,15 +80,15 @@ public class BBANDSPropertiesPage extends PropertyPage {
         ((GridData) label.getLayoutData()).heightHint = convertVerticalDLUsToPixels(5);
 
         label = new Label(content, SWT.NONE);
-        label.setText("Upper Line Style");
+        label.setText(Messages.UpperLineStyle);
         upperLineStyle = new RenderStyleInput(content);
 
         label = new Label(content, SWT.NONE);
-        label.setText("Middle Line Style");
+        label.setText(Messages.MiddleLineStyle);
         middleLineStyle = new RenderStyleInput(content);
 
         label = new Label(content, SWT.NONE);
-        label.setText("Lower Line Style");
+        label.setText(Messages.LowerLineStyle);
         lowerLineStyle = new RenderStyleInput(content);
 
         performDefaults();

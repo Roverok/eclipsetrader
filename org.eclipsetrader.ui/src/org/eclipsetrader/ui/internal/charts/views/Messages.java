@@ -54,6 +54,10 @@ public class Messages extends NLS {
 	public static String HistoryDataEditor_Low;
 	public static String HistoryDataEditor_Open;
 	public static String HistoryDataEditor_Volume;
+	public static String HistoryDataEditorPart_Edit;
+	public static String HistoryDataEditorPart_History;
+	public static String HistoryDataEditorPart_ZoomIn;
+	public static String HistoryDataEditorPart_ZoomOut;
 	public static String MainPropertiesPage_20;
 	public static String MainPropertiesPage_Bars;
 	public static String MainPropertiesPage_Candles;

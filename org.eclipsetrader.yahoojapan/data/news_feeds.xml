@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<list>
+	<item id="JP" name="JAPAN">
+        <page id="ALL_BUS">
+                <title>経済 - Yahoo!ニュース</title>
+                <url>http://headlines.yahoo.co.jp/rss/all-bus.xml</url>
+        </page>
+        <page id="ZDN_MKT_BUS">
+                <title>Business Media 誠</title>
+                <url>http://headlines.yahoo.co.jp/rss/zdn_mkt-bus.xml</url>
+        </page>
+        <page id="IT_EETIMES_BUS">
+                <title>EE Times Japan</title>
+                <url>http://headlines.yahoo.co.jp/rss/it_eetimes-bus.xml</url>
+        </page>
+        <page id="IMPRESS_BUS">
+                <title>Impress Watch</title>
+                <url>http://headlines.yahoo.co.jp/rss/impress-bus.xml</url>
+        </page>
+        <page id="JCT_BUS">
+                <title>J-CASTニュース</title>
+                <url>http://headlines.yahoo.co.jp/rss/jct-bus.xml</url>
+        </page>
+        <page id="SH_MON_BUS">
+                <title>MONEYzine</title>
+                <url>http://headlines.yahoo.co.jp/rss/sh_mon-bus.xml</url>
+        </page>
+        <page id="IT_MONOIST_BUS">
+                <title>MONOist</title>
+                <url>http://headlines.yahoo.co.jp/rss/it_monoist-bus.xml</url>
+        </page>
+        <page id="QBIZ_BUS">
+                <title>qBiz 西日本新聞経済電子版</title>
+                <url>http://headlines.yahoo.co.jp/rss/qbiz-bus.xml</url>
+        </page>
+        <page id="FSI_BUS">
+                <title>SankeiBiz</title>
+                <url>http://headlines.yahoo.co.jp/rss/fsi-bus.xml</url>
+        </page>
+        <page id="SSONLINE_BUS">
+                <title>Stereo Sound ONLINE</title>
+                <url>http://headlines.yahoo.co.jp/rss/ssonline-bus.xml</url>
+        </page>
+        <page id="WORDLEAF_BUS">
+                <title>THE PAGE</title>
+                <url>http://headlines.yahoo.co.jp/rss/wordleaf-bus.xml</url>
+        </page>
+        <page id="ASAHIK_BUS">
+                <title>朝日新聞デジタル</title>
+                <url>http://headlines.yahoo.co.jp/rss/asahik-bus.xml</url>
+        </page>
+        <page id="WSJ_BUS">
+                <title>ウォール・ストリート・ジャーナル</title>
+                <url>http://headlines.yahoo.co.jp/rss/wsj-bus.xml</url>
+        </page>
+        <page id="ECONOMIC_BUS">
+                <title>エコノミックニュース</title>
+                <url>http://headlines.yahoo.co.jp/rss/economic-bus.xml</url>
+        </page>
+        <page id="KENKOSHIN_BUS">
+                <title>健康産業新聞</title>
+                <url>http://headlines.yahoo.co.jp/rss/kenkoshin-bus.xml</url>
+        </page>
+        <page id="KENKOSOKU_BUS">
+                <title>健康産業速報</title>
+                <url>http://headlines.yahoo.co.jp/rss/kenkosoku-bus.xml</url>
+        </page>
+        <page id="SCH_BUS">
+                <title>サーチナ</title>
+                <url>http://headlines.yahoo.co.jp/rss/scn-bus.xml</url>
+        </page>
+        <page id="SAN_BUS">
+                <title>産経新聞</title>
+                <url>http://headlines.yahoo.co.jp/rss/san-bus.xml</url>
+        </page>
+        <page id="TEIKOKUDB_BUS">
+                <title>帝国データバンク</title>
+                <url>http://headlines.yahoo.co.jp/rss/teikokudb-bus.xml</url>
+        </page>
+        <page id="NKBP_TREN_BUS">
+                <title>日経トレンディネット</title>
+                <url>http://headlines.yahoo.co.jp/rss/nkbp_tren-bus.xml</url>
+        </page>
+        <page id="ZDN_B_BUS">
+                <title>誠 Biz.ID</title>
+                <url>http://headlines.yahoo.co.jp/rss/zdn_b-bus.xml</url>
+        </page>
+        <page id="RPS_BUS">
+                <title>レスポンス</title>
+                <url>http://headlines.yahoo.co.jp/rss/rps-bus.xml</url>
+        </page>
+	</item>
+</list>

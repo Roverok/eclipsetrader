@@ -246,7 +246,7 @@ public class HeadLineViewer extends ViewPart {
                 }
             }
         };
-        openNewWindowAction = new Action("Open in New Browser") { //$NON-NLS-1$
+        openNewWindowAction = new Action(Messages.HeadLineViewer_OpenInNewBrowser) { 
 
             @Override
             public void run() {

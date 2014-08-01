@@ -32,7 +32,7 @@ public class LauncherTerminateAction extends Action {
      */
     @Override
     public void run() {
-        Job job = new Job(launcher.getName() + " Shutdown") {
+        Job job = new Job(launcher.getName() + Messages.LauncherTerminateAction_Shutdown) {
 
             @Override
             protected IStatus run(IProgressMonitor monitor) {

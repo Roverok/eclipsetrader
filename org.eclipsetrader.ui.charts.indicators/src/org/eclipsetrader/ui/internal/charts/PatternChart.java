@@ -26,7 +26,7 @@ public class PatternChart extends GroupChartObject {
             for (int o = 0; o < outBars.length; o++) {
                 outBars[o] = (IOHLC) values[i + o].getAdapter(IOHLC.class);
             }
-            add(new PatternBox(outBars, null, name, outInteger[i] > 0 ? "Bullish" : "Bearish"));
+            add(new PatternBox(outBars, null, name, outInteger[i] > 0 ? Messages.PatternChart_Bullish : Messages.PatternChart_Bearish));
         }
     }
 }
